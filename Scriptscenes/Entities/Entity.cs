@@ -55,7 +55,10 @@ public abstract class Entity : KinematicBody
 
     public void OnEntityMouseEntered()
     {
-        CursorManager.ChangeCursor(CursorType.Attack);
+        if (Health > 0)
+        {
+            CursorManager.ChangeCursor(CursorType.Attack);
+        }
     }
 
     public void OnEntityMouseExited()

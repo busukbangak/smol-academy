@@ -118,7 +118,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity)
+                if (hit["collider"] is Entity entity && entity.Health > 0)
                 {
                     AttackTarget = entity;
                     if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
@@ -181,7 +181,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity)
+                if (hit["collider"] is Entity entity && entity.Health > 0)
                 {
                     AttackTarget = entity;
                     if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
@@ -234,7 +234,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity)
+                if (hit["collider"] is Entity entity && entity.Health > 0)
                 {
                     AttackTarget = entity;
                     if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
@@ -287,7 +287,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity)
+                if (hit["collider"] is Entity entity && entity.Health > 0)
                 {
                     AttackTarget = entity;
                     if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
@@ -340,7 +340,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity)
+                if (hit["collider"] is Entity entity && entity.Health > 0)
                 {
                     AttackTarget = entity;
                     if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
@@ -404,7 +404,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity)
+                if (hit["collider"] is Entity entity && entity.Health > 0)
                 {
                     AttackTarget = entity;
                     if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
@@ -466,7 +466,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity)
+                if (hit["collider"] is Entity entity && entity.Health > 0)
                 {
                     AttackTarget = entity;
                     if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
