@@ -1,0 +1,11 @@
+{
+  "godot_tools.editor_path": "c:\\Users\\awanali.SEKAE\\Desktop\\Godot_v3.3.4-stable_mono_win64\\Godot_v3.3.4-stable_mono_win64.exe",
+  "files.exclude": {
+    ".import": true,
+    ".vscode": true,
+    ".mono": true,
+    "Materials": true,
+    "Models": true,
+    "Textures": true
+  }
+}
