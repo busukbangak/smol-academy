@@ -156,6 +156,12 @@ public class Smol : Character
             ChangeState(SmolState.Dance);
             return;
         }
+
+        if (Health < 0)
+        {
+            ChangeState(SmolState.Dead);
+            return;
+        }
     }
 
     private void Move()
@@ -213,6 +219,12 @@ public class Smol : Character
             ChangeState(SmolState.Dance);
             return;
         }
+
+        if (Health < 0)
+        {
+            ChangeState(SmolState.Dead);
+            return;
+        }
     }
 
     private void Talk()
@@ -258,6 +270,12 @@ public class Smol : Character
         if (Input.IsActionJustPressed("dance"))
         {
             ChangeState(SmolState.Dance);
+            return;
+        }
+
+        if (Health < 0)
+        {
+            ChangeState(SmolState.Dead);
             return;
         }
     }
@@ -307,6 +325,12 @@ public class Smol : Character
             ChangeState(SmolState.Dance);
             return;
         }
+
+        if (Health < 0)
+        {
+            ChangeState(SmolState.Dead);
+            return;
+        }
     }
 
     private void Dance()
@@ -352,6 +376,12 @@ public class Smol : Character
         if (Input.IsActionJustPressed("dance"))
         {
             ChangeState(SmolState.Dance);
+            return;
+        }
+
+        if (Health < 0)
+        {
+            ChangeState(SmolState.Dead);
             return;
         }
     }
@@ -411,11 +441,17 @@ public class Smol : Character
             ChangeState(SmolState.Dance);
             return;
         }
+
+        if (Health < 0)
+        {
+            ChangeState(SmolState.Dead);
+            return;
+        }
     }
 
     private void Attack()
     {
-       
+
         // Incase of buffs during attack
         UpdateAnimationPlaybackSpeed(AttackSpeed);
 
@@ -468,10 +504,21 @@ public class Smol : Character
             ChangeState(SmolState.Dance);
             return;
         }
+
+        if (Health < 0)
+        {
+            ChangeState(SmolState.Dead);
+            return;
+        }
     }
 
     private void Dead()
     {
-
+        OnDead();
+        if (Health > 0)
+        {
+            ChangeState(SmolState.Idle);
+            return;
+        }
     }
 }

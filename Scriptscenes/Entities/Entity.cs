@@ -7,14 +7,16 @@ public enum TeamColor
     Red
 }
 
-public class Entity : KinematicBody
+public abstract class Entity : KinematicBody
 {
 
     [Export]
     public TeamColor AssignedTeam;
 
+    public float Health;
+
     [Export]
-    public float Health = 100f;
+    public float MaxHealth = 100f;
 
     [Export]
     public float AttackDamage = 10f;
@@ -32,17 +34,23 @@ public class Entity : KinematicBody
 
     private AnimationPlayer _animationPlayer;
 
-    public int Kills;
+    public int Kills = 0;
 
-    public int Deaths;
+    public int Deaths = 0;
 
-    public int Assists;
+    public int Assists = 0;
 
-    public int Money;
+    public int Money = 0;
+
+    public float RespawnTime = 5f;
+
+    [Export]
+    public bool IsRespawnActivated;
 
     public override void _Ready()
     {
         _animationPlayer = GetNode("Model").GetChild(0).GetNode<AnimationPlayer>("AnimationPlayer");
+        Health = MaxHealth;
     }
 
     public void OnEntityMouseEntered()
@@ -87,10 +95,16 @@ public class Entity : KinematicBody
         }
     }
 
-    public void OnDead()
+    public async void OnDead()
     {
         Deaths++;
-        
+
+        if (IsRespawnActivated)
+        {
+            await ToSignal(GetTree().CreateTimer(RespawnTime), "timeout");
+            Health = MaxHealth;
+        }
+
     }
 
 }

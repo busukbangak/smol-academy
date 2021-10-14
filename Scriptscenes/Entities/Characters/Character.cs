@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Character : Entity
+public abstract class Character : Entity
 {
 
     [Export]
