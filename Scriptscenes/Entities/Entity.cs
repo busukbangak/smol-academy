@@ -86,7 +86,7 @@ public abstract class Entity : KinematicBody
         }
 
         AttackTarget.Health -= AttackDamage;
-
+        GD.Print(AttackTarget.Health);
         if (AttackTarget.Health <= 0)
         {
             Kills++;
