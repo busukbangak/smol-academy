@@ -79,7 +79,7 @@ public class Smol : Character
                 break;
             case SmolState.Attack:
                 StopAnimation();
-                PlayAnimation("Robot_ThumbsUp_Loop");
+                PlayAnimation("Robot_Punch_Loop");
                 break;
             case SmolState.Dead:
                 StopAnimation();
