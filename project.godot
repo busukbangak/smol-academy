@@ -16,7 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Managers="*res://Scriptscenes/Autoloads/Managers/Managers.tscn"
+Autoloads="*res://Scriptscenes/Autoloads/Autoloads.tscn"
 
 [input]
 
