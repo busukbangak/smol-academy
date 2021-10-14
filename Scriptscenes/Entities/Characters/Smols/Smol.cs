@@ -28,7 +28,6 @@ public class Smol : Character
 
     public override void _Process(float delta)
     {
-        GD.Print(CurrentSmolState);
         switch (CurrentSmolState)
         {
             case SmolState.Idle: Idle(); break;
@@ -473,27 +472,6 @@ public class Smol : Character
 
     private void Dead()
     {
-
-    }
-
-    public void OnAttackHit()
-    {
-        
-        GD.Print("yeet");
-        
-        if (AttackTarget == null)
-        {
-            return;
-        }
-
-        AttackTarget.Health -= AttackDamage;
-
-        if (AttackTarget.Health <= 0)
-        {
-            AttackTarget.QueueFree();
-            AttackTarget = null;
-            return;
-        }
 
     }
 }

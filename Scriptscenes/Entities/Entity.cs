@@ -32,6 +32,14 @@ public class Entity : KinematicBody
 
     private AnimationPlayer _animationPlayer;
 
+    public int Kills;
+
+    public int Deaths;
+
+    public int Assists;
+
+    public int Money;
+
     public override void _Ready()
     {
         _animationPlayer = GetNode("Model").GetChild(0).GetNode<AnimationPlayer>("AnimationPlayer");
@@ -60,6 +68,29 @@ public class Entity : KinematicBody
     public void UpdateAnimationPlaybackSpeed(float playbackSpeed)
     {
         _animationPlayer.PlaybackSpeed = playbackSpeed;
+    }
+
+    public void OnAttackHit()
+    {
+        if (AttackTarget == null)
+        {
+            return;
+        }
+
+        AttackTarget.Health -= AttackDamage;
+
+        if (AttackTarget.Health <= 0)
+        {
+            Kills++;
+            AttackTarget = null;
+            return;
+        }
+    }
+
+    public void OnDead()
+    {
+        Deaths++;
+        
     }
 
 }
