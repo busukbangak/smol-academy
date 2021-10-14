@@ -13,6 +13,12 @@ public abstract class Entity : KinematicBody
     [Export]
     public TeamColor AssignedTeam;
 
+    [Export]
+    public int Level = 1;
+
+    [Export(PropertyHint.Range, "0,1")]
+    public float LevelMultiplicator = 2f;
+
     public float Health;
 
     [Export]
@@ -98,16 +104,21 @@ public abstract class Entity : KinematicBody
         }
     }
 
-    public async void OnDead()
+    public void OnDead()
     {
         Deaths++;
 
         if (IsRespawnActivated)
         {
-            await ToSignal(GetTree().CreateTimer(RespawnTime), "timeout");
-            Health = MaxHealth;
+            Respawn();
         }
+    }
 
+    public async void Respawn()
+    {
+        await ToSignal(GetTree().CreateTimer(RespawnTime), "timeout");
+        Health = MaxHealth;
+        GD.Print("RESPAWNED");
     }
 
 }

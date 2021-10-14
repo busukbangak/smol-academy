@@ -28,6 +28,7 @@ public class Smol : Character
 
     public override void _Process(float delta)
     {
+        GD.Print(CurrentSmolState);
         switch (CurrentSmolState)
         {
             case SmolState.Idle: Idle(); break;
@@ -118,7 +119,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity && entity.Health > 0)
+                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
                 {
                     AttackTarget = entity;
                     if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
@@ -181,7 +182,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity && entity.Health > 0)
+                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
                 {
                     AttackTarget = entity;
                     if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
@@ -234,7 +235,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity && entity.Health > 0)
+                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
                 {
                     AttackTarget = entity;
                     if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
@@ -287,7 +288,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity && entity.Health > 0)
+                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
                 {
                     AttackTarget = entity;
                     if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
@@ -340,7 +341,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity && entity.Health > 0)
+                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
                 {
                     AttackTarget = entity;
                     if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
@@ -404,7 +405,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity && entity.Health > 0)
+                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
                 {
                     AttackTarget = entity;
                     if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
@@ -457,6 +458,7 @@ public class Smol : Character
 
         if (AttackTarget == null)
         {
+
             ChangeState(SmolState.Idle);
             return;
         }
@@ -466,7 +468,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity && entity.Health > 0)
+                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
                 {
                     AttackTarget = entity;
                     if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)

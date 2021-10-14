@@ -4,14 +4,11 @@ using System;
 public abstract class Character : Entity
 {
 
-    [Export]
-    public int Level = 1;
+    
+    public float Mana;
 
     [Export]
-    public float LevelMultiplicator = 2f;
-
-    [Export]
-    public float Mana = 100f;
+    public float MaxMana = 100f;
 
     [Export]
     public float MoveSpeed = 10f;
@@ -27,6 +24,7 @@ public abstract class Character : Entity
     {
         base._Ready();
         _characterNavigation = GetParent<Navigation>();
+        Mana = MaxMana;
     }
 
     public Vector3[] GetSimpleNavigationPath(Vector3 start, Vector3 end)
