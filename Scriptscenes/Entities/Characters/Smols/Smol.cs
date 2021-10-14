@@ -28,7 +28,6 @@ public class Smol : Character
 
     public override void _Process(float delta)
     {
-        GD.Print(CurrentSmolState);
         switch (CurrentSmolState)
         {
             case SmolState.Idle: Idle(); break;
@@ -84,6 +83,7 @@ public class Smol : Character
             case SmolState.Dead:
                 StopAnimation();
                 PlayAnimation("Robot_Dead");
+                base.OnDead();
                 break;
         }
     }
@@ -114,6 +114,12 @@ public class Smol : Character
 
     private void Idle()
     {
+        if (Health <= 0)
+        {
+            ChangeState(SmolState.Dead);
+            return;
+        }
+
         if (Input.IsActionJustPressed("target"))
         {
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
@@ -157,16 +163,16 @@ public class Smol : Character
             ChangeState(SmolState.Dance);
             return;
         }
-
-        if (Health < 0)
-        {
-            ChangeState(SmolState.Dead);
-            return;
-        }
     }
 
     private void Move()
     {
+        if (Health <= 0)
+        {
+            ChangeState(SmolState.Dead);
+            return;
+        }
+
         if (!IsNavigationComplete())
         {
             Navigate();
@@ -220,16 +226,16 @@ public class Smol : Character
             ChangeState(SmolState.Dance);
             return;
         }
-
-        if (Health < 0)
-        {
-            ChangeState(SmolState.Dead);
-            return;
-        }
     }
 
     private void Talk()
     {
+        if (Health <= 0)
+        {
+            ChangeState(SmolState.Dead);
+            return;
+        }
+
         if (Input.IsActionJustPressed("target"))
         {
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
@@ -271,18 +277,18 @@ public class Smol : Character
         if (Input.IsActionJustPressed("dance"))
         {
             ChangeState(SmolState.Dance);
-            return;
-        }
-
-        if (Health < 0)
-        {
-            ChangeState(SmolState.Dead);
             return;
         }
     }
 
     private void Laugh()
     {
+        if (Health <= 0)
+        {
+            ChangeState(SmolState.Dead);
+            return;
+        }
+
         if (Input.IsActionJustPressed("target"))
         {
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
@@ -324,18 +330,18 @@ public class Smol : Character
         if (Input.IsActionJustPressed("dance"))
         {
             ChangeState(SmolState.Dance);
-            return;
-        }
-
-        if (Health < 0)
-        {
-            ChangeState(SmolState.Dead);
             return;
         }
     }
 
     private void Dance()
     {
+        if (Health <= 0)
+        {
+            ChangeState(SmolState.Dead);
+            return;
+        }
+
         if (Input.IsActionJustPressed("target"))
         {
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
@@ -379,16 +385,22 @@ public class Smol : Character
             ChangeState(SmolState.Dance);
             return;
         }
-
-        if (Health < 0)
-        {
-            ChangeState(SmolState.Dead);
-            return;
-        }
     }
 
     private void Engage()
     {
+        if (AttackTarget.Health <= 0)
+        {
+            ChangeState(SmolState.Idle);
+            return;
+        }
+
+        if (Health <= 0)
+        {
+            ChangeState(SmolState.Dead);
+            return;
+        }
+
         if (!IsNavigationComplete())
         {
             Navigate();
@@ -443,15 +455,15 @@ public class Smol : Character
             return;
         }
 
-        if (Health < 0)
-        {
-            ChangeState(SmolState.Dead);
-            return;
-        }
     }
 
     private void Attack()
     {
+        if (Health <= 0)
+        {
+            ChangeState(SmolState.Dead);
+            return;
+        }
 
         // Incase of buffs during attack
         UpdateAnimationPlaybackSpeed(AttackSpeed);
@@ -506,17 +518,10 @@ public class Smol : Character
             ChangeState(SmolState.Dance);
             return;
         }
-
-        if (Health < 0)
-        {
-            ChangeState(SmolState.Dead);
-            return;
-        }
     }
 
     private void Dead()
     {
-        OnDead();
         if (Health > 0)
         {
             ChangeState(SmolState.Idle);

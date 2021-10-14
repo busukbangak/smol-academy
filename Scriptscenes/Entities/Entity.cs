@@ -61,6 +61,7 @@ public abstract class Entity : KinematicBody
 
     public void OnEntityMouseEntered()
     {
+        // TODO: Bug, where it still shows sword on yourself
         if (Health > 0)
         {
             CursorManager.ChangeCursor(CursorType.Attack);
@@ -104,21 +105,24 @@ public abstract class Entity : KinematicBody
         }
     }
 
-    public void OnDead()
+    public virtual void OnDead()
     {
         Deaths++;
-
         if (IsRespawnActivated)
         {
             Respawn();
         }
     }
 
+    public virtual void OnRespawn()
+    {
+        Health = MaxHealth;
+    }
+
     public async void Respawn()
     {
         await ToSignal(GetTree().CreateTimer(RespawnTime), "timeout");
-        Health = MaxHealth;
-        GD.Print("RESPAWNED");
+        OnRespawn();
     }
 
 }

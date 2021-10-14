@@ -4,7 +4,7 @@ using System;
 public abstract class Character : Entity
 {
 
-    
+
     public float Mana;
 
     [Export]
@@ -60,5 +60,17 @@ public abstract class Character : Entity
         {
             MoveAndSlide(moveVector.Normalized() * MoveSpeed);
         }
+    }
+
+    public override void OnDead()
+    {
+        base.OnDead();
+        GetNode<CollisionShape>("CollisionShape").Disabled = true;
+    }
+
+    public override void OnRespawn()
+    {
+        base.OnRespawn();
+        GetNode<CollisionShape>("CollisionShape").Disabled = false;
     }
 }

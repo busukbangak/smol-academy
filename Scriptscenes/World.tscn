@@ -42,7 +42,7 @@ material/0 = SubResource( 3 )
 shape = SubResource( 4 )
 
 [node name="Smol" parent="Navigation" instance=ExtResource( 3 )]
-AttackSpeed = 2.0
+AttackSpeed = 5.0
 
 [node name="Minion" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.33275 )

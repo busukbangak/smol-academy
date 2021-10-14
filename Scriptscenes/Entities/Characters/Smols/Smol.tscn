@@ -945,6 +945,7 @@ tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.958333, 1,
 
 [node name="Smol" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+IsRespawnActivated = true
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="0"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.5, 0 )
