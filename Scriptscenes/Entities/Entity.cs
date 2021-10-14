@@ -1,21 +1,65 @@
 using Godot;
 using System;
 
+public enum TeamColor
+{
+    Blue,
+    Red
+}
+
 public class Entity : KinematicBody
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
 
-    // Called when the node enters the scene tree for the first time.
+    [Export]
+    public TeamColor AssignedTeam;
+
+    [Export]
+    public float Health = 100f;
+
+    [Export]
+    public float AttackDamage = 10f;
+
+    [Export]
+    public float AttackRange = 5f;
+
+    [Export]
+    public float AttackSpeed = 1f;
+
+    [Export]
+    public bool IsMelee = true;
+
+    protected Entity AttackTarget;
+
+    private AnimationPlayer _animationPlayer;
+
     public override void _Ready()
     {
-        
+        _animationPlayer = GetNode("Model").GetChild(0).GetNode<AnimationPlayer>("AnimationPlayer");
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    public void OnEntityMouseEntered()
+    {
+        CursorManager.ChangeCursor(CursorType.Attack);
+    }
+
+    public void OnEntityMouseExited()
+    {
+        CursorManager.ChangeCursor(CursorType.Default);
+    }
+
+    public void PlayAnimation(string animationName)
+    {
+        _animationPlayer.Play(animationName);
+    }
+
+    public void StopAnimation()
+    {
+        _animationPlayer.Stop();
+    }
+
+    public void UpdateAnimationPlaybackSpeed(float playbackSpeed)
+    {
+        _animationPlayer.PlaybackSpeed = playbackSpeed;
+    }
+
 }

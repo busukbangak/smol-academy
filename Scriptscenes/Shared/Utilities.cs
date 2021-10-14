@@ -4,7 +4,7 @@ using System;
 public static class Utilities
 {
 
-    public static Godot.Collections.Dictionary MouseRaycast(Camera camera, float distance = 1000)
+    public static Godot.Collections.Dictionary MouseRaycast(Godot.Camera camera, float distance = 1000)
     {
         var mousePosition = camera.GetViewport().GetMousePosition();
         Vector3 rayStart = camera.ProjectRayOrigin(mousePosition);
