@@ -61,6 +61,7 @@ public abstract class Entity : KinematicBody
 
     public void OnEntityMouseEntered()
     {
+        GD.Print("YYET");
         // TODO: Bug, where it still shows sword on yourself
         if (Health > 0)
         {
@@ -123,6 +124,16 @@ public abstract class Entity : KinematicBody
     {
         await ToSignal(GetTree().CreateTimer(RespawnTime), "timeout");
         OnRespawn();
+    }
+
+    public void OnHurtboxAreaEntered()
+    {
+        GD.Print("HurtboxAreaEntered");
+    }
+
+    public void OnHurtboxBodyEntered()
+    {
+        GD.Print("OnHurtboxBodyEntered");
     }
 
 }
