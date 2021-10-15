@@ -61,7 +61,6 @@ public abstract class Entity : KinematicBody
 
     public void OnEntityMouseEntered()
     {
-        GD.Print("YYET");
         // TODO: Bug, where it still shows sword on yourself
         if (Health > 0)
         {
