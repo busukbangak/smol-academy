@@ -125,14 +125,4 @@ public abstract class Entity : KinematicBody
         OnRespawn();
     }
 
-    public void OnHurtboxAreaEntered()
-    {
-        GD.Print("HurtboxAreaEntered");
-    }
-
-    public void OnHurtboxBodyEntered()
-    {
-        GD.Print("OnHurtboxBodyEntered");
-    }
-
 }
