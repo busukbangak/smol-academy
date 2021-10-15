@@ -71,8 +71,11 @@ public class Camera : Godot.Camera
 
     public void Zoom(int zoomDirection)
     {
-        // TODO: Fix
-        var newZoom = Mathf.Clamp(Translation.z + ZoomSpeed * GetProcessDeltaTime() * zoomDirection, MinZoom, MaxZoom);
-        Translation = new Vector3(Translation.x, newZoom, newZoom);
+        //TODO: Needs fix, clamp and zoom step
+        /* var newZoom = Mathf.Clamp(ZoomSpeed * zoomDirection * GetProcessDeltaTime(), MinZoom, MaxZoom);
+        GD.Print(Transform.Translated(new Vector3(0, 0, newZoom))); */
+        /* Transform = Transform.Translated(new Vector3(0, 0, newZoom)); */
+        GD.Print(zoomDirection * ZoomSpeed * GetProcessDeltaTime());
+        TranslateObjectLocal(new Vector3(0 ,0 , zoomDirection * ZoomSpeed * GetProcessDeltaTime()));
     }
 }
