@@ -1,22 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Textures/Prototype/Dark/texture_01.png" type="Texture" id=1]
 [ext_resource path="res://Scriptscenes/Controls/Camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scriptscenes/Entities/Characters/Smols/Smol.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scriptscenes/Entities/Characters/Minions/Minion.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Materials/Prototype_Black.material" type="Material" id=5]
 
 [sub_resource type="NavigationMesh" id=1]
-vertices = PoolVector3Array( 24.5, 0.4, -43.4, 24.5, 0.4, -49.4, 18.2, 0.4, -49.4, 18.2, 0.4, 49.3, 24.5, 0.4, 49.3, 24.5, 0.4, 43, -12.4, 0.4, -49.4, -24.4, 0.4, -49.4, -24.4, 0.4, -43.4, -24.4, 0.4, 43, -24.4, 0.4, 49.3, -12.4, 0.4, 49.3, 24.5, 0.4, -43.4, 18.2, 0.4, -49.4, 12.2, 0.4, -49.4, 24.5, 0.4, -37.1, 12.2, 0.4, 49.3, 18.2, 0.4, 49.3, 24.5, 0.4, 43, 24.5, 0.4, 36.7, -12.4, 0.4, -49.4, -24.4, 0.4, -43.4, -24.4, 0.4, -37.1, 24.5, 0.4, 5.8, 24.5, 0.4, -0.199997, -24.4, 0.4, -0.199997, -24.4, 0.4, 5.8, -24.4, 0.4, 36.7, -24.4, 0.4, 43, -12.4, 0.4, 49.3, -0.0999985, 0.4, 49.3, 24.5, 0.4, 24.4, 24.5, 0.4, 18.1, -6.4, 0.4, -49.4, -12.4, 0.4, -49.4, -24.4, 0.4, -37.1, -24.4, 0.4, -31.1, -24.4, 0.4, 36.7, -12.4, 0.4, 49.3, -6.4, 0.4, 49.3, -24.4, 0.4, 30.4, 24.5, 0.4, -31.1, 24.5, 0.4, -37.1, 12.2, 0.4, -49.4, 5.9, 0.4, -49.4, 5.9, 0.4, 49.3, 12.2, 0.4, 49.3, 24.5, 0.4, 36.7, 24.5, 0.4, 30.4, -0.0999985, 0.4, -49.4, -24.4, 0.4, -18.8, -24.4, 0.4, -12.5, -24.4, 0.4, 12.1, -24.4, 0.4, 18.1, -0.0999985, 0.4, 49.3, 24.5, 0.4, -12.5, 24.5, 0.4, -18.8, -0.0999985, 0.4, -49.4, -0.0999985, 0.4, 49.3, 24.5, 0.4, 18.1, 24.5, 0.4, 12.1, -0.0999985, 0.4, -49.4, -6.4, 0.4, -49.4, -24.4, 0.4, -31.1, -24.4, 0.4, -24.8, 24.5, 0.4, -31.1, 5.9, 0.4, -49.4, -0.0999985, 0.4, -49.4, 24.5, 0.4, -24.8, -24.4, 0.4, 24.4, -24.4, 0.4, 30.4, -6.4, 0.4, 49.3, -0.0999985, 0.4, 49.3, 5.9, 0.4, 49.3, 24.5, 0.4, 30.4, 24.5, 0.4, 24.4, -24.4, 0.4, 12.1, -0.0999985, 0.4, 49.3, 24.5, 0.4, 12.1, 24.5, 0.4, 5.8, -24.4, 0.4, 5.8, 24.5, 0.4, -12.5, -0.0999985, 0.4, -49.4, -24.4, 0.4, -12.5, -24.4, 0.4, -6.5, 24.5, 0.4, -6.5, -24.4, 0.4, 24.4, -6.4, 0.4, 49.3, -0.0999985, 0.4, 49.3, -24.4, 0.4, 18.1, 24.5, 0.4, -0.199997, 24.5, 0.4, -6.5, -24.4, 0.4, -6.5, -24.4, 0.4, -0.199997, -0.0999985, 0.4, -49.4, -24.4, 0.4, -24.8, -24.4, 0.4, -18.8, 24.5, 0.4, -18.8, 24.5, 0.4, -24.8, -0.0999985, 0.4, -49.4 )
-polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 8, 7, 6 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 13, 12, 14 ), PoolIntArray( 14, 12, 15 ), PoolIntArray( 17, 16, 18 ), PoolIntArray( 18, 16, 19 ), PoolIntArray( 20, 22, 21 ), PoolIntArray( 26, 25, 23 ), PoolIntArray( 23, 25, 24 ), PoolIntArray( 29, 28, 27 ), PoolIntArray( 30, 32, 31 ), PoolIntArray( 34, 33, 35 ), PoolIntArray( 35, 33, 36 ), PoolIntArray( 38, 37, 39 ), PoolIntArray( 39, 37, 40 ), PoolIntArray( 42, 41, 43 ), PoolIntArray( 43, 41, 44 ), PoolIntArray( 46, 45, 47 ), PoolIntArray( 47, 45, 48 ), PoolIntArray( 51, 50, 49 ), PoolIntArray( 54, 53, 52 ), PoolIntArray( 57, 56, 55 ), PoolIntArray( 58, 60, 59 ), PoolIntArray( 62, 61, 63 ), PoolIntArray( 63, 61, 64 ), PoolIntArray( 66, 65, 67 ), PoolIntArray( 67, 65, 68 ), PoolIntArray( 71, 70, 69 ), PoolIntArray( 73, 72, 74 ), PoolIntArray( 74, 72, 75 ), PoolIntArray( 76, 80, 77 ), PoolIntArray( 77, 80, 78 ), PoolIntArray( 78, 80, 79 ), PoolIntArray( 83, 82, 84 ), PoolIntArray( 84, 82, 81 ), PoolIntArray( 84, 81, 85 ), PoolIntArray( 87, 86, 88 ), PoolIntArray( 88, 86, 89 ), PoolIntArray( 93, 92, 90 ), PoolIntArray( 90, 92, 91 ), PoolIntArray( 96, 95, 94 ), PoolIntArray( 99, 98, 97 ) ]
-
-[sub_resource type="PlaneMesh" id=2]
-size = Vector2( 1, 1 )
-
-[sub_resource type="SpatialMaterial" id=3]
-albedo_texture = ExtResource( 1 )
-
-[sub_resource type="ConcavePolygonShape" id=4]
-data = PoolVector3Array( 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5 )
+vertices = PoolVector3Array( 24.5, 1.4, -93.4, 24.5, 1.4, -99.4, 18.2, 1.4, -99.4, 18.2, 1.4, 99.5, 24.5, 1.4, 99.5, 24.5, 1.4, 93.2, -12.4, 1.4, -99.4, -24.4, 1.4, -99.4, -24.4, 1.4, -93.4, -24.4, 1.4, 93.2, -24.4, 1.4, 99.5, -12.4, 1.4, 99.5, 24.5, 1.4, -93.4, 18.2, 1.4, -99.4, 12.2, 1.4, -99.4, 24.5, 1.4, -87.1, 12.2, 1.4, 99.5, 18.2, 1.4, 99.5, 24.5, 1.4, 93.2, 24.5, 1.4, 86.9, -12.4, 1.4, -99.4, -24.4, 1.4, -93.4, -24.4, 1.4, -87.1, -24.4, 1.4, 30.8, -24.4, 1.4, 37.1, 24.5, 1.4, 37.1, 24.5, 1.4, 30.8, -24.4, 1.4, 86.9, -24.4, 1.4, 93.2, -12.4, 1.4, 99.5, -24.4, 1.4, -25, -24.4, 1.4, -19, 24.5, 1.4, -19, 24.5, 1.4, -25, -6.4, 1.4, -99.4, -12.4, 1.4, -99.4, -24.4, 1.4, -87.1, -24.4, 1.4, -81.1, -24.4, 1.4, 86.9, -12.4, 1.4, 99.5, -6.4, 1.4, 99.5, -24.4, 1.4, 80.6, 24.5, 1.4, -81.1, 24.5, 1.4, -87.1, 12.2, 1.4, -99.4, 5.9, 1.4, -99.4, 5.9, 1.4, 99.5, 12.2, 1.4, 99.5, 24.5, 1.4, 86.9, 24.5, 1.4, 80.6, -24.4, 1.4, 24.8, -24.4, 1.4, 30.8, 24.5, 1.4, 30.8, 24.5, 1.4, 24.8, -24.4, 1.4, 18.5, -24.4, 1.4, 24.8, 24.5, 1.4, 24.8, 24.5, 1.4, 18.5, -24.4, 1.4, -12.7, -24.4, 1.4, -6.39999, 24.5, 1.4, -6.39999, 24.5, 1.4, -12.7, 24.5, 1.4, -37.6, 24.5, 1.4, -43.9, -24.4, 1.4, -43.9, -24.4, 1.4, -37.6, -0.0999985, 1.4, -99.4, -6.4, 1.4, -99.4, -24.4, 1.4, -81.1, -24.4, 1.4, -74.8, 24.5, 1.4, -81.1, 5.9, 1.4, -99.4, -0.0999985, 1.4, -99.4, 24.5, 1.4, -74.8, -24.4, 1.4, 74.6, -24.4, 1.4, 80.6, -6.4, 1.4, 99.5, -0.0999985, 1.4, 99.5, 5.9, 1.4, 99.5, 24.5, 1.4, 80.6, 24.5, 1.4, 74.6, -24.4, 1.4, 12.2, -24.4, 1.4, 18.5, 24.5, 1.4, 18.5, 24.5, 1.4, 12.2, 24.5, 1.4, -31.3, 24.5, 1.4, -37.6, -24.4, 1.4, -37.6, -24.4, 1.4, -31.3, -24.4, 1.4, 74.6, -6.4, 1.4, 99.5, -0.0999985, 1.4, 99.5, -24.4, 1.4, 68.3, -24.4, 1.4, 5.9, -24.4, 1.4, 12.2, 24.5, 1.4, 12.2, 24.5, 1.4, 5.9, -0.0999985, 1.4, -99.4, -24.4, 1.4, -74.8, -24.4, 1.4, -68.8, 24.5, 1.4, -68.8, 24.5, 1.4, -74.8, -0.0999985, 1.4, -99.4, 24.5, 1.4, -25, 24.5, 1.4, -31.3, -24.4, 1.4, -31.3, -24.4, 1.4, -25, -0.0999985, 1.4, 99.5, 24.5, 1.4, 74.6, 24.5, 1.4, 68.3, -0.0999985, 1.4, -99.4, -24.4, 1.4, -68.8, -24.4, 1.4, -62.5, 24.5, 1.4, -62.5, 24.5, 1.4, -68.8, -0.0999985, 1.4, -99.4, -24.4, 1.4, 62, -24.4, 1.4, 68.3, -0.0999985, 1.4, 99.5, -0.0999985, 1.4, 99.5, 24.5, 1.4, 68.3, 24.5, 1.4, 62, -24.4, 1.4, 62, -0.0999985, 1.4, 99.5, 24.5, 1.4, 62, 24.5, 1.4, 55.7, -24.4, 1.4, 55.7, 24.5, 1.4, -62.5, -0.0999985, 1.4, -99.4, -24.4, 1.4, -62.5, -24.4, 1.4, -56.2, 24.5, 1.4, -56.2, -24.4, 1.4, -6.39999, -24.4, 1.4, -0.0999985, 24.5, 1.4, -0.0999985, 24.5, 1.4, -6.39999, -24.4, 1.4, -0.0999985, -24.4, 1.4, 5.9, 24.5, 1.4, 5.9, 24.5, 1.4, -0.0999985, -24.4, 1.4, 49.7, -24.4, 1.4, 55.7, 24.5, 1.4, 55.7, 24.5, 1.4, 49.7, -24.4, 1.4, -19, -24.4, 1.4, -12.7, 24.5, 1.4, -12.7, 24.5, 1.4, -19, -24.4, 1.4, 43.4, -24.4, 1.4, 49.7, 24.5, 1.4, 49.7, 24.5, 1.4, 43.4, 24.5, 1.4, -49.9, 24.5, 1.4, -56.2, -24.4, 1.4, -56.2, -24.4, 1.4, -49.9, -24.4, 1.4, 37.1, -24.4, 1.4, 43.4, 24.5, 1.4, 43.4, 24.5, 1.4, 37.1, 24.5, 1.4, -43.9, 24.5, 1.4, -49.9, -24.4, 1.4, -49.9, -24.4, 1.4, -43.9 )
+polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 8, 7, 6 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 13, 12, 14 ), PoolIntArray( 14, 12, 15 ), PoolIntArray( 17, 16, 18 ), PoolIntArray( 18, 16, 19 ), PoolIntArray( 20, 22, 21 ), PoolIntArray( 26, 25, 23 ), PoolIntArray( 23, 25, 24 ), PoolIntArray( 29, 28, 27 ), PoolIntArray( 33, 32, 30 ), PoolIntArray( 30, 32, 31 ), PoolIntArray( 35, 34, 36 ), PoolIntArray( 36, 34, 37 ), PoolIntArray( 39, 38, 40 ), PoolIntArray( 40, 38, 41 ), PoolIntArray( 43, 42, 44 ), PoolIntArray( 44, 42, 45 ), PoolIntArray( 47, 46, 48 ), PoolIntArray( 48, 46, 49 ), PoolIntArray( 53, 52, 50 ), PoolIntArray( 50, 52, 51 ), PoolIntArray( 57, 56, 54 ), PoolIntArray( 54, 56, 55 ), PoolIntArray( 61, 60, 58 ), PoolIntArray( 58, 60, 59 ), PoolIntArray( 65, 64, 62 ), PoolIntArray( 62, 64, 63 ), PoolIntArray( 67, 66, 68 ), PoolIntArray( 68, 66, 69 ), PoolIntArray( 71, 70, 72 ), PoolIntArray( 72, 70, 73 ), PoolIntArray( 76, 75, 74 ), PoolIntArray( 78, 77, 79 ), PoolIntArray( 79, 77, 80 ), PoolIntArray( 84, 83, 81 ), PoolIntArray( 81, 83, 82 ), PoolIntArray( 88, 87, 85 ), PoolIntArray( 85, 87, 86 ), PoolIntArray( 90, 89, 91 ), PoolIntArray( 91, 89, 92 ), PoolIntArray( 96, 95, 93 ), PoolIntArray( 93, 95, 94 ), PoolIntArray( 99, 98, 97 ), PoolIntArray( 102, 101, 100 ), PoolIntArray( 106, 105, 103 ), PoolIntArray( 103, 105, 104 ), PoolIntArray( 109, 108, 107 ), PoolIntArray( 112, 111, 110 ), PoolIntArray( 115, 114, 113 ), PoolIntArray( 118, 117, 116 ), PoolIntArray( 121, 120, 119 ), PoolIntArray( 122, 126, 123 ), PoolIntArray( 123, 126, 124 ), PoolIntArray( 124, 126, 125 ), PoolIntArray( 129, 128, 130 ), PoolIntArray( 130, 128, 127 ), PoolIntArray( 130, 127, 131 ), PoolIntArray( 135, 134, 132 ), PoolIntArray( 132, 134, 133 ), PoolIntArray( 139, 138, 136 ), PoolIntArray( 136, 138, 137 ), PoolIntArray( 143, 142, 140 ), PoolIntArray( 140, 142, 141 ), PoolIntArray( 147, 146, 144 ), PoolIntArray( 144, 146, 145 ), PoolIntArray( 151, 150, 148 ), PoolIntArray( 148, 150, 149 ), PoolIntArray( 155, 154, 152 ), PoolIntArray( 152, 154, 153 ), PoolIntArray( 159, 158, 156 ), PoolIntArray( 156, 158, 157 ), PoolIntArray( 163, 162, 160 ), PoolIntArray( 160, 162, 161 ) ]
 
 [node name="World" type="WorldEnvironment"]
 
@@ -26,23 +17,22 @@ far = 8192.0
 MoveMargin = 50.0
 
 [node name="Navigation" type="Navigation" parent="."]
-transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0 )
-
-[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
-navmesh = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
-transform = Transform( 50, 0, 0, 0, 31.712, 0, 0, 0, 100, 0, 0, 0 )
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
-
-[node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance/MeshInstance"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/MeshInstance/StaticBody"]
-shape = SubResource( 4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Smol" parent="Navigation" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11495, 0 )
 AttackSpeed = 5.0
+MoveSpeed = 50.0
 
 [node name="Minion" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.33275 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.90776, -1.24332, 20.8487 )
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0 )
+navmesh = SubResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance"]
+use_collision = true
+width = 50.0
+depth = 200.0
+material = ExtResource( 5 )
