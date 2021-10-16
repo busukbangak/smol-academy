@@ -19,17 +19,32 @@ public abstract class Character : Entity
 
     private int _pathIndex = 0;
 
+    [Export]
+    private NodePath _customPathNodePath;
+    private Path _customPath;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         base._Ready();
         _characterNavigation = GetParent<Navigation>();
+        _customPath = GetNodeOrNull<Path>(_customPathNodePath);
+        if (_customPath != null)
+        {
+            UpdateNavigationPath(_customPath.Curve.GetBakedPoints());
+        }
         Mana = MaxMana;
     }
 
     public void UpdateNavigationPath(Vector3 movementTarget)
     {
         _path = _characterNavigation.GetSimplePath(GlobalTransform.origin, movementTarget);
+        _pathIndex = 0;
+    }
+
+    public void UpdateNavigationPath(Vector3[] path)
+    {
+        _path = path;
         _pathIndex = 0;
     }
 
@@ -46,7 +61,8 @@ public abstract class Character : Entity
     public void Navigate()
     {
         Vector3 moveVector = _path[_pathIndex] - GlobalTransform.origin;
-        if (moveVector.Length() < 1)
+        // TODO: HACK, look for another solution
+        if (moveVector.Length() < 1 || _customPathNodePath != null && moveVector.Length() < 5)
         {
             _pathIndex++;
         }
@@ -71,13 +87,11 @@ public abstract class Character : Entity
 
     public void OnNavigationTimerTimeout()
     {
-        if (this is Smol) return;
-        UpdateNavigationPath(GetNode<Entity>("/root/World/Navigation/Smol").GlobalTransform.origin);
-        /*  if (AttackTarget == null)
-         {
-             return;
-         }
+        if (AttackTarget == null)
+        {
+            return;
+        }
 
-         UpdateNavigationPath(AttackTarget.GlobalTransform.origin); */
+        UpdateNavigationPath(AttackTarget.GlobalTransform.origin);
     }
 }

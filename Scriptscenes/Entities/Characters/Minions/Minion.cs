@@ -3,6 +3,7 @@ using System;
 
 public enum MinionState
 {
+    Idle,
     Move,
     Engage,
     Attack,
@@ -18,14 +19,14 @@ public class Minion : Character
     public override void _Ready()
     {
         base._Ready();
-
-        ChangeState(MinionState.Move);
+        ChangeState(MinionState.Idle);
     }
 
     public override void _Process(float delta)
     {
         switch (CurrentMinionState)
         {
+            case MinionState.Idle: Idle(); break;
             case MinionState.Move: Move(); break;
             case MinionState.Engage: Engage(); break;
             case MinionState.Attack: Attack(); break;
@@ -44,10 +45,11 @@ public class Minion : Character
     {
         switch (CurrentMinionState)
         {
+            case MinionState.Idle:
+                PlayAnimation("Robot_Idle_Loop");
+                break;
             case MinionState.Move:
                 AttackTarget = null;
-                var rng = new RandomNumberGenerator();
-                UpdateNavigationPath(GetNode<Entity>("/root/World/Navigation/Smol").GlobalTransform.origin);
                 PlayAnimation("Robot_Running_Loop");
                 break;
             case MinionState.Engage:
@@ -72,6 +74,8 @@ public class Minion : Character
     {
         switch (CurrentMinionState)
         {
+            case MinionState.Idle:
+                break;
             case MinionState.Move:
                 break;
             case MinionState.Engage:
@@ -81,6 +85,21 @@ public class Minion : Character
                 break;
             case MinionState.Dead:
                 break;
+        }
+    }
+
+    private void Idle()
+    {
+        if (Health <= 0)
+        {
+            ChangeState(MinionState.Dead);
+            return;
+        }
+
+        if (!IsNavigationComplete())
+        {
+            ChangeState(MinionState.Move);
+            return;
         }
     }
 
