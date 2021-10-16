@@ -50,15 +50,22 @@ public abstract class Entity : KinematicBody
 
     public float RespawnTime = 5f;
 
+
+    private SphereShape _detectionAreaSphere;
+
     [Export]
     public bool IsRespawnActivated;
 
     public override void _Ready()
     {
-        _animationPlayer = GetNode("Model").GetChild(0).GetNode<AnimationPlayer>("AnimationPlayer");
+        _animationPlayer = GetNode<Spatial>("Model").GetChild(0).GetNode<AnimationPlayer>("AnimationPlayer");
+        
+
+        _detectionAreaSphere = (SphereShape)GetNode<CollisionShape>("DetectionArea/CollisionShape").Shape;
+        // TODO: Radius wont be set for some objects
+        _detectionAreaSphere.Radius = AttackRange / Scale.x;
         Health = MaxHealth;
     }
-
     public void OnEntityMouseEntered()
     {
         // TODO: Bug, where it still shows sword on yourself
@@ -125,4 +132,9 @@ public abstract class Entity : KinematicBody
         OnRespawn();
     }
 
+    public void OnDetectionAreaBodyEntered(Node body)
+    {
+        GD.Print(body == this);
+        GD.Print(body.Name);
+    }
 }
