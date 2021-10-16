@@ -55,17 +55,18 @@ public abstract class Entity : KinematicBody
 
     protected List<Entity> EntitiesInDetectionArea = new List<Entity>();
 
+    protected Spatial Model;
+
     [Export]
     public bool IsRespawnActivated;
 
     public override void _Ready()
     {
         _animationPlayer = GetNode<Spatial>("Model").GetChild(0).GetNode<AnimationPlayer>("AnimationPlayer");
-
-
         _detectionAreaSphere = (SphereShape)GetNode<CollisionShape>("DetectionArea/CollisionShape").Shape;
         // TODO: Radius wont be set for some objects
         _detectionAreaSphere.Radius = AttackRange / Scale.x;
+        Model = GetNode<Spatial>("Model");
         Health = MaxHealth;
     }
     public void OnEntityMouseEntered()

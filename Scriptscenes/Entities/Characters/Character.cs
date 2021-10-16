@@ -27,15 +27,9 @@ public abstract class Character : Entity
         Mana = MaxMana;
     }
 
-    public Vector3[] GetSimpleNavigationPath(Vector3 start, Vector3 end)
-    {
-        return _characterNavigation.GetSimplePath(start, end);
-    }
-
     public void UpdateNavigationPath(Vector3 movementTarget)
     {
-        LookAt(movementTarget, Vector3.Up);
-        _path = GetSimpleNavigationPath(GlobalTransform.origin, movementTarget);
+        _path = _characterNavigation.GetSimplePath(GlobalTransform.origin, movementTarget);
         _pathIndex = 0;
     }
 
@@ -58,6 +52,7 @@ public abstract class Character : Entity
         }
         else
         {
+            Model.LookAt(_path[_pathIndex], Vector3.Up);
             MoveAndSlide(moveVector.Normalized() * MoveSpeed);
         }
     }
@@ -76,13 +71,13 @@ public abstract class Character : Entity
 
     public void OnNavigationTimerTimeout()
     {
-        if(this is Smol) return;
+        if (this is Smol) return;
         UpdateNavigationPath(GetNode<Entity>("/root/World/Navigation/Smol").GlobalTransform.origin);
-       /*  if (AttackTarget == null)
-        {
-            return;
-        }
+        /*  if (AttackTarget == null)
+         {
+             return;
+         }
 
-        UpdateNavigationPath(AttackTarget.GlobalTransform.origin); */
+         UpdateNavigationPath(AttackTarget.GlobalTransform.origin); */
     }
 }
