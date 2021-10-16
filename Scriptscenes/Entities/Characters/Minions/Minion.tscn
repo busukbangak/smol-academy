@@ -7,11 +7,10 @@
 [ext_resource path="res://Models/Robot/Black.material" type="Material" id=5]
 [ext_resource path="res://Models/Robot/Main.material" type="Material" id=6]
 
-[sub_resource type="CapsuleShape" id=1]
-radius = 1.5
-height = 2.0
+[sub_resource type="CapsuleShape" id=29]
+radius = 2.0
 
-[sub_resource type="ArrayMesh" id=2]
+[sub_resource type="ArrayMesh" id=1]
 resource_name = "FootL"
 surfaces/0 = {
 "aabb": AABB( -0.248032, -0.417968, -0.440959, 0.495883, 0.250157, 0.947776 ),
@@ -26,7 +25,7 @@ surfaces/0 = {
 "vertex_count": 66
 }
 
-[sub_resource type="ArrayMesh" id=3]
+[sub_resource type="ArrayMesh" id=2]
 resource_name = "Head"
 surfaces/0 = {
 "aabb": AABB( -1.32058, -0.62934, -1.30838, 2.64116, 1.45725, 2.53827 ),
@@ -65,7 +64,7 @@ surfaces/2 = {
 "vertex_count": 564
 }
 
-[sub_resource type="ArrayMesh" id=4]
+[sub_resource type="ArrayMesh" id=3]
 resource_name = "ArmL"
 surfaces/0 = {
 "aabb": AABB( 0.638259, -0.0737185, -0.100711, 0.802547, 0.271219, 0.271219 ),
@@ -80,7 +79,7 @@ surfaces/0 = {
 "vertex_count": 296
 }
 
-[sub_resource type="ArrayMesh" id=5]
+[sub_resource type="ArrayMesh" id=4]
 resource_name = "ShoulderL"
 surfaces/0 = {
 "aabb": AABB( -0.105637, -0.12198, -0.12696, 0.211275, 0.243959, 0.25392 ),
@@ -95,7 +94,7 @@ surfaces/0 = {
 "vertex_count": 232
 }
 
-[sub_resource type="ArrayMesh" id=6]
+[sub_resource type="ArrayMesh" id=5]
 resource_name = "ArmR"
 surfaces/0 = {
 "aabb": AABB( -1.6338, -0.597291, -0.597291, 3.26761, 1.19458, 1.19458 ),
@@ -110,7 +109,7 @@ surfaces/0 = {
 "vertex_count": 284
 }
 
-[sub_resource type="ArrayMesh" id=7]
+[sub_resource type="ArrayMesh" id=6]
 resource_name = "ShoulderR"
 surfaces/0 = {
 "aabb": AABB( -0.105637, -0.12198, -0.12696, 0.211275, 0.243959, 0.25392 ),
@@ -125,7 +124,7 @@ surfaces/0 = {
 "vertex_count": 232
 }
 
-[sub_resource type="ArrayMesh" id=8]
+[sub_resource type="ArrayMesh" id=7]
 resource_name = "LowerLegL"
 surfaces/0 = {
 "aabb": AABB( -0.283404, -0.341472, -0.481697, 0.566616, 0.759449, 0.539849 ),
@@ -140,7 +139,7 @@ surfaces/0 = {
 "vertex_count": 370
 }
 
-[sub_resource type="ArrayMesh" id=9]
+[sub_resource type="ArrayMesh" id=8]
 resource_name = "LegL"
 surfaces/0 = {
 "aabb": AABB( -0.112631, -0.408165, -0.10731, 0.225261, 0.668855, 0.214619 ),
@@ -155,7 +154,7 @@ surfaces/0 = {
 "vertex_count": 270
 }
 
-[sub_resource type="ArrayMesh" id=10]
+[sub_resource type="ArrayMesh" id=9]
 resource_name = "LowerLegR"
 surfaces/0 = {
 "aabb": AABB( -0.283212, -0.341472, -0.481697, 0.566616, 0.759449, 0.539849 ),
@@ -170,7 +169,7 @@ surfaces/0 = {
 "vertex_count": 370
 }
 
-[sub_resource type="ArrayMesh" id=11]
+[sub_resource type="ArrayMesh" id=10]
 resource_name = "LegR"
 surfaces/0 = {
 "aabb": AABB( -0.112631, -0.408165, -0.10731, 0.225261, 0.668855, 0.214619 ),
@@ -185,7 +184,7 @@ surfaces/0 = {
 "vertex_count": 270
 }
 
-[sub_resource type="ArrayMesh" id=12]
+[sub_resource type="ArrayMesh" id=11]
 resource_name = "Torso"
 surfaces/0 = {
 "aabb": AABB( -0.747572, -0.879175, -0.678685, 1.48664, 1.57559, 1.36463 ),
@@ -212,7 +211,7 @@ surfaces/1 = {
 "vertex_count": 568
 }
 
-[sub_resource type="ArrayMesh" id=13]
+[sub_resource type="ArrayMesh" id=12]
 resource_name = "FootR"
 surfaces/0 = {
 "aabb": AABB( -0.247851, -0.417968, -0.440959, 0.495883, 0.250157, 0.947776 ),
@@ -227,7 +226,7 @@ surfaces/0 = {
 "vertex_count": 66
 }
 
-[sub_resource type="ArrayMesh" id=14]
+[sub_resource type="ArrayMesh" id=13]
 resource_name = "HandL"
 surfaces/0 = {
 "aabb": AABB( 1.40274, 2.11318, -0.328941, 1.65348, 0.644171, 0.639501 ),
@@ -254,7 +253,7 @@ surfaces/1 = {
 "vertex_count": 298
 }
 
-[sub_resource type="Skin" id=15]
+[sub_resource type="Skin" id=14]
 resource_name = "Skin"
 bind_count = 43
 bind/0/name = "Bone"
@@ -387,7 +386,7 @@ bind/42/name = "PoleTarget.R"
 bind/42/bone = -1
 bind/42/pose = Transform( 1, 0, -7.15256e-07, 0, 1, 0, 7.15256e-07, 0, 1, 0.648435, -1.0522, -1.51444 )
 
-[sub_resource type="ArrayMesh" id=16]
+[sub_resource type="ArrayMesh" id=15]
 resource_name = "HandR"
 surfaces/0 = {
 "aabb": AABB( -3.06165, 2.11318, -0.328941, 1.65349, 0.644171, 0.639501 ),
@@ -414,7 +413,7 @@ surfaces/1 = {
 "vertex_count": 298
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=16]
 resource_name = "Robot_Dance"
 length = 3.33333
 tracks/0/type = "transform"
@@ -719,7 +718,7 @@ tracks/42/imported = true
 tracks/42/enabled = true
 tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=17]
 resource_name = "Robot_Dead"
 length = 0.5
 tracks/0/type = "value"
@@ -747,7 +746,7 @@ tracks/1/keys = {
 "values": [ Vector3( -1.07514, 0.00624954, -0.160854 ), Vector3( -36.4419, 1.52715, 0.811039 ), Vector3( -21.2388, -176.347, -175.101 ) ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=18]
 resource_name = "Robot_Idle"
 length = 3.33333
 tracks/0/type = "transform"
@@ -1052,7 +1051,7 @@ tracks/42/imported = true
 tracks/42/enabled = true
 tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=19]
 resource_name = "Robot_Idle_Loop"
 length = 3.5
 loop = true
@@ -1358,7 +1357,7 @@ tracks/42/imported = false
 tracks/42/enabled = true
 tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=20]
 resource_name = "Robot_Jump"
 length = 0.708333
 tracks/0/type = "transform"
@@ -1663,7 +1662,7 @@ tracks/42/imported = true
 tracks/42/enabled = true
 tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.708333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=21]
 resource_name = "Robot_No"
 length = 1.66667
 tracks/0/type = "transform"
@@ -1968,7 +1967,7 @@ tracks/42/imported = true
 tracks/42/enabled = true
 tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=22]
 resource_name = "Robot_Punch"
 length = 0.833333
 tracks/0/type = "transform"
@@ -2273,7 +2272,7 @@ tracks/42/imported = true
 tracks/42/enabled = true
 tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.833333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=23]
 resource_name = "Robot_Punch_Loop"
 length = 0.85
 loop = true
@@ -2593,7 +2592,7 @@ tracks/43/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=24]
 resource_name = "Robot_Running"
 length = 0.958333
 tracks/0/type = "transform"
@@ -2898,7 +2897,7 @@ tracks/42/imported = true
 tracks/42/enabled = true
 tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.958333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=25]
 resource_name = "Robot_Running_Loop"
 length = 0.95
 loop = true
@@ -3204,7 +3203,7 @@ tracks/42/imported = false
 tracks/42/enabled = true
 tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.958333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=26]
 resource_name = "Robot_Sitting"
 length = 0.416667
 tracks/0/type = "transform"
@@ -3509,7 +3508,7 @@ tracks/42/imported = true
 tracks/42/enabled = true
 tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=27]
 resource_name = "Robot_ThumbsUp"
 length = 1.58333
 tracks/0/type = "transform"
@@ -3814,7 +3813,7 @@ tracks/42/imported = true
 tracks/42/enabled = true
 tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.58333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=28]
 resource_name = "Robot_WalkJump"
 length = 0.833333
 tracks/0/type = "transform"
@@ -4122,107 +4121,121 @@ tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.833333, 1,
 [node name="Minion" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="CollisionShape" type="CollisionShape" parent="." index="0"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.5, 0 )
-shape = SubResource( 1 )
+[node name="CollisionShape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0 )
+shape = SubResource( 29 )
 
 [node name="Robot" parent="Model" index="0" instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="Skeleton" parent="Model/Robot/RobotArmature" index="0"]
+bones/1/bound_children = [ NodePath("BoneAttachment") ]
+bones/2/bound_children = [ NodePath("BoneAttachment11") ]
+bones/7/bound_children = [ NodePath("BoneAttachment2") ]
+bones/8/bound_children = [ NodePath("BoneAttachment4") ]
+bones/9/bound_children = [ NodePath("BoneAttachment3") ]
+bones/22/bound_children = [ NodePath("BoneAttachment6") ]
+bones/23/bound_children = [ NodePath("BoneAttachment5") ]
+bones/36/bound_children = [ NodePath("BoneAttachment8") ]
+bones/37/bound_children = [ NodePath("BoneAttachment7") ]
+bones/38/bound_children = [ NodePath("BoneAttachment10") ]
+bones/39/bound_children = [ NodePath("BoneAttachment9") ]
+bones/41/bound_children = [ NodePath("BoneAttachment12") ]
 
 [node name="BoneAttachment" parent="Model/Robot/RobotArmature/Skeleton" index="0"]
 transform = Transform( -1, 2.93497e-07, 2.15749e-07, 2.0612e-07, -0.0324215, 0.999474, 3.00337e-07, 0.999474, 0.0324215, 0.633527, 0.024694, -0.138034 )
 
 [node name="FootL" parent="Model/Robot/RobotArmature/Skeleton/BoneAttachment" index="0"]
-mesh = SubResource( 2 )
+mesh = SubResource( 1 )
 
 [node name="BoneAttachment2" parent="Model/Robot/RobotArmature/Skeleton" index="1"]
 transform = Transform( 0.997931, -0.0505244, -0.0397531, 0.052055, 0.997903, 0.0384585, 0.0377266, -0.0404483, 0.998469, -0.0171258, 3.00551, -0.0112469 )
 
 [node name="Head" parent="Model/Robot/RobotArmature/Skeleton/BoneAttachment2" index="0"]
 transform = Transform( 0.999995, 0.00280538, 0.000109056, -0.00280693, 0.999819, 0.0187636, -5.63971e-05, -0.0187638, 0.999824, -0.000895768, 0.647622, 0.0363968 )
-mesh = SubResource( 3 )
+mesh = SubResource( 2 )
 
 [node name="BoneAttachment3" parent="Model/Robot/RobotArmature/Skeleton" index="2"]
 transform = Transform( 0.0367197, 0.426698, 0.903648, -0.175171, -0.887509, 0.426196, 0.983853, -0.173943, 0.0421561, 0.617283, 2.33039, -0.0168432 )
 
 [node name="ArmL" parent="Model/Robot/RobotArmature/Skeleton/BoneAttachment3" index="0"]
-mesh = SubResource( 4 )
+mesh = SubResource( 3 )
 
 [node name="BoneAttachment4" parent="Model/Robot/RobotArmature/Skeleton" index="3"]
 transform = Transform( -0.911603, 0.411073, -1.72639e-06, -0.411073, -0.911602, -1.2368e-06, -2.06381e-06, -3.72529e-07, 1, 0.582738, 2.407, -0.0168432 )
 
 [node name="ShoulderL" parent="Model/Robot/RobotArmature/Skeleton/BoneAttachment4" index="0"]
-mesh = SubResource( 5 )
+mesh = SubResource( 4 )
 
 [node name="BoneAttachment5" parent="Model/Robot/RobotArmature/Skeleton" index="4"]
 transform = Transform( 0.209988, -0.437155, -0.874529, -0.256283, -0.887806, 0.382254, -0.943517, 0.143858, -0.298464, -0.681735, 2.31525, -0.0168432 )
 
 [node name="ArmR" parent="Model/Robot/RobotArmature/Skeleton/BoneAttachment5" index="0"]
-mesh = SubResource( 6 )
+mesh = SubResource( 5 )
 
 [node name="BoneAttachment6" parent="Model/Robot/RobotArmature/Skeleton" index="5"]
 transform = Transform( -0.898186, -0.439616, -1.3222e-06, 0.439616, -0.898186, 2.30968e-07, -1.30758e-06, -3.57628e-07, 1, -0.636816, 2.40703, -0.0168432 )
 
 [node name="ShoulderR" parent="Model/Robot/RobotArmature/Skeleton/BoneAttachment6" index="0"]
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 
 [node name="BoneAttachment7" parent="Model/Robot/RobotArmature/Skeleton" index="6"]
 transform = Transform( 0.985174, -0.0355624, -0.167836, 0.0100386, -0.96466, 0.263316, -0.171266, -0.261108, -0.950011, 0.666523, 0.919759, 0.104232 )
 
 [node name="LowerLegL" parent="Model/Robot/RobotArmature/Skeleton/BoneAttachment7" index="0"]
-mesh = SubResource( 8 )
+mesh = SubResource( 7 )
 
 [node name="BoneAttachment8" parent="Model/Robot/RobotArmature/Skeleton" index="7"]
 transform = Transform( 0.985174, 0.0592895, -0.160992, 0.0100385, -0.956701, -0.290909, -0.171266, 0.284975, -0.943126, 0.630297, 1.50431, -0.0698897 )
 
 [node name="LegL" parent="Model/Robot/RobotArmature/Skeleton/BoneAttachment8" index="0"]
-mesh = SubResource( 9 )
+mesh = SubResource( 8 )
 
 [node name="BoneAttachment9" parent="Model/Robot/RobotArmature/Skeleton" index="8"]
 transform = Transform( 0.960966, 0.0629108, 0.269422, -0.010635, -0.964691, 0.263182, 0.276461, -0.255786, -0.926376, -0.698448, 0.919787, 0.0992934 )
 
 [node name="LowerLegR" parent="Model/Robot/RobotArmature/Skeleton/BoneAttachment9" index="0"]
-mesh = SubResource( 10 )
+mesh = SubResource( 9 )
 
 [node name="BoneAttachment10" parent="Model/Robot/RobotArmature/Skeleton" index="9"]
 transform = Transform( 0.960966, -0.0902468, 0.261538, -0.010635, -0.956655, -0.291039, 0.276462, 0.276892, -0.920287, -0.643306, 1.50431, -0.0698898 )
 
 [node name="LegR" parent="Model/Robot/RobotArmature/Skeleton/BoneAttachment10" index="0"]
-mesh = SubResource( 11 )
+mesh = SubResource( 10 )
 
 [node name="BoneAttachment11" parent="Model/Robot/RobotArmature/Skeleton" index="10"]
 transform = Transform( 1, 0, 7.15256e-07, 0, 1, 0, -7.15256e-07, 0, 1, 0.00205058, 1.40808, 0.112672 )
 
 [node name="Torso" parent="Model/Robot/RobotArmature/Skeleton/BoneAttachment11" index="0"]
-mesh = SubResource( 12 )
+mesh = SubResource( 11 )
 
 [node name="BoneAttachment12" parent="Model/Robot/RobotArmature/Skeleton" index="11"]
 transform = Transform( -1, 2.93497e-07, 1.64626e-06, 1.63588e-06, -0.0324215, 0.999474, 3.46717e-07, 0.999475, 0.0324215, -0.640076, 0.024694, -0.138034 )
 
 [node name="FootR" parent="Model/Robot/RobotArmature/Skeleton/BoneAttachment12" index="0"]
-mesh = SubResource( 13 )
+mesh = SubResource( 12 )
 
 [node name="HandL" parent="Model/Robot/RobotArmature/Skeleton" index="12"]
-mesh = SubResource( 14 )
-skin = SubResource( 15 )
+mesh = SubResource( 13 )
+skin = SubResource( 14 )
 
 [node name="HandR" parent="Model/Robot/RobotArmature/Skeleton" index="13"]
-mesh = SubResource( 16 )
-skin = SubResource( 15 )
+mesh = SubResource( 15 )
+skin = SubResource( 14 )
 
 [node name="AnimationPlayer" parent="Model/Robot" index="1"]
-anims/Robot_Dance = SubResource( 17 )
-anims/Robot_Dead = SubResource( 18 )
-anims/Robot_Idle = SubResource( 19 )
-anims/Robot_Idle_Loop = SubResource( 20 )
-anims/Robot_Jump = SubResource( 21 )
-anims/Robot_No = SubResource( 22 )
-anims/Robot_Punch = SubResource( 23 )
-anims/Robot_Punch_Loop = SubResource( 24 )
-anims/Robot_Running = SubResource( 25 )
-anims/Robot_Running_Loop = SubResource( 26 )
-anims/Robot_Sitting = SubResource( 27 )
-anims/Robot_ThumbsUp = SubResource( 28 )
-anims/Robot_WalkJump = SubResource( 29 )
+anims/Robot_Dance = SubResource( 16 )
+anims/Robot_Dead = SubResource( 17 )
+anims/Robot_Idle = SubResource( 18 )
+anims/Robot_Idle_Loop = SubResource( 19 )
+anims/Robot_Jump = SubResource( 20 )
+anims/Robot_No = SubResource( 21 )
+anims/Robot_Punch = SubResource( 22 )
+anims/Robot_Punch_Loop = SubResource( 23 )
+anims/Robot_Running = SubResource( 24 )
+anims/Robot_Running_Loop = SubResource( 25 )
+anims/Robot_Sitting = SubResource( 26 )
+anims/Robot_ThumbsUp = SubResource( 27 )
+anims/Robot_WalkJump = SubResource( 28 )
 
 [editable path="Model/Robot"]

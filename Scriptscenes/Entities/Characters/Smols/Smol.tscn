@@ -4,14 +4,13 @@
 [ext_resource path="res://Scriptscenes/Entities/Characters/Smols/Smol.cs" type="Script" id=2]
 [ext_resource path="res://Models/Robot/Robot.glb" type="PackedScene" id=3]
 
-[sub_resource type="CapsuleShape" id=1]
-radius = 1.5
-height = 2.0
+[sub_resource type="CapsuleShape" id=5]
+radius = 2.0
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Robot_Dead"
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 3.5
 loop = true
 tracks/0/type = "transform"
@@ -316,7 +315,7 @@ tracks/42/imported = false
 tracks/42/enabled = true
 tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.85
 loop = true
 tracks/0/type = "transform"
@@ -635,7 +634,7 @@ tracks/43/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.95
 loop = true
 tracks/0/type = "transform"
@@ -944,12 +943,26 @@ tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.958333, 1,
 script = ExtResource( 2 )
 IsRespawnActivated = true
 
-[node name="CollisionShape" type="CollisionShape" parent="." index="0"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.5, 0 )
-shape = SubResource( 1 )
+[node name="CollisionShape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0 )
+shape = SubResource( 5 )
 
 [node name="Robot" parent="Model" index="0" instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="Skeleton" parent="Model/Robot/RobotArmature" index="0"]
+bones/1/bound_children = [ NodePath("BoneAttachment") ]
+bones/2/bound_children = [ NodePath("BoneAttachment11") ]
+bones/7/bound_children = [ NodePath("BoneAttachment2") ]
+bones/8/bound_children = [ NodePath("BoneAttachment4") ]
+bones/9/bound_children = [ NodePath("BoneAttachment3") ]
+bones/22/bound_children = [ NodePath("BoneAttachment6") ]
+bones/23/bound_children = [ NodePath("BoneAttachment5") ]
+bones/36/bound_children = [ NodePath("BoneAttachment8") ]
+bones/37/bound_children = [ NodePath("BoneAttachment7") ]
+bones/38/bound_children = [ NodePath("BoneAttachment10") ]
+bones/39/bound_children = [ NodePath("BoneAttachment9") ]
+bones/41/bound_children = [ NodePath("BoneAttachment12") ]
 
 [node name="BoneAttachment" parent="Model/Robot/RobotArmature/Skeleton" index="0"]
 transform = Transform( -1, 2.93497e-07, 2.15749e-07, 2.0612e-07, -0.0324215, 0.999474, 3.00337e-07, 0.999474, 0.0324215, 0.633527, 0.024694, -0.138034 )
@@ -988,9 +1001,9 @@ transform = Transform( 1, 0, 7.15256e-07, 0, 1, 0, -7.15256e-07, 0, 1, 0.0020505
 transform = Transform( -1, 2.93497e-07, 1.64626e-06, 1.63588e-06, -0.0324215, 0.999474, 3.46717e-07, 0.999475, 0.0324215, -0.640076, 0.024694, -0.138034 )
 
 [node name="AnimationPlayer" parent="Model/Robot" index="1"]
-anims/Robot_Dead = SubResource( 2 )
-anims/Robot_Idle_Loop = SubResource( 3 )
-anims/Robot_Punch_Loop = SubResource( 4 )
-anims/Robot_Running_Loop = SubResource( 5 )
+anims/Robot_Dead = SubResource( 1 )
+anims/Robot_Idle_Loop = SubResource( 2 )
+anims/Robot_Punch_Loop = SubResource( 3 )
+anims/Robot_Running_Loop = SubResource( 4 )
 
 [editable path="Model/Robot"]
