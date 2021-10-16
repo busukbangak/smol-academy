@@ -47,7 +47,7 @@ public class Minion : Character
             case MinionState.Move:
                 AttackTarget = null;
                 var rng = new RandomNumberGenerator();
-                UpdateNavigationPath(new Vector3(0, 0, 0));
+                UpdateNavigationPath(GetNode<Entity>("/root/World/Navigation/Smol").GlobalTransform.origin);
                 PlayAnimation("Robot_Running_Loop");
                 break;
             case MinionState.Engage:

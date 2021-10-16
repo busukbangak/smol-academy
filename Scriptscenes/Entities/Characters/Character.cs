@@ -73,4 +73,16 @@ public abstract class Character : Entity
         base.OnRespawn();
         GetNode<CollisionShape>("CollisionShape").Disabled = false;
     }
+
+    public void OnNavigationTimerTimeout()
+    {
+        if(this is Smol) return;
+        UpdateNavigationPath(GetNode<Entity>("/root/World/Navigation/Smol").GlobalTransform.origin);
+       /*  if (AttackTarget == null)
+        {
+            return;
+        }
+
+        UpdateNavigationPath(AttackTarget.GlobalTransform.origin); */
+    }
 }

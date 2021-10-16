@@ -5,3 +5,9 @@
 
 [node name="Character" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+
+[node name="NavigationTimer" type="Timer" parent="." index="3"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="NavigationTimer" to="." method="OnNavigationTimerTimeout"]

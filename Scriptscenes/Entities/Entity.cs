@@ -140,7 +140,7 @@ public abstract class Entity : KinematicBody
         {
             return;
         }
-        
+
         EntitiesInDetectionArea.Add(body);
     }
 

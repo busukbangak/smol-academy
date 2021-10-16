@@ -38,9 +38,13 @@ transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0.200092, 2.90436, 80.7359 )
 
 [node name="Smol" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.69096, 0 )
+collision_layer = 2
+collision_mask = 3
 MoveSpeed = 50.0
 
 [node name="Minion" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15869, 3.02643, 15.9609 )
+collision_layer = 2
+collision_mask = 3
 
 [editable path="Navigation/NavigationMeshInstance/Nexus"]
