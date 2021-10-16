@@ -50,7 +50,6 @@ public abstract class Entity : KinematicBody
 
     public float RespawnTime = 5f;
 
-
     private SphereShape _detectionAreaSphere;
 
     [Export]
@@ -59,7 +58,7 @@ public abstract class Entity : KinematicBody
     public override void _Ready()
     {
         _animationPlayer = GetNode<Spatial>("Model").GetChild(0).GetNode<AnimationPlayer>("AnimationPlayer");
-        
+
 
         _detectionAreaSphere = (SphereShape)GetNode<CollisionShape>("DetectionArea/CollisionShape").Shape;
         // TODO: Radius wont be set for some objects
@@ -132,8 +131,21 @@ public abstract class Entity : KinematicBody
         OnRespawn();
     }
 
-    public void OnDetectionAreaBodyEntered(Node body)
+    public void OnDetectionAreaBodyEntered(Entity body)
     {
+        if (body == this)
+        {
+            return;
+        }
+
+        GD.Print("ENTERED");
+        GD.Print(body == this);
+        GD.Print(body.Name);
+    }
+
+    public void OnDetectionAreaBodyExited(Entity body)
+    {
+        GD.Print("EXITED");
         GD.Print(body == this);
         GD.Print(body.Name);
     }
