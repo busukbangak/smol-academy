@@ -46,7 +46,7 @@ public abstract class Character : Entity
 
     public bool IsNavigationComplete()
     {
-        return !(_pathIndex < _path.Length);
+        return _pathIndex >= _path.Length;
     }
 
     public void Navigate()
