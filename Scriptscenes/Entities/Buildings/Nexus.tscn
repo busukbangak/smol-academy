@@ -4,9 +4,9 @@
 [ext_resource path="res://Scriptscenes/Entities/Buildings/Nexus.cs" type="Script" id=2]
 [ext_resource path="res://Materials/Prototype_Black.material" type="Material" id=3]
 
-[sub_resource type="CylinderShape" id=3]
-radius = 3.0
-height = 1.0
+[sub_resource type="CylinderShape" id=1]
+radius = 3.2
+height = 2.2
 
 [sub_resource type="CylinderMesh" id=2]
 
@@ -14,19 +14,18 @@ height = 1.0
 script = ExtResource( 2 )
 
 [node name="CollisionShape" parent="." index="0"]
-shape = SubResource( 3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+shape = SubResource( 1 )
 
 [node name="Nexus" type="Spatial" parent="Model" index="0"]
 
 [node name="CSGMesh" type="CSGMesh" parent="Model/Nexus" index="0"]
 transform = Transform( 3, 0, 0, 0, 0.5, 0, 0, 0, 3, 0, 0, 0 )
-use_collision = true
 mesh = SubResource( 2 )
 material = ExtResource( 3 )
 
 [node name="CSGMesh2" type="CSGMesh" parent="Model/Nexus" index="1"]
 transform = Transform( 2.5, 0, 0, 0, 0.5, 0, 0, 0, 2.5, 0, 1, 0 )
-use_collision = true
 mesh = SubResource( 2 )
 material = ExtResource( 3 )
 
