@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public enum TeamColor
 {
@@ -51,6 +52,8 @@ public abstract class Entity : KinematicBody
     public float RespawnTime = 5f;
 
     private SphereShape _detectionAreaSphere;
+
+    protected List<Entity> EntitiesInDetectionArea = new List<Entity>();
 
     [Export]
     public bool IsRespawnActivated;
@@ -137,16 +140,12 @@ public abstract class Entity : KinematicBody
         {
             return;
         }
-
-        GD.Print("ENTERED");
-        GD.Print(body == this);
-        GD.Print(body.Name);
+        
+        EntitiesInDetectionArea.Add(body);
     }
 
     public void OnDetectionAreaBodyExited(Entity body)
     {
-        GD.Print("EXITED");
-        GD.Print(body == this);
-        GD.Print(body.Name);
+        EntitiesInDetectionArea.Remove(body);
     }
 }

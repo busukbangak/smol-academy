@@ -128,7 +128,7 @@ public class Smol : Character
                 if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
                 {
                     AttackTarget = entity;
-                    if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
+                    if (EntitiesInDetectionArea.Contains(AttackTarget))
                     {
                         ChangeState(SmolState.Attack);
                     }
@@ -191,7 +191,7 @@ public class Smol : Character
                 if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
                 {
                     AttackTarget = entity;
-                    if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
+                    if (EntitiesInDetectionArea.Contains(AttackTarget))
                     {
                         ChangeState(SmolState.Attack);
                     }
@@ -244,7 +244,7 @@ public class Smol : Character
                 if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
                 {
                     AttackTarget = entity;
-                    if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
+                    if (EntitiesInDetectionArea.Contains(AttackTarget))
                     {
                         ChangeState(SmolState.Attack);
                     }
@@ -297,7 +297,7 @@ public class Smol : Character
                 if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
                 {
                     AttackTarget = entity;
-                    if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
+                    if (EntitiesInDetectionArea.Contains(AttackTarget))
                     {
                         ChangeState(SmolState.Attack);
                     }
@@ -350,7 +350,7 @@ public class Smol : Character
                 if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
                 {
                     AttackTarget = entity;
-                    if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
+                    if (EntitiesInDetectionArea.Contains(AttackTarget))
                     {
                         ChangeState(SmolState.Attack);
                     }
@@ -406,7 +406,7 @@ public class Smol : Character
             Navigate();
         }
 
-        if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
+        if (EntitiesInDetectionArea.Contains(AttackTarget))
         {
             ChangeState(SmolState.Attack);
             return;
@@ -420,7 +420,7 @@ public class Smol : Character
                 if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
                 {
                     AttackTarget = entity;
-                    if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
+                    if (EntitiesInDetectionArea.Contains(AttackTarget))
                     {
                         ChangeState(SmolState.Attack);
                     }
@@ -483,7 +483,7 @@ public class Smol : Character
                 if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
                 {
                     AttackTarget = entity;
-                    if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
+                    if (EntitiesInDetectionArea.Contains(AttackTarget))
                     {
                         ChangeState(SmolState.Attack);
                     }
