@@ -22,23 +22,22 @@ ZoomSpeed = 1000.0
 
 [node name="Navigation" type="Navigation" parent="."]
 
-[node name="Smol" parent="Navigation" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11495, 0 )
-AttackSpeed = 5.0
-MoveSpeed = 50.0
-
-[node name="Minion" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.90776, -1.24332, 20.8487 )
-
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0 )
 navmesh = SubResource( 1 )
 
 [node name="Ground" type="CSGBox" parent="Navigation/NavigationMeshInstance"]
 use_collision = true
+collision_mask = 3
 width = 50.0
 depth = 200.0
 material = ExtResource( 5 )
 
 [node name="Nexus" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 3, 80.61 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0.200092, 2.90436, 80.7359 )
+
+[node name="Smol" parent="Navigation" instance=ExtResource( 3 )]
+MoveSpeed = 50.0
+
+[node name="Minion" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15869, 0, 15.9609 )
