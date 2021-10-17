@@ -122,7 +122,7 @@ public abstract class Entity : KinematicBody
     public virtual void OnDead()
     {
 
-        GetNode<CollisionShape>("CollisionShape").Disabled = true;
+        CollisionLayer = 0b00000000000000000001;
         Deaths++;
 
         if (IsRespawnActivated)
@@ -133,7 +133,7 @@ public abstract class Entity : KinematicBody
 
     public virtual void OnRespawn()
     {
-        GetNode<CollisionShape>("CollisionShape").Disabled = false;
+        CollisionLayer = 0b00000000000000000010;
         Health = MaxHealth;
     }
 
