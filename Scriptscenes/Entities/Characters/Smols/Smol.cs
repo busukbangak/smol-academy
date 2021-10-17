@@ -24,6 +24,8 @@ public class Smol : Character
         base._Ready();
 
         ChangeState(SmolState.Idle);
+
+        DebugManager.Add("Smol state", this, "CurrentSmolStateToString", true);
     }
 
     public override void _Process(float delta)
@@ -536,5 +538,9 @@ public class Smol : Character
             ChangeState(SmolState.Idle);
             return;
         }
+    }
+
+    public string CurrentSmolStateToString() {
+        return CurrentSmolState.ToString();
     }
 }

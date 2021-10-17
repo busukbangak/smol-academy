@@ -122,4 +122,6 @@ public abstract class Character : Entity
         }
         return closestPathIndex;
     }
+
+    
 }
