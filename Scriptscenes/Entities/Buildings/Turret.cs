@@ -18,4 +18,9 @@ public class Turret : Entity
 
         Model.GetNode<CSGMesh>("Turret/Bot").Set("material", spatialMaterial);
     }
+
+    public override void OnDead()
+    {
+        base.OnDead();
+    }
 }

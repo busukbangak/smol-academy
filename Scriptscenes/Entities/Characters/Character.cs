@@ -62,7 +62,7 @@ public abstract class Character : Entity
     {
         Vector3 moveVector = _path[_pathIndex] - GlobalTransform.origin;
         // TODO: HACK, look for another solution
-        if (moveVector.Length() < 1 || _customPathNodePath != null && moveVector.Length() < 7)
+        if (moveVector.Length() < 1 || _customPath != null && moveVector.Length() < 7)
         {
             _pathIndex++;
         }

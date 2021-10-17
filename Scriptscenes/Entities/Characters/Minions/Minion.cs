@@ -25,7 +25,6 @@ public class Minion : Character
 
     public override void _Process(float delta)
     {
-
         switch (CurrentMinionState)
         {
             case MinionState.Idle: Idle(); break;

@@ -469,7 +469,7 @@ public class Smol : Character
             return;
         }
 
-        if (AttackTarget.Health <= 0)
+        if (!EntitiesInDetectionArea.Contains(AttackTarget) || AttackTarget.Health <= 0)
         {
 
             ChangeState(SmolState.Idle);
