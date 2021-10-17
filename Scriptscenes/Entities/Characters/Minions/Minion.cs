@@ -50,6 +50,7 @@ public class Minion : Character
                 break;
             case MinionState.Move:
                 AttackTarget = null;
+                ResumeCustomPathNavigation();
                 PlayAnimation("Robot_Running_Loop");
                 break;
             case MinionState.Engage:
@@ -116,31 +117,13 @@ public class Minion : Character
             Navigate();
         }
 
-        /*   if (Input.IsActionJustPressed("target"))
-          {
-              var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
-              if (hit.Count > 0)
-              {
-                  if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
-                  {
-                      AttackTarget = entity;
-                      if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
-                      {
-                          ChangeState(MinionState.Attack);
-                      }
-                      else
-                      {
-                          ChangeState(MinionState.Engage);
-                      }
-                  }
-                  else
-                  {
-                      ChangeState(MinionState.Move);
-                  }
-              }
-              return;
-          }
-   */
+        if (EntitiesInDetectionArea.Count > 0)
+        {
+
+            AttackTarget = GetClosestEntity();
+            ChangeState(MinionState.Attack);
+            return;
+        }
     }
 
     private void Engage()
@@ -161,33 +144,6 @@ public class Minion : Character
             ChangeState(MinionState.Attack);
             return;
         }
-
-        /* if (Input.IsActionJustPressed("target"))
-        {
-            var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
-            if (hit.Count > 0)
-            {
-                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
-                {
-                    AttackTarget = entity;
-                    if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
-                    {
-                        ChangeState(MinionState.Attack);
-                    }
-                    else
-                    {
-                        ChangeState(MinionState.Engage);
-                    }
-                }
-                else
-                {
-                    ChangeState(MinionState.Move);
-                }
-            }
-            return;
-        }
-
-        */
     }
 
     private void Attack()
@@ -207,33 +163,11 @@ public class Minion : Character
             ChangeState(MinionState.Move);
             return;
         }
-        /* 
-                if (Input.IsActionJustPressed("target"))
-                {
-                    var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
-                    if (hit.Count > 0)
-                    {
-                        if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
-                        {
-                            AttackTarget = entity;
-                            if (GlobalTransform.origin.DistanceTo(AttackTarget.GlobalTransform.origin) < AttackRange)
-                            {
-                                ChangeState(MinionState.Attack);
-                            }
-                            else
-                            {
-                                ChangeState(MinionState.Engage);
-                            }
-                        }
-                        else
-                        {
-                            ChangeState(MinionState.Move);
-                        }
-                    }
-                    return;
-                } */
 
-
+        if (!EntitiesInDetectionArea.Contains(AttackTarget))
+        {
+            ChangeState(MinionState.Idle);
+        }
     }
 
     private void Dead()

@@ -52,7 +52,7 @@ AttackSpeed = 5.0
 MoveSpeed = 40.0
 
 [node name="Minion" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15869, 3.02643, 15.9609 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8298, 3.02643, 16.5763 )
 collision_layer = 2
 collision_mask = 3
 _customPathNodePath = NodePath("../Path")

@@ -478,7 +478,6 @@ public class Smol : Character
         if (!EntitiesInDetectionArea.Contains(AttackTarget))
         {
             ChangeState(SmolState.Engage);
-            ;
         }
 
         if (Input.IsActionJustPressed("target"))
