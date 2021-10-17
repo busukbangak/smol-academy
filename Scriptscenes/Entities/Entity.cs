@@ -71,8 +71,7 @@ public abstract class Entity : KinematicBody
     }
     public void OnEntityMouseEntered()
     {
-        // TODO: Bug, where it still shows sword on yourself
-        if (Health > 0)
+        if (Health > 0 && PlayerData.AssignedTeam != AssignedTeam)
         {
             CursorManager.ChangeCursor(CursorType.Attack);
         }
@@ -106,7 +105,7 @@ public abstract class Entity : KinematicBody
         }
 
         AttackTarget.Health -= AttackDamage;
-        GD.Print(AttackTarget.Health);
+        GD.Print(AttackTarget.Name, ": ", AttackTarget.Health);
         if (AttackTarget.Health <= 0)
         {
             Kills++;
@@ -149,4 +148,38 @@ public abstract class Entity : KinematicBody
     {
         EntitiesInDetectionArea.Remove(body);
     }
+
+    public List<Entity> EnemyEntitiesInDetectionArea()
+    {
+        List<Entity> enemyEntitiesInDetectionArea = new List<Entity>();
+        foreach (var entity in EntitiesInDetectionArea)
+        {
+            if (entity.AssignedTeam != AssignedTeam)
+            {
+                enemyEntitiesInDetectionArea.Add(entity);
+            }
+        }
+        return enemyEntitiesInDetectionArea;
+    }
+
+    public Entity GetClosestEnemyEntityInDetectionArea()
+    {
+        Entity closestEntity = null;
+        foreach (var entity in EnemyEntitiesInDetectionArea())
+        {
+            if (closestEntity == null)
+            {
+                closestEntity = entity;
+                continue;
+            }
+
+            if (GlobalTransform.origin.DistanceTo(closestEntity.GlobalTransform.origin) <
+                GlobalTransform.origin.DistanceTo(entity.GlobalTransform.origin))
+            {
+                closestEntity = entity;
+            }
+        }
+        return closestEntity;
+    }
+
 }

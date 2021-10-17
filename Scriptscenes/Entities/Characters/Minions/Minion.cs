@@ -117,10 +117,10 @@ public class Minion : Character
             Navigate();
         }
 
-        if (EntitiesInDetectionArea.Count > 0)
+        if (EnemyEntitiesInDetectionArea().Count > 0)
         {
 
-            AttackTarget = GetClosestEntity();
+            AttackTarget = GetClosestEnemyEntityInDetectionArea();
             ChangeState(MinionState.Attack);
             return;
         }

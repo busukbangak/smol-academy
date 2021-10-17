@@ -43,6 +43,7 @@ material = ExtResource( 5 )
 
 [node name="Nexus" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0.200092, 2.90436, 80.7359 )
+AssignedTeam = 1
 
 [node name="Smol" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.69096, 0 )
@@ -55,6 +56,7 @@ MoveSpeed = 40.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8298, 3.02643, 16.5763 )
 collision_layer = 2
 collision_mask = 3
+AssignedTeam = 1
 _customPathNodePath = NodePath("../Path")
 
 [node name="Path" type="Path" parent="Navigation"]

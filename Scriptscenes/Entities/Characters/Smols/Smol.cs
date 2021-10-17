@@ -125,7 +125,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
+                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this && entity.AssignedTeam != AssignedTeam)
                 {
                     AttackTarget = entity;
                     if (EntitiesInDetectionArea.Contains(AttackTarget))
@@ -188,7 +188,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
+                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this && entity.AssignedTeam != AssignedTeam)
                 {
                     AttackTarget = entity;
                     if (EntitiesInDetectionArea.Contains(AttackTarget))
@@ -241,7 +241,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
+                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this && entity.AssignedTeam != AssignedTeam)
                 {
                     AttackTarget = entity;
                     if (EntitiesInDetectionArea.Contains(AttackTarget))
@@ -294,7 +294,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
+                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this && entity.AssignedTeam != AssignedTeam)
                 {
                     AttackTarget = entity;
                     if (EntitiesInDetectionArea.Contains(AttackTarget))
@@ -347,7 +347,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
+                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this && entity.AssignedTeam != AssignedTeam)
                 {
                     AttackTarget = entity;
                     if (EntitiesInDetectionArea.Contains(AttackTarget))
@@ -417,7 +417,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
+                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this && entity.AssignedTeam != AssignedTeam)
                 {
                     AttackTarget = entity;
                     if (EntitiesInDetectionArea.Contains(AttackTarget))
@@ -485,7 +485,7 @@ public class Smol : Character
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
             if (hit.Count > 0)
             {
-                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this)
+                if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this && entity.AssignedTeam != AssignedTeam)
                 {
                     AttackTarget = entity;
                     if (EntitiesInDetectionArea.Contains(AttackTarget))

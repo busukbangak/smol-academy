@@ -61,7 +61,6 @@ public abstract class Character : Entity
     public void Navigate()
     {
         Vector3 moveVector = _path[_pathIndex] - GlobalTransform.origin;
-        GD.Print(moveVector.Length());
         // TODO: HACK, look for another solution
         if (moveVector.Length() < 1 || _customPathNodePath != null && moveVector.Length() < 7)
         {
@@ -103,25 +102,6 @@ public abstract class Character : Entity
         UpdateNavigationPath(AttackTarget.GlobalTransform.origin);
     }
 
-    public Entity GetClosestEntity()
-    {
-        Entity closestEntity = null;
-        foreach (var entity in EntitiesInDetectionArea)
-        {
-            if (closestEntity == null)
-            {
-                closestEntity = entity;
-                continue;
-            }
-
-            if (GlobalTransform.origin.DistanceTo(closestEntity.GlobalTransform.origin) <
-                GlobalTransform.origin.DistanceTo(entity.GlobalTransform.origin))
-            {
-                closestEntity = entity;
-            }
-        }
-        return closestEntity;
-    }
 
     public int GetClosestPathIndex()
     {
