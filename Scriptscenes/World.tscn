@@ -67,10 +67,10 @@ transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -0.400867, 2.90436, -80.0847 )
 AssignedTeam = 1
 
 [node name="BlueTurret" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 6 )]
-transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 0.208895, 0, 40.7357 )
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 0.208895, 1, 40.7357 )
 
 [node name="RedTurret" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 6 )]
-transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 0.208891, 0, -39.9793 )
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 0.208891, 1, -39.9793 )
 AssignedTeam = 1
 
 [node name="Smol" parent="Navigation" instance=ExtResource( 3 )]
@@ -86,6 +86,12 @@ collision_layer = 2
 collision_mask = 3
 AssignedTeam = 1
 _customPathNodePath = NodePath("../RedPath")
+
+[node name="RedMinion4" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.5388, 3.02643, 23.1128 )
+collision_layer = 2
+collision_mask = 3
+AssignedTeam = 1
 
 [node name="RedMinion2" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.3264, 3.02643, -39.0764 )
@@ -118,6 +124,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.4103, 3.02644, 46.0273 )
 collision_layer = 2
 collision_mask = 3
 _customPathNodePath = NodePath("../BluePath")
+
+[node name="BlueMinion4" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.963, 3.02644, 33.7243 )
+collision_layer = 2
+collision_mask = 3
 
 [node name="BluePath" type="Path" parent="Navigation"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
