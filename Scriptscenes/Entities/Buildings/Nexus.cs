@@ -20,7 +20,7 @@ public class Nexus : Entity
         SpatialMaterial spatialMaterial = new SpatialMaterial();
         spatialMaterial.AlbedoColor = color;
 
-        Model.GetNode<CSGMesh>("Nexus/CSGMesh").Set("material", spatialMaterial);
+        Model.GetNode<CSGMesh>("Nexus/Bot").Set("material", spatialMaterial);
     }
 
 }
