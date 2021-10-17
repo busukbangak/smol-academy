@@ -68,7 +68,10 @@ public abstract class Character : Entity
         }
         else
         {
-            Model.LookAt(_path[_pathIndex], Vector3.Up);
+            if (Vector3.Up.Cross(_path[_pathIndex] - GlobalTransform.origin) != Vector3.Zero)
+            {
+                Model.LookAt(_path[_pathIndex], Vector3.Up);
+            }
             MoveAndSlide(moveVector.Normalized() * MoveSpeed);
         }
     }
@@ -77,7 +80,6 @@ public abstract class Character : Entity
     {
         _path = GetNode<Path>(_customPathNodePath).Curve.GetBakedPoints();
         _pathIndex = GetClosestPathIndex();
-
     }
 
     public override void OnDead()
@@ -89,7 +91,7 @@ public abstract class Character : Entity
             GetNode<Timer>("NavigationTimer").Disconnect("timeout", this, "OnNavigationTimerTimeout");
         }
     }
-    
+
     public void OnNavigationTimerTimeout()
     {
         if (AttackTarget == null)
@@ -116,5 +118,5 @@ public abstract class Character : Entity
         return closestPathIndex;
     }
 
-    
+
 }

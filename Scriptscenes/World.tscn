@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scriptscenes/Entities/Buildings/Nexus.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scriptscenes/Controls/Camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scriptscenes/Entities/Characters/Smols/Smol.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scriptscenes/Entities/Characters/Minions/Minion.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Textures/Prototype/Dark/texture_01.png" type="Texture" id=5]
 [ext_resource path="res://Scriptscenes/Entities/Buildings/Turret.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scriptscenes/Autoloads/Managers/DebugOverlay.tscn" type="PackedScene" id=7]
@@ -74,21 +73,6 @@ transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 0.208895, 1, 40.7357 )
 transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 0.208891, 1, -39.9793 )
 AssignedTeam = 1
 
-[node name="Smol" parent="Navigation" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5365, 2.69096, 13.9768 )
-collision_layer = 2
-collision_mask = 3
-AttackSpeed = 5.0
-MoveSpeed = 40.0
-
-[node name="BlueMinion" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.4103, 3.02644, 46.0273 )
-collision_layer = 2
-collision_mask = 3
-AttackSpeed = 5.0
-MoveSpeed = 25.0
-_customPathNodePath = NodePath("../BluePath")
-
 [node name="BluePath" type="Path" parent="Navigation"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 curve = SubResource( 5 )
@@ -100,3 +84,5 @@ curve = SubResource( 6 )
 transform = Transform( -1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 35, 0 )
 
 [node name="DebugOverlay" parent="." instance=ExtResource( 7 )]
+
+[node name="Smol" parent="." instance=ExtResource( 3 )]
