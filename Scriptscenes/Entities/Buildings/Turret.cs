@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Tower : Entity
+public class Turret : Entity
 {
     // Declare member variables here. Examples:
     // private int a = 2;
