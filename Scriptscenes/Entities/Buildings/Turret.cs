@@ -54,6 +54,7 @@ public class Turret : Entity
             case TurretState.Attack:
                 break;
             case TurretState.Dead:
+                PlayAnimation("Turret_Destroyed");
                 OnDead();
                 break;
         }

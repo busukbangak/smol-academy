@@ -100,6 +100,3 @@ curve = SubResource( 6 )
 transform = Transform( -1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 35, 0 )
 
 [node name="DebugOverlay" parent="." instance=ExtResource( 7 )]
-
-[editable path="Navigation/NavigationMeshInstance/BlueNexus"]
-[editable path="Navigation/NavigationMeshInstance/RedNexus"]
