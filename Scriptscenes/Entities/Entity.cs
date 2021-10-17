@@ -121,7 +121,7 @@ public abstract class Entity : KinematicBody
 
     public virtual void OnDead()
     {
-
+        AttackTarget = null;
         CollisionLayer = 0b00000000000000000001;
         Deaths++;
 

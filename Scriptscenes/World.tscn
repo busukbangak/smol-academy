@@ -83,47 +83,34 @@ curve = SubResource( 6 )
 
 [node name="Smol" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.3953, 0, 9.60179 )
-collision_layer = 2
-collision_mask = 3
 AttackSpeed = 5.0
 MoveSpeed = 30.0
 
 [node name="BlueMinion" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.0958, 0, 41.375 )
-collision_layer = 2
-collision_mask = 3
+AttackDamage = 30.0
 _customPathNodePath = NodePath("../BluePath")
 
 [node name="BlueMinion2" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1953, 0, 46.3429 )
-collision_layer = 2
-collision_mask = 3
 _customPathNodePath = NodePath("../BluePath")
 
 [node name="BlueMinion3" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.2864, 0, 43.6684 )
-collision_layer = 2
-collision_mask = 3
 _customPathNodePath = NodePath("../BluePath")
 
 [node name="RedMinion" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.6504, 0, -45.5007 )
-collision_layer = 2
-collision_mask = 3
 AssignedTeam = 1
 _customPathNodePath = NodePath("../RedPath")
 
 [node name="RedMinion2" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.2079, 0, -41.9086 )
-collision_layer = 2
-collision_mask = 3
 AssignedTeam = 1
 _customPathNodePath = NodePath("../RedPath")
 
 [node name="RedMinion3" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7654, 0, -38.4661 )
-collision_layer = 2
-collision_mask = 3
 AssignedTeam = 1
 _customPathNodePath = NodePath("../RedPath")
 
@@ -131,11 +118,3 @@ _customPathNodePath = NodePath("../RedPath")
 transform = Transform( -1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 35, 0 )
 
 [node name="DebugOverlay" parent="." instance=ExtResource( 7 )]
-
-[connection signal="UpdateHealthbar" from="Navigation/Smol" to="Navigation/Smol/Healthbar3D" method="OnEntityUpdateHealthbar"]
-[connection signal="UpdateHealthbar" from="Navigation/BlueMinion" to="Navigation/BlueMinion/Healthbar3D" method="OnEntityUpdateHealthbar"]
-[connection signal="UpdateHealthbar" from="Navigation/BlueMinion2" to="Navigation/BlueMinion2/Healthbar3D" method="OnEntityUpdateHealthbar"]
-[connection signal="UpdateHealthbar" from="Navigation/BlueMinion3" to="Navigation/BlueMinion3/Healthbar3D" method="OnEntityUpdateHealthbar"]
-[connection signal="UpdateHealthbar" from="Navigation/RedMinion" to="Navigation/RedMinion/Healthbar3D" method="OnEntityUpdateHealthbar"]
-[connection signal="UpdateHealthbar" from="Navigation/RedMinion2" to="Navigation/RedMinion2/Healthbar3D" method="OnEntityUpdateHealthbar"]
-[connection signal="UpdateHealthbar" from="Navigation/RedMinion3" to="Navigation/RedMinion3/Healthbar3D" method="OnEntityUpdateHealthbar"]
