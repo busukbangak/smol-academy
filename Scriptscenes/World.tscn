@@ -70,44 +70,25 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5056, 3.02643, -44.0151 )
 collision_layer = 2
 collision_mask = 3
 AssignedTeam = 1
-MoveSpeed = 15.0
 _customPathNodePath = NodePath("../RedPath")
 
 [node name="RedMinion2" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.9251, 3.02644, -38.2521 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5764, 3.02643, -45.3755 )
 collision_layer = 2
 collision_mask = 3
 AssignedTeam = 1
-MoveSpeed = 15.0
-_customPathNodePath = NodePath("../RedPath")
-
-[node name="RedMinion3" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.6697, 3.02643, -31.1243 )
-collision_layer = 2
-collision_mask = 3
-AssignedTeam = 1
-MoveSpeed = 15.0
 _customPathNodePath = NodePath("../RedPath")
 
 [node name="BlueMinion" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.8537, 3.02643, 58.7841 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.875, 3.02643, 47.0426 )
 collision_layer = 2
 collision_mask = 3
-MoveSpeed = 15.0
 _customPathNodePath = NodePath("../BluePath")
 
 [node name="BlueMinion2" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60.7575, 3.02643, 40.8152 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8194, 3.02643, 42.7159 )
 collision_layer = 2
 collision_mask = 3
-MoveSpeed = 15.0
-_customPathNodePath = NodePath("../BluePath")
-
-[node name="BlueMinion3" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.4246, 3.02642, 46.6784 )
-collision_layer = 2
-collision_mask = 3
-MoveSpeed = 15.0
 _customPathNodePath = NodePath("../BluePath")
 
 [editable path="Navigation/NavigationMeshInstance/BlueNexus"]

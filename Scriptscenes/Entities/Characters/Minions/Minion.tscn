@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scriptscenes/Entities/Characters/Characters.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scriptscenes/Entities/Characters/Minions/Minion.cs" type="Script" id=2]
@@ -370,6 +370,8 @@ bind/41/pose = Transform( -1, 1.63588e-06, 3.46717e-07, 2.93497e-07, -0.0324215,
 bind/42/name = "PoleTarget.R"
 bind/42/bone = -1
 bind/42/pose = Transform( 1, 0, -7.15256e-07, 0, 1, 0, 7.15256e-07, 0, 1, 0.648435, -1.0522, -1.51444 )
+
+[sub_resource type="SpatialMaterial" id=30]
 
 [sub_resource type="ArrayMesh" id=16]
 surfaces/0 = {
@@ -4175,6 +4177,7 @@ mesh = SubResource( 13 )
 [node name="HandL" parent="Model/Robot/RobotArmature/Skeleton" index="12"]
 mesh = SubResource( 14 )
 skin = SubResource( 15 )
+material/0 = SubResource( 30 )
 
 [node name="HandR" parent="Model/Robot/RobotArmature/Skeleton" index="13"]
 mesh = SubResource( 16 )

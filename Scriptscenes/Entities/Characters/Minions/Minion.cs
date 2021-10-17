@@ -19,11 +19,13 @@ public class Minion : Character
     public override void _Ready()
     {
         base._Ready();
+        ChangeMinionColor(AssignedTeam == TeamColor.Blue ? Colors.SteelBlue : Colors.OrangeRed);
         ChangeState(MinionState.Idle);
     }
 
     public override void _Process(float delta)
     {
+
         switch (CurrentMinionState)
         {
             case MinionState.Idle: Idle(); break;
@@ -181,5 +183,23 @@ public class Minion : Character
     private void Dead()
     {
         GlobalTranslate(new Vector3(0, -1 * GetProcessDeltaTime(), 0));
+    }
+
+    private void ChangeMinionColor(Color color)
+    {
+        SpatialMaterial spatialMaterial = new SpatialMaterial();
+        spatialMaterial.AlbedoColor = color;
+        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment2/Head").Set("material/0", spatialMaterial);
+        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment3/ArmL").Set("material/0", spatialMaterial);
+        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment4/ShoulderL").Set("material/0", spatialMaterial);
+        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment5/ArmR").Set("material/0", spatialMaterial);
+        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment6/ShoulderR").Set("material/0", spatialMaterial);
+        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment7/LowerLegL").Set("material/0", spatialMaterial);
+        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment8/LegL").Set("material/0", spatialMaterial);
+        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment9/LowerLegR").Set("material/0", spatialMaterial);
+        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment10/LegR").Set("material/0", spatialMaterial);
+        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment11/Torso").Set("material/0", spatialMaterial);
+        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/HandL").Set("material/0", spatialMaterial);
+        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/HandR").Set("material/0", spatialMaterial);
     }
 }
