@@ -81,55 +81,11 @@ collision_mask = 3
 AttackSpeed = 5.0
 MoveSpeed = 40.0
 
-[node name="RedMinion" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.4168, 3.02643, -46.0383 )
-collision_layer = 2
-collision_mask = 3
-AssignedTeam = 1
-_customPathNodePath = NodePath("../RedPath")
-
-[node name="RedMinion4" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.5388, 3.02643, 23.1128 )
-collision_layer = 2
-collision_mask = 3
-AssignedTeam = 1
-
-[node name="RedMinion2" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.3264, 3.02643, -39.0764 )
-collision_layer = 2
-collision_mask = 3
-AssignedTeam = 1
-_customPathNodePath = NodePath("../RedPath")
-
-[node name="RedMinion3" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.6784, 3.02643, -42.9647 )
-collision_layer = 2
-collision_mask = 3
-AssignedTeam = 1
-_customPathNodePath = NodePath("../RedPath")
-
-[node name="BlueMinion" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.0388, 3.02643, 43.3763 )
-collision_layer = 2
-collision_mask = 3
-_customPathNodePath = NodePath("../BluePath")
-
-[node name="BlueMinion3" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.997, 3.02643, 40.2501 )
-collision_layer = 2
-collision_mask = 3
-_customPathNodePath = NodePath("../BluePath")
-
 [node name="BlueMinion2" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.4103, 3.02644, 46.0273 )
 collision_layer = 2
 collision_mask = 3
 _customPathNodePath = NodePath("../BluePath")
-
-[node name="BlueMinion4" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.963, 3.02644, 33.7243 )
-collision_layer = 2
-collision_mask = 3
 
 [node name="BluePath" type="Path" parent="Navigation"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )

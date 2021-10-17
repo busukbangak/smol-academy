@@ -116,7 +116,10 @@ public abstract class Entity : KinematicBody
 
     public virtual void OnDead()
     {
+
+        GetNode<CollisionShape>("CollisionShape").Disabled = true;
         Deaths++;
+
         if (IsRespawnActivated)
         {
             Respawn();
@@ -125,6 +128,7 @@ public abstract class Entity : KinematicBody
 
     public virtual void OnRespawn()
     {
+        GetNode<CollisionShape>("CollisionShape").Disabled = false;
         Health = MaxHealth;
     }
 
@@ -136,7 +140,7 @@ public abstract class Entity : KinematicBody
 
     public void OnDetectionAreaBodyEntered(Entity body)
     {
-        if (body == this)
+        if (body == this || IsQueuedForDeletion() || body.Health <= 0)
         {
             return;
         }

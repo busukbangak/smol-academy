@@ -43,16 +43,16 @@ public class Smol : Character
         }
     }
 
-    public void ChangeState(SmolState SmolState)
+    public void ChangeState(SmolState smolState)
     {
         ExitState(CurrentSmolState);
-        CurrentSmolState = SmolState;
+        CurrentSmolState = smolState;
         EnterState(CurrentSmolState);
     }
 
-    public void EnterState(SmolState SmolState)
+    public void EnterState(SmolState smolState)
     {
-        switch (CurrentSmolState)
+        switch (smolState)
         {
             case SmolState.Idle:
                 PlayAnimation("Robot_Idle_Loop");
@@ -90,9 +90,9 @@ public class Smol : Character
         }
     }
 
-    public void ExitState(SmolState SmolState)
+    public void ExitState(SmolState smolState)
     {
-        switch (CurrentSmolState)
+        switch (smolState)
         {
             case SmolState.Idle:
                 break;

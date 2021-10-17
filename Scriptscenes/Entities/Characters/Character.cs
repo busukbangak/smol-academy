@@ -83,20 +83,13 @@ public abstract class Character : Entity
     public override void OnDead()
     {
         base.OnDead();
-        GetNode<CollisionShape>("CollisionShape").Disabled = true;
 
         if (!IsRespawnActivated)
         {
             GetNode<Timer>("NavigationTimer").Disconnect("timeout", this, "OnNavigationTimerTimeout");
         }
     }
-
-    public override void OnRespawn()
-    {
-        base.OnRespawn();
-        GetNode<CollisionShape>("CollisionShape").Disabled = false;
-    }
-
+    
     public void OnNavigationTimerTimeout()
     {
         if (AttackTarget == null)

@@ -1,8 +1,17 @@
 using Godot;
 using System;
 
+public enum TurretState
+{
+    Idle,
+    Attack,
+    Dead
+}
+
 public class Turret : Entity
 {
+
+    public TurretState CurrentTurretState;
 
     public override void _Ready()
     {
@@ -19,8 +28,61 @@ public class Turret : Entity
         Model.GetNode<CSGMesh>("Turret/Bot").Set("material", spatialMaterial);
     }
 
-    public override void OnDead()
+    public override void _Process(float delta)
     {
-        base.OnDead();
+        switch (CurrentTurretState)
+        {
+            case TurretState.Idle: Idle(); break;
+            case TurretState.Attack: Attack(); break;
+            case TurretState.Dead: Dead(); break;
+        }
+    }
+
+    public void ChangeState(TurretState turretState)
+    {
+        ExitState(CurrentTurretState);
+        CurrentTurretState = turretState;
+        EnterState(CurrentTurretState);
+    }
+
+    public void EnterState(TurretState turretState)
+    {
+        switch (turretState)
+        {
+            case TurretState.Idle:
+                break;
+            case TurretState.Attack:
+                break;
+            case TurretState.Dead:
+                break;
+        }
+    }
+
+    public void ExitState(TurretState turretState)
+    {
+        switch (turretState)
+        {
+            case TurretState.Idle:
+                break;
+            case TurretState.Attack:
+                break;
+            case TurretState.Dead:
+                break;
+        }
+    }
+
+    public void Idle()
+    {
+
+    }
+
+    public void Attack()
+    {
+
+    }
+
+    public void Dead()
+    {
+
     }
 }

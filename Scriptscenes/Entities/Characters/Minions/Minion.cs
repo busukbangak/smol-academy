@@ -35,16 +35,16 @@ public class Minion : Character
         }
     }
 
-    public void ChangeState(MinionState MinionState)
+    public void ChangeState(MinionState minionState)
     {
         ExitState(CurrentMinionState);
-        CurrentMinionState = MinionState;
+        CurrentMinionState = minionState;
         EnterState(CurrentMinionState);
     }
 
-    public async void EnterState(MinionState MinionState)
+    public async void EnterState(MinionState minionState)
     {
-        switch (CurrentMinionState)
+        switch (minionState)
         {
             case MinionState.Idle:
                 PlayAnimation("Robot_Idle_Loop");
@@ -72,9 +72,9 @@ public class Minion : Character
         }
     }
 
-    public void ExitState(MinionState MinionState)
+    public void ExitState(MinionState minionState)
     {
-        switch (CurrentMinionState)
+        switch (minionState)
         {
             case MinionState.Idle:
                 break;
@@ -98,17 +98,17 @@ public class Minion : Character
             return;
         }
 
-        if (!IsNavigationComplete())
-        {
-            ChangeState(MinionState.Move);
-            return;
-        }
-
         if (EnemyEntitiesInDetectionArea().Count > 0)
         {
 
             AttackTarget = GetClosestEnemyEntityInDetectionArea();
             ChangeState(MinionState.Attack);
+            return;
+        }
+
+        if (!IsNavigationComplete())
+        {
+            ChangeState(MinionState.Move);
             return;
         }
     }
@@ -121,18 +121,19 @@ public class Minion : Character
             return;
         }
 
-        if (!IsNavigationComplete())
-        {
-            Navigate();
-        }
-
         if (EnemyEntitiesInDetectionArea().Count > 0)
         {
-
             AttackTarget = GetClosestEnemyEntityInDetectionArea();
             ChangeState(MinionState.Attack);
             return;
         }
+
+        if (!IsNavigationComplete())
+        {
+            Navigate();
+            return;
+        }
+
     }
 
     private void Engage()
@@ -181,8 +182,6 @@ public class Minion : Character
         // Incase of buffs during attack
         UpdateAnimationPlaybackSpeed(AttackSpeed);
         Model.LookAt(AttackTarget.GlobalTransform.origin, Vector3.Up);
-
-
     }
 
     private void Dead()
