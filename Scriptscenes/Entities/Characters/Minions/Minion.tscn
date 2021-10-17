@@ -8,7 +8,6 @@
 [ext_resource path="res://Models/Robot/Main.material" type="Material" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 2.0
 
 [sub_resource type="ArrayMesh" id=2]
 surfaces/0 = {
@@ -4195,5 +4194,8 @@ anims/Robot_Running_Loop = SubResource( 26 )
 anims/Robot_Sitting = SubResource( 27 )
 anims/Robot_ThumbsUp = SubResource( 28 )
 anims/Robot_WalkJump = SubResource( 29 )
+
+[node name="DetectionArea" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 
 [editable path="Model/Robot"]

@@ -5,7 +5,6 @@
 [ext_resource path="res://Models/Robot/Robot.glb" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 2.0
 
 [sub_resource type="Animation" id=2]
 
@@ -990,5 +989,8 @@ anims/Robot_Dead = SubResource( 2 )
 anims/Robot_Idle_Loop = SubResource( 3 )
 anims/Robot_Punch_Loop = SubResource( 4 )
 anims/Robot_Running_Loop = SubResource( 5 )
+
+[node name="DetectionArea" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 
 [editable path="Model/Robot"]

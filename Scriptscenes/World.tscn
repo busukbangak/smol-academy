@@ -47,15 +47,36 @@ AssignedTeam = 1
 
 [node name="Smol" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.69096, 0 )
-collision_layer = 2
-collision_mask = 3
 AttackSpeed = 5.0
 MoveSpeed = 40.0
 
 [node name="Minion" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.9342, 3.02643, 24.0559 )
+AssignedTeam = 1
+_customPathNodePath = NodePath("../Path")
+
+[node name="Minion2" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9971, 3.02643, 22.2334 )
+AssignedTeam = 1
+_customPathNodePath = NodePath("../Path")
+
+[node name="Minion3" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.227, 3.02643, 30.8013 )
+AssignedTeam = 1
+_customPathNodePath = NodePath("../Path")
+
+[node name="Minion4" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8298, 3.02643, 16.5763 )
-collision_layer = 2
-collision_mask = 3
+AssignedTeam = 1
+_customPathNodePath = NodePath("../Path")
+
+[node name="Minion5" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1632, 3.02643, 29.5907 )
+AssignedTeam = 1
+_customPathNodePath = NodePath("../Path")
+
+[node name="Minion6" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56.6817, 3.02643, 35.4232 )
 AssignedTeam = 1
 _customPathNodePath = NodePath("../Path")
 
