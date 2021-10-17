@@ -57,6 +57,9 @@ public abstract class Entity : KinematicBody
 
     protected Spatial Model;
 
+    [Signal]
+    public delegate void UpdateHealthbar(float health, float maxHealth);
+
     [Export]
     public bool IsRespawnActivated;
 
@@ -68,6 +71,8 @@ public abstract class Entity : KinematicBody
         _detectionAreaSphere.Radius = AttackRange / Scale.x;
         Model = GetNode<Spatial>("Model");
         Health = MaxHealth;
+
+        EmitSignal(nameof(UpdateHealthbar), Health, MaxHealth);
     }
     public void OnEntityMouseEntered()
     {
@@ -105,7 +110,7 @@ public abstract class Entity : KinematicBody
         }
 
         AttackTarget.Health -= AttackDamage;
-        GD.Print(AttackTarget.Name, ": ", AttackTarget.Health);
+        AttackTarget.EmitSignal(nameof(UpdateHealthbar), AttackTarget.Health, MaxHealth);
         if (AttackTarget.Health <= 0)
         {
             Kills++;

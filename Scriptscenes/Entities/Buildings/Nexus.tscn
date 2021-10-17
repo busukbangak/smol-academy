@@ -37,3 +37,6 @@ mesh = SubResource( 2 )
 material = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Model/Nexus" index="2"]
+
+[node name="Healthbar3D" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )

@@ -4203,4 +4203,7 @@ anims/Robot_WalkJump = SubResource( 30 )
 [node name="DetectionArea" parent="." index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 
+[node name="Healthbar3D" parent="." index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+
 [editable path="Model/Robot"]
