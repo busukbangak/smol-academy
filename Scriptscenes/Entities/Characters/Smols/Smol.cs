@@ -459,16 +459,15 @@ public class Smol : Character
 
     private void Attack()
     {
+
+
         if (Health <= 0)
         {
             ChangeState(SmolState.Dead);
             return;
         }
 
-        // Incase of buffs during attack
-        UpdateAnimationPlaybackSpeed(AttackSpeed);
-
-        if (AttackTarget == null)
+        if (AttackTarget.Health <= 0)
         {
 
             ChangeState(SmolState.Idle);
@@ -478,6 +477,7 @@ public class Smol : Character
         if (!EntitiesInDetectionArea.Contains(AttackTarget))
         {
             ChangeState(SmolState.Engage);
+            return;
         }
 
         if (Input.IsActionJustPressed("target"))
@@ -523,6 +523,10 @@ public class Smol : Character
             ChangeState(SmolState.Dance);
             return;
         }
+
+        // Incase of buffs during attack
+        UpdateAnimationPlaybackSpeed(AttackSpeed);
+        Model.LookAt(AttackTarget.GlobalTransform.origin, Vector3.Up);
     }
 
     private void Dead()

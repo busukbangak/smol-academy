@@ -165,19 +165,25 @@ public class Minion : Character
             return;
         }
 
+        if (!EntitiesInDetectionArea.Contains(AttackTarget) || AttackTarget.Health <= 0)
+        {
+            if (!IsNavigationComplete())
+            {
+                ChangeState(MinionState.Move);
+                return;
+            }
+            else
+            {
+                ChangeState(MinionState.Idle);
+                return;
+            }
+        }
+
         // Incase of buffs during attack
         UpdateAnimationPlaybackSpeed(AttackSpeed);
+        Model.LookAt(AttackTarget.GlobalTransform.origin, Vector3.Up);
 
-        if (AttackTarget == null)
-        {
-            ChangeState(MinionState.Move);
-            return;
-        }
 
-        if (!EntitiesInDetectionArea.Contains(AttackTarget))
-        {
-            ChangeState(MinionState.Idle);
-        }
     }
 
     private void Dead()
