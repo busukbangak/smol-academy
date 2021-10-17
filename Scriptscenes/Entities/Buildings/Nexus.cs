@@ -1,13 +1,17 @@
 using Godot;
 using System;
 
+public enum NexusState
+{
+    Idle,
+    Dead
+}
+
 public class Nexus : Entity
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
 
-    // Called when the node enters the scene tree for the first time.
+    public NexusState CurrentNexusState;
+
     public override void _Ready()
     {
         base._Ready();
@@ -21,6 +25,59 @@ public class Nexus : Entity
         spatialMaterial.AlbedoColor = color;
 
         Model.GetNode<CSGMesh>("Nexus/Bot").Set("material", spatialMaterial);
+    }
+
+    public override void _Process(float delta)
+    {
+        switch (CurrentNexusState)
+        {
+            case NexusState.Idle: Idle(); break;
+            case NexusState.Dead: Dead(); break;
+        }
+    }
+
+    public void ChangeState(NexusState nexusState)
+    {
+        ExitState(CurrentNexusState);
+        CurrentNexusState = nexusState;
+        EnterState(CurrentNexusState);
+    }
+
+    public void EnterState(NexusState nexusState)
+    {
+        switch (nexusState)
+        {
+            case NexusState.Idle:
+                break;
+            case NexusState.Dead:
+                OnDead();
+                break;
+        }
+    }
+
+    public void ExitState(NexusState nexusState)
+    {
+        switch (nexusState)
+        {
+            case NexusState.Idle:
+                break;
+            case NexusState.Dead:
+                break;
+        }
+    }
+
+    public void Idle()
+    {
+        if (Health <= 0)
+        {
+            ChangeState(NexusState.Dead);
+            return;
+        }
+    }
+
+    public void Dead()
+    {
+
     }
 
 }
