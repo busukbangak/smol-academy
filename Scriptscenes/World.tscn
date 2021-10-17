@@ -79,6 +79,48 @@ collision_mask = 3
 AssignedTeam = 1
 _customPathNodePath = NodePath("../RedPath")
 
+[node name="RedMinion3" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.3995, 3.02643, -32.2339 )
+collision_layer = 2
+collision_mask = 3
+AssignedTeam = 1
+_customPathNodePath = NodePath("../RedPath")
+
+[node name="RedMinion4" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.4703, 3.02643, -33.5943 )
+collision_layer = 2
+collision_mask = 3
+AssignedTeam = 1
+_customPathNodePath = NodePath("../RedPath")
+
+[node name="RedMinion5" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.9036, 3.02643, -36.7013 )
+collision_layer = 2
+collision_mask = 3
+AssignedTeam = 1
+_customPathNodePath = NodePath("../RedPath")
+
+[node name="RedMinion6" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9744, 3.02643, -38.0617 )
+collision_layer = 2
+collision_mask = 3
+AssignedTeam = 1
+_customPathNodePath = NodePath("../RedPath")
+
+[node name="RedMinion7" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.7974, 3.02643, -24.9201 )
+collision_layer = 2
+collision_mask = 3
+AssignedTeam = 1
+_customPathNodePath = NodePath("../RedPath")
+
+[node name="RedMinion8" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.8682, 3.02643, -26.2805 )
+collision_layer = 2
+collision_mask = 3
+AssignedTeam = 1
+_customPathNodePath = NodePath("../RedPath")
+
 [node name="BlueMinion" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.875, 3.02643, 47.0426 )
 collision_layer = 2
@@ -87,6 +129,42 @@ _customPathNodePath = NodePath("../BluePath")
 
 [node name="BlueMinion2" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8194, 3.02643, 42.7159 )
+collision_layer = 2
+collision_mask = 3
+_customPathNodePath = NodePath("../BluePath")
+
+[node name="BlueMinion3" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.4786, 3.02643, 55.0492 )
+collision_layer = 2
+collision_mask = 3
+_customPathNodePath = NodePath("../BluePath")
+
+[node name="BlueMinion4" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.423, 3.02643, 50.7225 )
+collision_layer = 2
+collision_mask = 3
+_customPathNodePath = NodePath("../BluePath")
+
+[node name="BlueMinion5" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.5602, 3.02643, 39.9247 )
+collision_layer = 2
+collision_mask = 3
+_customPathNodePath = NodePath("../BluePath")
+
+[node name="BlueMinion6" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.5046, 3.02643, 35.598 )
+collision_layer = 2
+collision_mask = 3
+_customPathNodePath = NodePath("../BluePath")
+
+[node name="BlueMinion7" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.1638, 3.02643, 47.9313 )
+collision_layer = 2
+collision_mask = 3
+_customPathNodePath = NodePath("../BluePath")
+
+[node name="BlueMinion8" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.1082, 3.02643, 43.6046 )
 collision_layer = 2
 collision_mask = 3
 _customPathNodePath = NodePath("../BluePath")
