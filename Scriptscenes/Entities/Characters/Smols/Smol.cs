@@ -475,6 +475,12 @@ public class Smol : Character
             return;
         }
 
+        if (!EntitiesInDetectionArea.Contains(AttackTarget))
+        {
+            ChangeState(SmolState.Engage);
+            ;
+        }
+
         if (Input.IsActionJustPressed("target"))
         {
             var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
