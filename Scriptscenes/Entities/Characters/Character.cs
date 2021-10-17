@@ -99,7 +99,7 @@ public abstract class Character : Entity
 
     public void OnNavigationTimerTimeout()
     {
-        if (AttackTarget == null || AttackTarget.IsQueuedForDeletion())
+        if (AttackTarget == null)
         {
             return;
         }
