@@ -81,10 +81,12 @@ collision_mask = 3
 AttackSpeed = 5.0
 MoveSpeed = 40.0
 
-[node name="BlueMinion2" parent="Navigation" instance=ExtResource( 4 )]
+[node name="BlueMinion" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.4103, 3.02644, 46.0273 )
 collision_layer = 2
 collision_mask = 3
+AttackSpeed = 5.0
+MoveSpeed = 25.0
 _customPathNodePath = NodePath("../BluePath")
 
 [node name="BluePath" type="Path" parent="Navigation"]

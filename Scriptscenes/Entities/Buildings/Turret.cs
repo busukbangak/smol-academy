@@ -54,6 +54,7 @@ public class Turret : Entity
             case TurretState.Attack:
                 break;
             case TurretState.Dead:
+                OnDead();
                 break;
         }
     }
@@ -73,7 +74,11 @@ public class Turret : Entity
 
     public void Idle()
     {
-
+        if (Health <= 0)
+        {
+            ChangeState(TurretState.Dead);
+            return;
+        }
     }
 
     public void Attack()

@@ -18,7 +18,7 @@ public abstract class Entity : KinematicBody
     public int Level = 1;
 
     [Export(PropertyHint.Range, "0,1")]
-    public float LevelMultiplicator = 2f;
+    public float LevelMultiplicator = 0.1f;
 
     public float Health;
 
