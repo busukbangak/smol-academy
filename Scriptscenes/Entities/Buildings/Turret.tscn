@@ -5,15 +5,6 @@
 
 [node name="Turret" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-AssignedTeam = 0
-Level = 1
-LevelMultiplicator = 2.0
-MaxHealth = 100.0
-AttackDamage = 10.0
-AttackRange = 5.0
-AttackSpeed = 1.0
-IsMelee = true
-IsRespawnActivated = false
 
 [node name="Tower" type="Spatial" parent="Model" index="0"]
 
