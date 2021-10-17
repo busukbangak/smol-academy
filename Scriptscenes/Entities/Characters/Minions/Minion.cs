@@ -102,6 +102,14 @@ public class Minion : Character
             ChangeState(MinionState.Move);
             return;
         }
+
+        if (EnemyEntitiesInDetectionArea().Count > 0)
+        {
+
+            AttackTarget = GetClosestEnemyEntityInDetectionArea();
+            ChangeState(MinionState.Attack);
+            return;
+        }
     }
 
     private void Move()
