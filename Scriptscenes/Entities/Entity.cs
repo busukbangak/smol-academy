@@ -192,8 +192,8 @@ public abstract class Entity : KinematicBody
                 continue;
             }
 
-            if (GlobalTransform.origin.DistanceTo(closestEntity.GlobalTransform.origin) <
-                GlobalTransform.origin.DistanceTo(entity.GlobalTransform.origin))
+            if (GlobalTransform.origin.DistanceTo(entity.GlobalTransform.origin) <
+                GlobalTransform.origin.DistanceTo(closestEntity.GlobalTransform.origin))
             {
                 closestEntity = entity;
             }
