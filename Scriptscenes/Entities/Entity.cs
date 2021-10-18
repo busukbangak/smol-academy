@@ -72,7 +72,7 @@ public abstract class Entity : KinematicBody
         Model = GetNode<Spatial>("Model");
         Health = MaxHealth;
 
-        EmitSignal(nameof(UpdateHealthbar), MaxHealth, Health);
+        UpdateHealth();
     }
 
     public void OnEntityMouseEntered()
@@ -111,7 +111,8 @@ public abstract class Entity : KinematicBody
         }
 
         AttackTarget.Health -= AttackDamage;
-        AttackTarget.EmitSignal(nameof(UpdateHealthbar), AttackTarget.MaxHealth, AttackTarget.Health);
+        AttackTarget.UpdateHealth();
+
         if (AttackTarget.Health <= 0)
         {
             Kills++;
@@ -192,4 +193,23 @@ public abstract class Entity : KinematicBody
         return closestEntity;
     }
 
+    public void OnHurtboxAreaEntered(Hitbox area)
+    {
+        Health -= area.Damage;
+        UpdateHealth();
+    }
+
+    public void UpdateHealth()
+    {
+        EmitSignal(nameof(UpdateHealthbar), MaxHealth, Health);
+    }
+
+    public void FireProjectile()
+    {
+        Projectile projectile = (Projectile)Projectile.Instance();
+        AddChild(projectile);
+        projectile.Translate(new Vector3(0, 9, 0));
+        projectile.Damage = AttackDamage;
+        projectile.Fire(AttackTarget);
+    }
 }

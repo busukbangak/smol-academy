@@ -42,4 +42,12 @@ public class Projectile : Hitbox
             QueueFree();
         }
     }
+
+    public override void OnHitboxAreaEntered(Area area)
+    {
+        if (area.GetParent<Entity>() == _target)
+        {
+            QueueFree();
+        }
+    }
 }
