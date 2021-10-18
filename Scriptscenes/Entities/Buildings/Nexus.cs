@@ -51,6 +51,7 @@ public class Nexus : Entity
                 break;
             case NexusState.Dead:
                 OnDead();
+                PlayAnimation("Nexus_Destroyed");
                 break;
         }
     }
