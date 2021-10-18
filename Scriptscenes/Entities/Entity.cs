@@ -35,7 +35,7 @@ public abstract class Entity : KinematicBody
     public float AttackSpeed = 1f;
 
     [Export]
-    public bool IsMelee = true;
+    public PackedScene Missile;
 
     protected Entity AttackTarget;
 
