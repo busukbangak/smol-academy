@@ -61,21 +61,18 @@ depth = 200.0
 
 [node name="BlueNexus" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -0.620312, 2.90436, 80.3241 )
-MaxHealth = 500.0
 
 [node name="RedNexus" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -0.400867, 2.90436, -80.0847 )
 AssignedTeam = 1
-MaxHealth = 500.0
+AttackRange = 5.0
 
 [node name="BlueTurret" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 6 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.208895, 1, 40.7357 )
-MaxHealth = 250.0
 
 [node name="RedTurret" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 6 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.208891, 1, -39.9793 )
 AssignedTeam = 1
-MaxHealth = 250.0
 
 [node name="BluePath" type="Path" parent="Navigation"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
@@ -86,8 +83,6 @@ curve = SubResource( 6 )
 
 [node name="Smol" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.3953, 0, 9.60179 )
-AttackSpeed = 5.0
-MoveSpeed = 30.0
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 35, 0 )

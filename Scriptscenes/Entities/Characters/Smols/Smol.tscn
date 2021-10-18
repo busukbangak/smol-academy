@@ -943,6 +943,7 @@ height = 1.5
 
 [node name="Smol" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+AttackRange = 5.0
 IsRespawnActivated = true
 
 [node name="CollisionShape" parent="." index="0"]

@@ -37,6 +37,9 @@ tracks/0/keys = {
 
 [node name="Turret" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+MaxHealth = 2500.0
+AttackDamage = 35.0
+AttackRange = 20.0
 Projectile = ExtResource( 4 )
 
 [node name="CollisionShape" parent="." index="0"]
