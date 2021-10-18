@@ -62,17 +62,21 @@ depth = 200.0
 
 [node name="BlueNexus" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -0.620312, 2.90436, 80.3241 )
+MaxHealth = 500.0
 
 [node name="RedNexus" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -0.400867, 2.90436, -80.0847 )
 AssignedTeam = 1
+MaxHealth = 500.0
 
 [node name="BlueTurret" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 6 )]
 transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 0.208895, 1, 40.7357 )
+MaxHealth = 250.0
 
 [node name="RedTurret" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 6 )]
 transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 0.208891, 1, -39.9793 )
 AssignedTeam = 1
+MaxHealth = 250.0
 
 [node name="BluePath" type="Path" parent="Navigation"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
@@ -88,7 +92,6 @@ MoveSpeed = 30.0
 
 [node name="BlueMinion" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.0958, 0, 41.375 )
-AttackDamage = 30.0
 _customPathNodePath = NodePath("../BluePath")
 
 [node name="BlueMinion2" parent="Navigation" instance=ExtResource( 4 )]

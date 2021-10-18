@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://DebugManager.cs" type="Script" id=1]
+[ext_resource path="res://Scriptscenes/Autoloads/Managers/DebugManager.cs" type="Script" id=1]
 
 [node name="DebugOverlay" type="CanvasLayer"]
 script = ExtResource( 1 )

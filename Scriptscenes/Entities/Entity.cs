@@ -58,7 +58,7 @@ public abstract class Entity : KinematicBody
     protected Spatial Model;
 
     [Signal]
-    public delegate void UpdateHealthbar(float health, float maxHealth);
+    public delegate void UpdateHealthbar(float maxHealth, float health);
 
     [Export]
     public bool IsRespawnActivated;
@@ -72,8 +72,9 @@ public abstract class Entity : KinematicBody
         Model = GetNode<Spatial>("Model");
         Health = MaxHealth;
 
-        EmitSignal(nameof(UpdateHealthbar), Health, MaxHealth);
+        EmitSignal(nameof(UpdateHealthbar), MaxHealth, Health);
     }
+
     public void OnEntityMouseEntered()
     {
         if (Health > 0 && PlayerData.AssignedTeam != AssignedTeam)
@@ -110,7 +111,7 @@ public abstract class Entity : KinematicBody
         }
 
         AttackTarget.Health -= AttackDamage;
-        AttackTarget.EmitSignal(nameof(UpdateHealthbar), AttackTarget.Health, MaxHealth);
+        AttackTarget.EmitSignal(nameof(UpdateHealthbar), AttackTarget.MaxHealth, AttackTarget.Health);
         if (AttackTarget.Health <= 0)
         {
             Kills++;

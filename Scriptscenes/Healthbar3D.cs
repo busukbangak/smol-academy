@@ -11,7 +11,7 @@ public class Healthbar3D : Spatial
         _healthbar = GetNode<ProgressBar>("Viewport/Healthbar");
     }
 
-    public void OnEntityUpdateHealthbar(float health, float maxHealth)
+    public void OnEntityUpdateHealthbar(float maxHealth, float health)
     {
         _healthbar.MaxValue = maxHealth;
         _healthbar.Value = health;
