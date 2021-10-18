@@ -52,10 +52,10 @@ public class Turret : Entity
             case TurretState.Idle:
                 break;
             case TurretState.Attack:
-                Missile missile = (Missile)Missile.Instance();
-                AddChild(missile);
-                missile.Translate(new Vector3(0, 9, 0));
-                missile.Fire(AttackTarget);
+                Projectile projectile = (Projectile)Projectile.Instance();
+                AddChild(projectile);
+                projectile.Translate(new Vector3(0, 9, 0));
+                projectile.Fire(AttackTarget);
                 break;
             case TurretState.Dead:
                 PlayAnimation("Turret_Destroyed");

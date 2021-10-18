@@ -35,7 +35,7 @@ public abstract class Entity : KinematicBody
     public float AttackSpeed = 1f;
 
     [Export]
-    public PackedScene Missile;
+    public PackedScene Projectile;
 
     protected Entity AttackTarget;
 
