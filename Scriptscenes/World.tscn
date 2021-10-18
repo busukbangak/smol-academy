@@ -70,11 +70,11 @@ AssignedTeam = 1
 MaxHealth = 500.0
 
 [node name="BlueTurret" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 6 )]
-transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 0.208895, 1, 40.7357 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.208895, 1, 40.7357 )
 MaxHealth = 250.0
 
 [node name="RedTurret" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 6 )]
-transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 0.208891, 1, -39.9793 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.208891, 1, -39.9793 )
 AssignedTeam = 1
 MaxHealth = 250.0
 
