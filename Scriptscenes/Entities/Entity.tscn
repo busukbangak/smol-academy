@@ -27,6 +27,9 @@ shape = SubResource( 1 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="UpdateHealthbar" from="." to="Healthbar3D" method="OnEntityUpdateHealthbar"]
 [connection signal="mouse_entered" from="." to="." method="OnEntityMouseEntered"]
 [connection signal="mouse_exited" from="." to="." method="OnEntityMouseExited"]

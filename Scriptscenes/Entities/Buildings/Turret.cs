@@ -52,6 +52,7 @@ public class Turret : Entity
             case TurretState.Idle:
                 break;
             case TurretState.Attack:
+                AttackTimer.Start();
                 break;
             case TurretState.Dead:
                 PlayAnimation("Turret_Destroyed");
@@ -68,6 +69,7 @@ public class Turret : Entity
                 break;
             case TurretState.Attack:
                 AttackTarget = null;
+                AttackTimer.Stop();
                 break;
             case TurretState.Dead:
                 break;
@@ -104,9 +106,10 @@ public class Turret : Entity
             return;
         }
 
-        if (true)
+        if (AttackTimer.IsStopped())
         {
             FireProjectile();
+            AttackTimer.Start();
         }
 
     }
