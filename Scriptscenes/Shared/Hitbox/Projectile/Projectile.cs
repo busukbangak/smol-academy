@@ -11,23 +11,23 @@ public class Projectile : Hitbox
 
     private Vector3 _velocity;
 
-    private Entity _target;
+    public Entity Target;
 
     public void Fire(Entity target)
     {
-        _target = target;
+        Target = target;
         SetAsToplevel(true);
         _velocity = -(Transform.basis.z) * 0.2f * _speed;
     }
 
     public override void _Process(float delta)
     {
-        if (_target == null)
+        if (Target == null)
         {
             return;
         }
 
-        var targetLocation = _target.GlobalTransform.origin;
+        var targetLocation = Target.GlobalTransform.origin;
         var desiredVelocity = (targetLocation - Transform.origin).Normalized() * _speed;
         var steer = (desiredVelocity - _velocity).Normalized() * _steerForce;
         _velocity += steer * delta;
@@ -35,17 +35,9 @@ public class Projectile : Hitbox
         Translation += _velocity * delta;
     }
 
-    public void OnMissileBodyEntered(Entity body)
-    {
-        if (body == _target)
-        {
-            QueueFree();
-        }
-    }
-
     public override void OnHitboxAreaEntered(Area area)
     {
-        if (area.GetParent<Entity>() == _target)
+        if (area.GetParent<Entity>() == Target)
         {
             QueueFree();
         }

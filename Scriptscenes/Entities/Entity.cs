@@ -203,6 +203,11 @@ public abstract class Entity : KinematicBody
 
     public void OnHurtboxAreaEntered(Hitbox area)
     {
+        if (area is Projectile projectile && projectile.Target != this)
+        {
+            return;
+        }
+
         Health -= area.Damage;
         UpdateHealth();
     }

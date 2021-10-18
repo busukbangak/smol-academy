@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scriptscenes/Entities/Buildings/Nexus.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scriptscenes/Controls/Camera.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scriptscenes/Entities/Characters/Smols/Smol.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scriptscenes/Entities/Characters/Minions/Minion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scriptscenes/Entities/Characters/Smols/Smol.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Textures/Prototype/Dark/texture_01.png" type="Texture" id=5]
 [ext_resource path="res://Scriptscenes/Entities/Buildings/Turret.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scriptscenes/Autoloads/Managers/DebugOverlay.tscn" type="PackedScene" id=7]
@@ -81,8 +82,35 @@ curve = SubResource( 5 )
 [node name="RedPath" type="Path" parent="Navigation"]
 curve = SubResource( 6 )
 
-[node name="Smol" parent="Navigation" instance=ExtResource( 3 )]
+[node name="Smol" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.3953, 0, 9.60179 )
+
+[node name="BlueMinion" parent="Navigation" instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -46.448, 0, 45.828 )
+_customPathNodePath = NodePath("../BluePath")
+
+[node name="BlueMinion2" parent="Navigation" instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -43.0074, 0, 42.0746 )
+_customPathNodePath = NodePath("../BluePath")
+
+[node name="BlueMinion3" parent="Navigation" instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -39.5668, 0, 38.1649 )
+_customPathNodePath = NodePath("../BluePath")
+
+[node name="RedMinion" parent="Navigation" instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 44.4146, 0, -44.5655 )
+AssignedTeam = 1
+_customPathNodePath = NodePath("../RedPath")
+
+[node name="RedMinion2" parent="Navigation" instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 40.6613, 0, -40.8121 )
+AssignedTeam = 1
+_customPathNodePath = NodePath("../RedPath")
+
+[node name="RedMinion3" parent="Navigation" instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 36.9079, 0, -36.4332 )
+AssignedTeam = 1
+_customPathNodePath = NodePath("../RedPath")
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 35, 0 )

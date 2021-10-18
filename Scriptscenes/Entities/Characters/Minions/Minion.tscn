@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scriptscenes/Entities/Characters/Characters.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scriptscenes/Entities/Characters/Minions/Minion.cs" type="Script" id=2]
@@ -4091,6 +4091,10 @@ tracks/42/imported = true
 tracks/42/enabled = true
 tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.833333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
+[sub_resource type="CapsuleShape" id=31]
+radius = 2.0
+height = 1.5
+
 [node name="Minion" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 AttackDamage = 3.0
@@ -4206,6 +4210,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 
 [node name="Healthbar3D" parent="." index="4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+
+[node name="CollisionShape" parent="Hurtbox" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0 )
+shape = SubResource( 31 )
 
 [editable path="Model/Robot"]
 [editable path="Hurtbox"]
