@@ -6,8 +6,5 @@ public class Hitbox : Area
     [Export]
     public float Damage;
 
-    public virtual void OnHitboxAreaEntered(Area area)
-    {
-        GD.Print(area);
-    }
+    public virtual void OnHitboxAreaEntered(Area area) { }
 }

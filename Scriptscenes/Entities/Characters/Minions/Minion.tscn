@@ -4106,7 +4106,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0
 shape = SubResource( 1 )
 
 [node name="Robot" parent="Model" index="0" instance=ExtResource( 3 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
 
 [node name="BoneAttachment" parent="Model/Robot/RobotArmature/Skeleton" index="0"]
 transform = Transform( -1, 2.93497e-07, 2.15749e-07, 2.0612e-07, -0.0324215, 0.999474, 3.00337e-07, 0.999474, 0.0324215, 0.633527, 0.024694, -0.138034 )
@@ -4208,7 +4208,7 @@ anims/Robot_WalkJump = SubResource( 30 )
 [node name="DetectionArea" parent="." index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 
-[node name="Healthbar3D" parent="." index="4"]
+[node name="Healthbar3D" parent="." index="3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
 
 [node name="CollisionShape" parent="Hurtbox" index="0"]
