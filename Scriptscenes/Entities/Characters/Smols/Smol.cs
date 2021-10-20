@@ -147,6 +147,18 @@ public class Smol : Character
                 break;
             case SmolState.Dead:
                 break;
+            case SmolState.AbilityOne:
+                StopNavigation();
+                break;
+            case SmolState.AbilityTwo:
+                StopNavigation();
+                break;
+            case SmolState.AbilityThree:
+                StopNavigation();
+                break;
+            case SmolState.AbilityFour:
+                StopNavigation();
+                break;
         }
     }
 
