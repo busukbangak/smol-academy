@@ -85,41 +85,59 @@ curve = SubResource( 6 )
 
 [node name="Smol" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.3953, 1.39202, 9.60179 )
+collision_layer = 2
+collision_mask = 3
 AttackSpeed = 2.0
 
 [node name="BlueMinion" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -42.3787, 0, 42.9795 )
+collision_layer = 2
+collision_mask = 3
 _customPathNodePath = NodePath("../BluePath")
 
 [node name="BlueMinion2" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -38.9381, 0, 39.2261 )
+collision_layer = 2
+collision_mask = 3
 _customPathNodePath = NodePath("../BluePath")
 
 [node name="BlueMinion3" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -35.4975, 0, 35.3164 )
+collision_layer = 2
+collision_mask = 3
 _customPathNodePath = NodePath("../BluePath")
 
 [node name="RedMinion" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 42.1205, 0, -42.1132 )
+collision_layer = 2
+collision_mask = 3
 AssignedTeam = 1
 _customPathNodePath = NodePath("../RedPath")
 
 [node name="RedMinion2" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 38.3672, 0, -38.3598 )
+collision_layer = 2
+collision_mask = 3
 AssignedTeam = 1
 _customPathNodePath = NodePath("../RedPath")
 
 [node name="RedMinion3" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 34.6138, 0, -33.9809 )
+collision_layer = 2
+collision_mask = 3
 AssignedTeam = 1
 _customPathNodePath = NodePath("../RedPath")
 
 [node name="BlueCannonMinion" parent="Navigation" instance=ExtResource( 8 )]
 transform = Transform( 0.721772, 0, -0.692131, 0, 1, 0, 0.692131, 0, 0.721772, -46.219, 1.42448, 46.5682 )
+collision_layer = 2
+collision_mask = 3
 _customPathNodePath = NodePath("../BluePath")
 
 [node name="RedCannonMinion" parent="Navigation" instance=ExtResource( 8 )]
 transform = Transform( 0.721772, 0, -0.692131, 0, 1, 0, 0.692131, 0, 0.721772, 45.7632, 1.42448, -45.3803 )
+collision_layer = 2
+collision_mask = 3
 AssignedTeam = 1
 _customPathNodePath = NodePath("../RedPath")
 
@@ -127,3 +145,13 @@ _customPathNodePath = NodePath("../RedPath")
 transform = Transform( -1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 35, 0 )
 
 [node name="DebugOverlay" parent="." instance=ExtResource( 7 )]
+
+[connection signal="UpdateHealthbar" from="Navigation/Smol" to="Navigation/Smol/Healthbar3D" method="OnEntityUpdateHealthbar"]
+[connection signal="UpdateHealthbar" from="Navigation/BlueMinion" to="Navigation/BlueMinion/Healthbar3D" method="OnEntityUpdateHealthbar"]
+[connection signal="UpdateHealthbar" from="Navigation/BlueMinion2" to="Navigation/BlueMinion2/Healthbar3D" method="OnEntityUpdateHealthbar"]
+[connection signal="UpdateHealthbar" from="Navigation/BlueMinion3" to="Navigation/BlueMinion3/Healthbar3D" method="OnEntityUpdateHealthbar"]
+[connection signal="UpdateHealthbar" from="Navigation/RedMinion" to="Navigation/RedMinion/Healthbar3D" method="OnEntityUpdateHealthbar"]
+[connection signal="UpdateHealthbar" from="Navigation/RedMinion2" to="Navigation/RedMinion2/Healthbar3D" method="OnEntityUpdateHealthbar"]
+[connection signal="UpdateHealthbar" from="Navigation/RedMinion3" to="Navigation/RedMinion3/Healthbar3D" method="OnEntityUpdateHealthbar"]
+[connection signal="UpdateHealthbar" from="Navigation/BlueCannonMinion" to="Navigation/BlueCannonMinion/Healthbar3D" method="OnEntityUpdateHealthbar"]
+[connection signal="UpdateHealthbar" from="Navigation/RedCannonMinion" to="Navigation/RedCannonMinion/Healthbar3D" method="OnEntityUpdateHealthbar"]

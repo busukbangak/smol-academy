@@ -55,7 +55,7 @@ public abstract class Entity : KinematicBody
 
     protected List<Entity> EntitiesInDetectionArea = new List<Entity>();
 
-    protected Spatial Model;
+    public Spatial Model;
 
     [Signal]
     public delegate void UpdateHealthbar(float maxHealth, float health);

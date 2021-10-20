@@ -4,7 +4,6 @@ using System;
 public abstract class Character : Entity
 {
 
-
     public float Mana;
 
     [Export]

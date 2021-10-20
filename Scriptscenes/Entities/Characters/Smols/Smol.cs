@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections;
 
 public enum SmolState
 {
@@ -10,7 +11,11 @@ public enum SmolState
     Dance,
     Engage,
     Attack,
-    Dead
+    Dead,
+    AbilityOne,
+    AbilityTwo,
+    AbilityThree,
+    AbilityFour
 }
 
 public class Smol : Character
@@ -18,10 +23,25 @@ public class Smol : Character
 
     public SmolState CurrentSmolState;
 
+    public Stack SmolStateStack = new Stack();
+
+    [Export]
+    public PackedScene[] PackedAbilities;
+
+    public Ability[] Abilities = new Ability[4];
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         base._Ready();
+
+        var i = 0;
+        foreach (var packedAbility in PackedAbilities)
+        {
+            Abilities[i] = packedAbility.Instance<Ability>();
+            Abilities[i].Init(this);
+            i++;
+        }
 
         ChangeState(SmolState.Idle);
 
@@ -40,6 +60,10 @@ public class Smol : Character
             case SmolState.Engage: Engage(); break;
             case SmolState.Attack: Attack(); break;
             case SmolState.Dead: Dead(); break;
+            case SmolState.AbilityOne: AbilityOne(); break;
+            case SmolState.AbilityTwo: AbilityTwo(); break;
+            case SmolState.AbilityThree: AbilityThree(); break;
+            case SmolState.AbilityFour: AbilityFour(); break;
         }
     }
 
@@ -87,6 +111,18 @@ public class Smol : Character
                 PlayAnimation("Robot_Dead");
                 base.OnDead();
                 break;
+            case SmolState.AbilityOne:
+                Abilities[0].Cast();
+                break;
+            case SmolState.AbilityTwo:
+                Abilities[1].Cast();
+                break;
+            case SmolState.AbilityThree:
+                Abilities[2].Cast();
+                break;
+            case SmolState.AbilityFour:
+                Abilities[3].Cast();
+                break;
         }
     }
 
@@ -112,6 +148,22 @@ public class Smol : Character
             case SmolState.Dead:
                 break;
         }
+    }
+
+    public void PushState(SmolState smolState)
+    {
+        SmolStateStack.Push(CurrentSmolState);
+        SmolStateStack.Push(smolState);
+
+        CurrentSmolState = smolState;
+        EnterState(CurrentSmolState);
+    }
+
+    public void PopState()
+    {
+        SmolStateStack.Pop();
+        ExitState(CurrentSmolState);
+        CurrentSmolState = (SmolState)SmolStateStack.Pop();
     }
 
     private void Idle()
@@ -163,6 +215,30 @@ public class Smol : Character
         if (Input.IsActionJustPressed("dance"))
         {
             ChangeState(SmolState.Dance);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_one"))
+        {
+            PushState(SmolState.AbilityOne);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_two"))
+        {
+            PushState(SmolState.AbilityTwo);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_three"))
+        {
+            PushState(SmolState.AbilityThree);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_four"))
+        {
+            PushState(SmolState.AbilityFour);
             return;
         }
     }
@@ -228,6 +304,30 @@ public class Smol : Character
             ChangeState(SmolState.Dance);
             return;
         }
+
+        if (Input.IsActionJustPressed("ability_one"))
+        {
+            PushState(SmolState.AbilityOne);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_two"))
+        {
+            PushState(SmolState.AbilityTwo);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_three"))
+        {
+            PushState(SmolState.AbilityThree);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_four"))
+        {
+            PushState(SmolState.AbilityFour);
+            return;
+        }
     }
 
     private void Talk()
@@ -279,6 +379,30 @@ public class Smol : Character
         if (Input.IsActionJustPressed("dance"))
         {
             ChangeState(SmolState.Dance);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_one"))
+        {
+            PushState(SmolState.AbilityOne);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_two"))
+        {
+            PushState(SmolState.AbilityTwo);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_three"))
+        {
+            PushState(SmolState.AbilityThree);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_four"))
+        {
+            PushState(SmolState.AbilityFour);
             return;
         }
     }
@@ -334,6 +458,30 @@ public class Smol : Character
             ChangeState(SmolState.Dance);
             return;
         }
+
+        if (Input.IsActionJustPressed("ability_one"))
+        {
+            PushState(SmolState.AbilityOne);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_two"))
+        {
+            PushState(SmolState.AbilityTwo);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_three"))
+        {
+            PushState(SmolState.AbilityThree);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_four"))
+        {
+            PushState(SmolState.AbilityFour);
+            return;
+        }
     }
 
     private void Dance()
@@ -385,6 +533,30 @@ public class Smol : Character
         if (Input.IsActionJustPressed("dance"))
         {
             ChangeState(SmolState.Dance);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_one"))
+        {
+            PushState(SmolState.AbilityOne);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_two"))
+        {
+            PushState(SmolState.AbilityTwo);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_three"))
+        {
+            PushState(SmolState.AbilityThree);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_four"))
+        {
+            PushState(SmolState.AbilityFour);
             return;
         }
     }
@@ -457,6 +629,29 @@ public class Smol : Character
             return;
         }
 
+        if (Input.IsActionJustPressed("ability_one"))
+        {
+            PushState(SmolState.AbilityOne);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_two"))
+        {
+            PushState(SmolState.AbilityTwo);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_three"))
+        {
+            PushState(SmolState.AbilityThree);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_four"))
+        {
+            PushState(SmolState.AbilityFour);
+            return;
+        }
     }
 
     private void Attack()
@@ -526,6 +721,30 @@ public class Smol : Character
             return;
         }
 
+        if (Input.IsActionJustPressed("ability_one"))
+        {
+            PushState(SmolState.AbilityOne);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_two"))
+        {
+            PushState(SmolState.AbilityTwo);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_three"))
+        {
+            PushState(SmolState.AbilityThree);
+            return;
+        }
+
+        if (Input.IsActionJustPressed("ability_four"))
+        {
+            PushState(SmolState.AbilityFour);
+            return;
+        }
+
         // Incase of buffs during attack
         UpdateAnimationPlaybackSpeed(AttackSpeed);
         Model.LookAt(AttackTarget.GlobalTransform.origin, Vector3.Up);
@@ -540,7 +759,28 @@ public class Smol : Character
         }
     }
 
-    public string CurrentSmolStateToString() {
+    private void AbilityOne()
+    {
+        PopState();
+    }
+
+    private void AbilityTwo()
+    {
+        PopState();
+    }
+
+    private void AbilityThree()
+    {
+        PopState();
+    }
+
+    private void AbilityFour()
+    {
+        PopState();
+    }
+
+    public string CurrentSmolStateToString()
+    {
         return CurrentSmolState.ToString();
     }
 }
