@@ -2,7 +2,7 @@
 Implemented MOBA/RTS mechanics for the planned multiplayer game smol academy (see smol-academy-GDD.pdf) made in Godot with C#. The game can be tested with the attached exe (exported game folder) or can be seen in the gameplay video (prototype-gameplay.mp4). The Goal is to defeat the enemy turrets and nexus to win the game. The assets were taken from the internet as placeholders. Those are free to use.
 
 ## Preview
-![preview]gameplay.gif)
+![preview](gameplay.gif)
 
 ## Code
 All Interactable Objects that can be targeted by the mouse are an Entity. The Entity base class consists of the base stats like attackDamage and movementSpeed and the assigned Team (See the attached diagram for more information: game-structure.pdf).
