@@ -6,3 +6,12 @@ C:\Users\awanali.SEKAE\Documents\smol-academy\.mono\temp\obj\Debug\smol-academy.
 C:\Users\awanali.SEKAE\Documents\smol-academy\.mono\temp\obj\Debug\smol-academy.csproj.CoreCompileInputs.cache
 C:\Users\awanali.SEKAE\Documents\smol-academy\.mono\temp\obj\Debug\smol-academy.dll
 C:\Users\awanali.SEKAE\Documents\smol-academy\.mono\temp\obj\Debug\smol-academy.pdb
+C:\Users\awanali\Workspace\Code Workspace\projects\smol-academy\.mono\temp\bin\Debug\smol-academy.dll
+C:\Users\awanali\Workspace\Code Workspace\projects\smol-academy\.mono\temp\bin\Debug\smol-academy.pdb
+C:\Users\awanali\Workspace\Code Workspace\projects\smol-academy\.mono\temp\obj\Debug\smol-academy.csproj.AssemblyReference.cache
+C:\Users\awanali\Workspace\Code Workspace\projects\smol-academy\.mono\temp\obj\Debug\smol-academy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\awanali\Workspace\Code Workspace\projects\smol-academy\.mono\temp\obj\Debug\smol-academy.AssemblyInfoInputs.cache
+C:\Users\awanali\Workspace\Code Workspace\projects\smol-academy\.mono\temp\obj\Debug\smol-academy.AssemblyInfo.cs
+C:\Users\awanali\Workspace\Code Workspace\projects\smol-academy\.mono\temp\obj\Debug\smol-academy.csproj.CoreCompileInputs.cache
+C:\Users\awanali\Workspace\Code Workspace\projects\smol-academy\.mono\temp\obj\Debug\smol-academy.dll
+C:\Users\awanali\Workspace\Code Workspace\projects\smol-academy\.mono\temp\obj\Debug\smol-academy.pdb

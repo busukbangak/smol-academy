@@ -12,6 +12,8 @@ public abstract class Character : Entity
     [Export]
     public float MoveSpeed = 10f;
 
+    public Vector3 CurrentMovementTarget;
+
     private Navigation _characterNavigation;
 
     private Vector3[] _path = new Vector3[0];
@@ -35,8 +37,15 @@ public abstract class Character : Entity
         Mana = MaxMana;
     }
 
+    public void UpdateNavigationPath()
+    {
+        if (CurrentMovementTarget == Vector3.Zero) return;
+        UpdateNavigationPath(CurrentMovementTarget);
+    }
+
     public void UpdateNavigationPath(Vector3 movementTarget)
     {
+        CurrentMovementTarget = movementTarget;
         _path = _characterNavigation.GetSimplePath(GlobalTransform.origin, movementTarget);
         _pathIndex = 0;
     }
@@ -49,6 +58,7 @@ public abstract class Character : Entity
 
     public void StopNavigation()
     {
+        CurrentMovementTarget = Vector3.Zero;
         _pathIndex = _path.Length;
     }
 

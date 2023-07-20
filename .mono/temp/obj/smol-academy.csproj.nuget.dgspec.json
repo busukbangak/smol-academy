@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\awanali.SEKAE\\Documents\\smol-academy\\smol-academy.csproj": {}
+    "C:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\smol-academy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\awanali.SEKAE\\Documents\\smol-academy\\smol-academy.csproj": {
+    "C:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\smol-academy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\awanali.SEKAE\\Documents\\smol-academy\\smol-academy.csproj",
+        "projectUniqueName": "C:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\smol-academy.csproj",
         "projectName": "smol-academy",
-        "projectPath": "C:\\Users\\awanali.SEKAE\\Documents\\smol-academy\\smol-academy.csproj",
-        "packagesPath": "C:\\Users\\awanali.SEKAE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\awanali.SEKAE\\Documents\\smol-academy\\.mono\\temp\\obj\\",
+        "projectPath": "C:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\smol-academy.csproj",
+        "packagesPath": "C:\\Users\\awanali\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\awanali.SEKAE\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\awanali\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net472"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,7 +37,7 @@
       "frameworks": {
         "net472": {
           "targetAlias": "net472",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
