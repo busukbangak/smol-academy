@@ -217,12 +217,13 @@ public abstract class Entity : KinematicBody
         EmitSignal(nameof(UpdateHealthbar), MaxHealth, Health);
     }
 
-    public void FireProjectile()
+    public Projectile FireProjectile()
     {
         Projectile projectile = (Projectile)Projectile.Instance();
         AddChild(projectile);
         projectile.Translate(new Vector3(0, 9, 0));
         projectile.Damage = AttackDamage;
         projectile.Fire(AttackTarget);
+        return projectile;
     }
 }

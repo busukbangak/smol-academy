@@ -5,6 +5,9 @@
 
 [node name="Character" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+MaxMana = 100.0
+MoveSpeed = 10.0
+_customPathNodePath = null
 
 [node name="NavigationTimer" type="Timer" parent="." index="6"]
 wait_time = 0.1

@@ -89,54 +89,38 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4578, 1.39202, 58.2007 )
 
 [node name="BlueMinion" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -42.3787, 0, 42.9795 )
-MaxMana = 100.0
-MoveSpeed = 10.0
 _customPathNodePath = NodePath("../BluePath")
 
 [node name="BlueMinion2" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -38.9381, 0, 39.2261 )
-MaxMana = 100.0
-MoveSpeed = 10.0
 _customPathNodePath = NodePath("../BluePath")
 
 [node name="BlueMinion3" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -35.4975, 0, 35.3164 )
-MaxMana = 100.0
-MoveSpeed = 10.0
 _customPathNodePath = NodePath("../BluePath")
 
 [node name="BlueCannonMinion" parent="Navigation" instance=ExtResource( 8 )]
 transform = Transform( 0.721772, 0, -0.692131, 0, 1, 0, 0.692131, 0, 0.721772, -46.219, 1.42448, 46.5682 )
-MaxMana = 100.0
-MoveSpeed = 10.0
 _customPathNodePath = NodePath("../BluePath")
 
 [node name="RedMinion" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 42.1205, 0, -42.1132 )
 AssignedTeam = 1
-MaxMana = 100.0
-MoveSpeed = 10.0
 _customPathNodePath = NodePath("../RedPath")
 
 [node name="RedMinion2" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 38.3672, 0, -38.3598 )
 AssignedTeam = 1
-MaxMana = 100.0
-MoveSpeed = 10.0
 _customPathNodePath = NodePath("../RedPath")
 
 [node name="RedMinion3" parent="Navigation" instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 34.6138, 0, -33.9809 )
 AssignedTeam = 1
-MaxMana = 100.0
-MoveSpeed = 10.0
 _customPathNodePath = NodePath("../RedPath")
 
 [node name="RedCannonMinion" parent="Navigation" instance=ExtResource( 8 )]
 transform = Transform( 0.721772, 0, -0.692131, 0, 1, 0, 0.692131, 0, 0.721772, 45.7632, 1.42448, -45.3803 )
 AssignedTeam = 1
-MaxMana = 100.0
-MoveSpeed = 10.0
 _customPathNodePath = NodePath("../RedPath")
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]

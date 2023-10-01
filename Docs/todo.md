@@ -1,4 +1,3 @@
-- check copyright (replace cursors, replace mech)
 - camera offset limit
 - lock mouse
 - camera lock with spacebar
@@ -8,6 +7,6 @@
 - more abilities
 - multiplayer
 
-
+- projectiles, shoot onto enemy and position spawning
 - better camera scrolling
 - navigation system updaten

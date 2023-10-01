@@ -12,11 +12,14 @@ albedo_texture = ExtResource( 2 )
 
 [node name="Projectile" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+_steerForce = 1000.0
+_speed = 25.0
 
 [node name="CollisionShape" parent="." index="0"]
 shape = SubResource( 1 )
 
 [node name="Projectile" type="Spatial" parent="." index="2"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 
 [node name="Body" type="CSGSphere" parent="Projectile" index="0"]
 radius = 0.2

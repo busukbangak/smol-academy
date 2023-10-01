@@ -7,7 +7,6 @@
 [ext_resource path="res://Models/Robot/Black.material" type="Material" id=5]
 [ext_resource path="res://Models/Robot/Main.material" type="Material" id=6]
 
-
 [sub_resource type="CapsuleShape" id=1]
 
 [sub_resource type="ArrayMesh" id=2]
@@ -4101,6 +4100,9 @@ script = ExtResource( 2 )
 AttackDamage = 3.0
 AttackRange = 5.0
 AttackSpeed = 0.5
+MaxMana = 100.0
+MoveSpeed = 10.0
+_customPathNodePath = null
 
 [node name="CollisionShape" parent="." index="0"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0 )

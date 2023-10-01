@@ -19,7 +19,7 @@ public class CannonMinion : Character
     public override void _Ready()
     {
         base._Ready();
-        /* ChangeCannonMinionColor(AssignedTeam == TeamColor.Blue ? Colors.SteelBlue : Colors.OrangeRed); */
+        ChangeCannonMinionColor(AssignedTeam == TeamColor.Blue ? Colors.SteelBlue : Colors.OrangeRed);
         ChangeState(CannonMinionState.Idle);
     }
 
@@ -47,25 +47,20 @@ public class CannonMinion : Character
         switch (cannonMinionState)
         {
             case CannonMinionState.Idle:
-                PlayAnimation("Mech_Idle_Loop");
                 break;
             case CannonMinionState.Move:
                 AttackTarget = null;
                 ResumeCustomPathNavigation();
-                PlayAnimation("Mech_Walking_Loop");
                 break;
             case CannonMinionState.Engage:
                 UpdateNavigationPath(AttackTarget.GlobalTransform.origin);
-                PlayAnimation("Mech_Walking_Loop");
                 break;
             case CannonMinionState.Attack:
                 StopAnimation();
-                PlayAnimation("Mech_Idle_Loop");
                 AttackTimer.Start();
                 break;
             case CannonMinionState.Dead:
                 StopAnimation();
-                PlayAnimation("Mech_Idle_Loop");
                 base.OnDead();
                 await ToSignal(GetTree().CreateTimer(2), "timeout");
                 QueueFree();
@@ -84,7 +79,6 @@ public class CannonMinion : Character
             case CannonMinionState.Engage:
                 break;
             case CannonMinionState.Attack:
-                UpdateAnimationPlaybackSpeed(1);
                 break;
             case CannonMinionState.Dead:
                 break;
@@ -182,7 +176,8 @@ public class CannonMinion : Character
 
         if (AttackTimer.IsStopped())
         {
-            FireProjectile();
+            var projectile = FireProjectile();
+            projectile.Translation = GetNode<Position3D>("ShootingAnchor").GlobalTransform.origin;
             AttackTimer.Start();
         }
         
@@ -200,17 +195,6 @@ public class CannonMinion : Character
     {
         SpatialMaterial spatialMaterial = new SpatialMaterial();
         spatialMaterial.AlbedoColor = color;
-        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment2/Head").Set("material/0", spatialMaterial);
-        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment3/ArmL").Set("material/0", spatialMaterial);
-        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment4/ShoulderL").Set("material/0", spatialMaterial);
-        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment5/ArmR").Set("material/0", spatialMaterial);
-        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment6/ShoulderR").Set("material/0", spatialMaterial);
-        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment7/LowerLegL").Set("material/0", spatialMaterial);
-        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment8/LegL").Set("material/0", spatialMaterial);
-        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment9/LowerLegR").Set("material/0", spatialMaterial);
-        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment10/LegR").Set("material/0", spatialMaterial);
-        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/BoneAttachment11/Torso").Set("material/0", spatialMaterial);
-        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/HandL").Set("material/0", spatialMaterial);
-        Model.GetNode<MeshInstance>("Robot/RobotArmature/Skeleton/HandR").Set("material/0", spatialMaterial);
+        Model.GetNode<MeshInstance>("Bot Drone/group579868033").Set("material/0", spatialMaterial);
     }
 }
