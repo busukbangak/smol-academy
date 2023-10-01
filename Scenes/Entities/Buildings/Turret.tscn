@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/Entities/Entity.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Entities/Buildings/Turret.cs" type="Script" id=2]
+[ext_resource path="res://Textures/Prototype/Dark/texture_02.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Shared/Hitbox/Projectile/Projectile.tscn" type="PackedScene" id=4]
+
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 2.25, 5, 2.25 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 4, 2, 4 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 3, 7, 3 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Turret_Destroyed"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pillar:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 3.5, 0 ), Vector3( 0, -1, 0 ) ]
+}
+
+[node name="Turret" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+MaxHealth = 2500.0
+AttackDamage = 35.0
+AttackRange = 20.0
+Projectile = ExtResource( 4 )
+
+[node name="CollisionShape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0 )
+shape = SubResource( 1 )
+
+[node name="Turret" type="Spatial" parent="Model" index="0"]
+
+[node name="Bot" type="CSGMesh" parent="Model/Turret" index="0"]
+mesh = SubResource( 2 )
+material = SubResource( 3 )
+
+[node name="Pillar" type="CSGMesh" parent="Model/Turret" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0 )
+mesh = SubResource( 4 )
+material = SubResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Model/Turret" index="2"]
+anims/Turret_Destroyed = SubResource( 6 )
+
+[node name="Healthbar3D" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 0 )
+
+[editable path="Hurtbox"]

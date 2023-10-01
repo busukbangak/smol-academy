@@ -11,12 +11,12 @@ config_version=4
 [application]
 
 config/name="smol-academy"
-run/main_scene="res://Scriptscenes/World.tscn"
+run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Autoloads="*res://Scriptscenes/Autoloads/Autoloads.tscn"
+Autoloads="*res://Scenes/Autoloads/Autoloads.tscn"
 
 [input]
 
