@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+// TODO: Make boundaries dependeten on Zoom Level
 public class Camera : Godot.Camera
 {
 
@@ -8,25 +9,26 @@ public class Camera : Godot.Camera
     public float MoveMargin = 20f;
 
     [Export]
-    public float MoveSpeed = 30f;
+    public float MoveSpeed = 130f;
 
     [Export]
-    public float MinZoom = 5f;
+    public float MinZoom = 1;
 
     [Export]
-    public float MaxZoom = 50f;
+    public float MaxZoom = 25f;
 
     [Export]
-    public float ZoomSpeed = 100f;
+    public float ZoomSpeed = 200f;
 
     [Export]
     public float ZoomSpeedDamping = 0.9f;
 
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
-    {
-        
-    }
+    private float _currentZoom = 10;
+
+    private float _minX = -50f;
+    private float _maxX = 50f;
+    private float _minZ = -50f;
+    private float _maxZ = 100f;
 
     public override void _Process(float delta)
     {
@@ -52,9 +54,13 @@ public class Camera : Godot.Camera
             moveVector.z++;
         }
 
-        GlobalTranslate(moveVector * delta * MoveSpeed);
-
-
+       
+        var newCameraPosition = GlobalTranslation + (moveVector * delta * MoveSpeed);
+        GlobalTranslation = new Vector3(
+            Mathf.Clamp(newCameraPosition.x, _minX, _maxX),
+            newCameraPosition.y,
+            Mathf.Clamp(newCameraPosition.z, _minZ, _maxZ)
+        );
     }
 
     public override void _Input(InputEvent @event)
@@ -72,10 +78,15 @@ public class Camera : Godot.Camera
 
     public void Zoom(int zoomDirection)
     {
-        //TODO: Needs fix, clamp and zoom step
-        /* var newZoom = Mathf.Clamp(ZoomSpeed * zoomDirection * GetProcessDeltaTime(), MinZoom, MaxZoom);
-        GD.Print(Transform.Translated(new Vector3(0, 0, newZoom))); */
-        /* Transform = Transform.Translated(new Vector3(0, 0, newZoom)); */
-        TranslateObjectLocal(new Vector3(0 ,0 , zoomDirection * ZoomSpeed * GetProcessDeltaTime()));
+        if (_currentZoom + zoomDirection > MaxZoom || _currentZoom + zoomDirection < MinZoom) return;
+
+        _currentZoom += zoomDirection;
+        var newZoom = Translation.z + (zoomDirection * GetProcessDeltaTime() * ZoomSpeed);
+
+        Translation = new Vector3(
+            Translation.x,
+            Translation.y,
+            newZoom
+        );
     }
 }

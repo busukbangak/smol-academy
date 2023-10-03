@@ -1,12 +1,15 @@
-- camera offset limit
-- lock mouse
+- dont let mouse leave window
 - camera lock with spacebar
 - menu
 - game start, finish and reset
+- respawn
 - minion wave spawns
-- more abilities
+- more abilities, ability UI
+- map
 - multiplayer
 
+- leveling
+- items and shop
 - projectiles, shoot onto enemy and position spawning
 - better camera scrolling
 - navigation system updaten
