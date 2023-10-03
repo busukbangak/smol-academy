@@ -85,7 +85,7 @@ public class Camera : Godot.Camera
 
         Translation = new Vector3(
             Translation.x,
-            Translation.y,
+            newZoom,
             newZoom
         );
     }

@@ -44,9 +44,6 @@ environment = SubResource( 2 )
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 25, 25 )
 
-[node name="Camera" parent="Camera" index="0"]
-transform = Transform( 1, 1.49012e-08, 1.49012e-08, 0, 1, -2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0 )
-
 [node name="Navigation" type="Navigation" parent="."]
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
