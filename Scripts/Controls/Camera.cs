@@ -2,6 +2,7 @@ using Godot;
 using System;
 
 // TODO: Make boundaries dependeten on Zoom Level
+// BUG: CAMERA LOCK
 public class Camera : Godot.Camera
 {
 
@@ -24,6 +25,8 @@ public class Camera : Godot.Camera
     public float ZoomSpeedDamping = 0.9f;
 
     private float _currentZoom = 10;
+
+    private bool _isCameraLocked = false;
 
     private float _minX = -50f;
     private float _maxX = 50f;
@@ -54,13 +57,19 @@ public class Camera : Godot.Camera
             moveVector.z++;
         }
 
-       
+
         var newCameraPosition = GlobalTranslation + (moveVector * delta * MoveSpeed);
         GlobalTranslation = new Vector3(
             Mathf.Clamp(newCameraPosition.x, _minX, _maxX),
             newCameraPosition.y,
             Mathf.Clamp(newCameraPosition.z, _minZ, _maxZ)
         );
+
+        /* if (_isCameraLocked)
+        {
+            var playerPosition = GetNode<Spatial>("../Navigation/Smol").GlobalTranslation;
+            GlobalTranslation = new Vector3(playerPosition.x, GlobalTranslation.y, playerPosition.z + 15);
+        } */
     }
 
     public override void _Input(InputEvent @event)
@@ -74,6 +83,16 @@ public class Camera : Godot.Camera
         {
             Zoom(1);
         }
+
+       /*  if (@event.IsActionPressed("ui_accept"))
+        {
+            _isCameraLocked = true;
+        }
+
+        if (@event.IsActionReleased("ui_accept"))
+        {
+            _isCameraLocked = false;
+        } */
     }
 
     public void Zoom(int zoomDirection)

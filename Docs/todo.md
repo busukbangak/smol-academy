@@ -1,4 +1,3 @@
-- camera lock with spacebar
 - menu
 - game start, finish and reset
 - respawn
