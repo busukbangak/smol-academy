@@ -1,4 +1,3 @@
-- dont let mouse leave window
 - camera lock with spacebar
 - menu
 - game start, finish and reset

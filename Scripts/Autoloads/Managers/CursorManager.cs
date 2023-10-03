@@ -23,6 +23,7 @@ public class CursorManager : Node
         _staticDefaultCursorImage = _defaultCursorImage;
         _staticAttackCursorImage = _attackCursorImage;
         ChangeCursor(CursorType.Default);
+        Input.MouseMode = Input.MouseModeEnum.Confined;
     }
 
     public static void ChangeCursor(CursorType cursorType)
