@@ -1,3 +1,4 @@
+- revamp camera system
 - menu
 - game start, finish and reset
 - respawn

@@ -3,6 +3,7 @@ using System;
 
 // TODO: Make boundaries dependeten on Zoom Level
 // BUG: CAMERA LOCK
+// BUG: ZOOM
 public class Camera : Godot.Camera
 {
 
@@ -26,7 +27,7 @@ public class Camera : Godot.Camera
 
     private float _currentZoom = 10;
 
-    private bool _isCameraLocked = false;
+    /* private bool _isCameraLocked = false; */
 
     private float _minX = -50f;
     private float _maxX = 50f;
