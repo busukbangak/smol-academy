@@ -619,6 +619,19 @@ tracks/42/enabled = true
 tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
 [sub_resource type="Animation" id=2]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 3.605, 0.5 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ), Vector3( -87.234, -180, -0.000179069 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 length = 3.5

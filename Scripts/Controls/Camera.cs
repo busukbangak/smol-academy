@@ -35,13 +35,6 @@ public class Camera : Spatial
         Vector2 viewportSize = GetViewport().Size;
         Vector3 moveVector = new Vector3();
 
-        // LOCKED CAMERA
-        if (_isCameraLocked)
-        {
-            var playerPosition = GetNode<Smol>("../Navigation/Smol").GlobalTranslation;
-            GlobalTranslation = new Vector3(playerPosition.x, GlobalTranslation.y, playerPosition.z - 10);
-        }
-
         // CAMERA MOVEMENT
         if (mousePosition.x < MoveMargin)
         {
@@ -69,6 +62,15 @@ public class Camera : Spatial
 
         // ZOOM
         Scale = Scale.LinearInterpolate(Vector3.One * _currentZoom, ZoomSpeed);
+
+        // LOCKED CAMERA
+        if (_isCameraLocked)
+        {
+            var playerPosition = GetNode<Smol>("../Navigation/Smol").GlobalTranslation;
+            GlobalTranslation = new Vector3(playerPosition.x, GlobalTranslation.y, playerPosition.z - 10);
+        }
+
+
 
     }
 

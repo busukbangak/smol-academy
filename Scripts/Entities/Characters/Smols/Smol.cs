@@ -258,6 +258,12 @@ public class Smol : Character
 			PushState(SmolState.AbilityFour);
 			return;
 		}
+
+		if (Input.IsActionJustPressed("cancel"))
+		{
+			ChangeState(SmolState.Idle);
+			return;
+		}
 	}
 
 	private void Move()
@@ -345,6 +351,12 @@ public class Smol : Character
 			PushState(SmolState.AbilityFour);
 			return;
 		}
+
+		if (Input.IsActionJustPressed("cancel"))
+		{
+			ChangeState(SmolState.Idle);
+			return;
+		}
 	}
 
 	private void Talk()
@@ -420,6 +432,12 @@ public class Smol : Character
 		if (Input.IsActionJustPressed("ability_four"))
 		{
 			PushState(SmolState.AbilityFour);
+			return;
+		}
+
+		if (Input.IsActionJustPressed("cancel"))
+		{
+			ChangeState(SmolState.Idle);
 			return;
 		}
 	}
@@ -499,6 +517,12 @@ public class Smol : Character
 			PushState(SmolState.AbilityFour);
 			return;
 		}
+
+		if (Input.IsActionJustPressed("cancel"))
+		{
+			ChangeState(SmolState.Idle);
+			return;
+		}
 	}
 
 	private void Dance()
@@ -574,6 +598,12 @@ public class Smol : Character
 		if (Input.IsActionJustPressed("ability_four"))
 		{
 			PushState(SmolState.AbilityFour);
+			return;
+		}
+
+		if (Input.IsActionJustPressed("cancel"))
+		{
+			ChangeState(SmolState.Idle);
 			return;
 		}
 	}
@@ -669,6 +699,12 @@ public class Smol : Character
 			PushState(SmolState.AbilityFour);
 			return;
 		}
+
+		if (Input.IsActionJustPressed("cancel"))
+		{
+			ChangeState(SmolState.Idle);
+			return;
+		}
 	}
 
 	private void Attack()
@@ -759,6 +795,12 @@ public class Smol : Character
 		if (Input.IsActionJustPressed("ability_four"))
 		{
 			PushState(SmolState.AbilityFour);
+			return;
+		}
+
+		if (Input.IsActionJustPressed("cancel"))
+		{
+			ChangeState(SmolState.Idle);
 			return;
 		}
 
