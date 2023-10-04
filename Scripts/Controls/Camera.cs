@@ -1,10 +1,8 @@
 using Godot;
 using System;
 
-// TODO: Make boundaries dependeten on Zoom Level
-// BUG: CAMERA LOCK
-// BUG: ZOOM
-public class Camera : Godot.Camera
+// TODO: Corner pan movement
+public class Camera : Spatial
 {
 
     [Export]
@@ -14,24 +12,21 @@ public class Camera : Godot.Camera
     public float MoveSpeed = 130f;
 
     [Export]
-    public float MinZoom = 1;
+    public float MinZoom = 0.5f;
 
     [Export]
-    public float MaxZoom = 25f;
+    public float MaxZoom = 1.2f;
 
     [Export]
-    public float ZoomSpeed = 200f;
+    public float ZoomSpeed = 0.08f;
 
-    [Export]
-    public float ZoomSpeedDamping = 0.9f;
+    private float _currentZoom = 1f;
 
-    private float _currentZoom = 10;
+    private bool _isCameraLocked = false;
 
-    /* private bool _isCameraLocked = false; */
-
-    private float _minX = -50f;
-    private float _maxX = 50f;
-    private float _minZ = -50f;
+    private float _minX = -100f;
+    private float _maxX = 100f;
+    private float _minZ = -100f;
     private float _maxZ = 100f;
 
     public override void _Process(float delta)
@@ -40,7 +35,14 @@ public class Camera : Godot.Camera
         Vector2 viewportSize = GetViewport().Size;
         Vector3 moveVector = new Vector3();
 
-        // TODO: Corner pan
+        // LOCKED CAMERA
+        if (_isCameraLocked)
+        {
+            var playerPosition = GetNode<Smol>("../Navigation/Smol").GlobalTranslation;
+            GlobalTranslation = new Vector3(playerPosition.x, GlobalTranslation.y, playerPosition.z - 10);
+        }
+
+        // CAMERA MOVEMENT
         if (mousePosition.x < MoveMargin)
         {
             moveVector.x--;
@@ -58,34 +60,31 @@ public class Camera : Godot.Camera
             moveVector.z++;
         }
 
-
         var newCameraPosition = GlobalTranslation + (moveVector * delta * MoveSpeed);
         GlobalTranslation = new Vector3(
-            Mathf.Clamp(newCameraPosition.x, _minX, _maxX),
+            Mathf.Clamp(newCameraPosition.x, _minX / _currentZoom, _maxX / _currentZoom),
             newCameraPosition.y,
-            Mathf.Clamp(newCameraPosition.z, _minZ, _maxZ)
+            Mathf.Clamp(newCameraPosition.z, _minZ / _currentZoom, _maxZ / _currentZoom)
         );
 
-        /* if (_isCameraLocked)
-        {
-            var playerPosition = GetNode<Spatial>("../Navigation/Smol").GlobalTranslation;
-            GlobalTranslation = new Vector3(playerPosition.x, GlobalTranslation.y, playerPosition.z + 15);
-        } */
+        // ZOOM
+        Scale = Scale.LinearInterpolate(Vector3.One * _currentZoom, ZoomSpeed);
+
     }
 
     public override void _Input(InputEvent @event)
     {
         if (@event.IsActionPressed("zoom_in"))
         {
-            Zoom(-1);
+            _currentZoom -= ZoomSpeed;
         }
 
         if (@event.IsActionPressed("zoom_out"))
         {
-            Zoom(1);
+            _currentZoom += ZoomSpeed;
         }
 
-       /*  if (@event.IsActionPressed("ui_accept"))
+        if (@event.IsActionPressed("ui_accept"))
         {
             _isCameraLocked = true;
         }
@@ -93,20 +92,8 @@ public class Camera : Godot.Camera
         if (@event.IsActionReleased("ui_accept"))
         {
             _isCameraLocked = false;
-        } */
-    }
+        }
 
-    public void Zoom(int zoomDirection)
-    {
-        if (_currentZoom + zoomDirection > MaxZoom || _currentZoom + zoomDirection < MinZoom) return;
-
-        _currentZoom += zoomDirection;
-        var newZoom = Translation.z + (zoomDirection * GetProcessDeltaTime() * ZoomSpeed);
-
-        Translation = new Vector3(
-            Translation.x,
-            newZoom,
-            newZoom
-        );
+        _currentZoom = Mathf.Clamp(_currentZoom, MinZoom, MaxZoom);
     }
 }

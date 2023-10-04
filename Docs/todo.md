@@ -1,4 +1,3 @@
-- revamp camera system
 - menu
 - game start, finish and reset
 - respawn
@@ -6,6 +5,8 @@
 - more abilities, ability UI
 - map
 - multiplayer
+- move cursors ground indicators
+- spawn camera on player
 
 - leveling
 - items and shop

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\smol-academy.csproj": {}
+    "C:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\smol-academy.csproj": {}
   },
   "projects": {
-    "c:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\smol-academy.csproj": {
+    "C:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\smol-academy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\smol-academy.csproj",
+        "projectUniqueName": "C:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\smol-academy.csproj",
         "projectName": "smol-academy",
-        "projectPath": "c:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\smol-academy.csproj",
+        "projectPath": "C:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\smol-academy.csproj",
         "packagesPath": "C:\\Users\\awanali\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\.mono\\temp\\obj\\",
+        "outputPath": "C:\\Users\\awanali\\Workspace\\Code Workspace\\projects\\smol-academy\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\awanali\\AppData\\Roaming\\NuGet\\NuGet.Config"
