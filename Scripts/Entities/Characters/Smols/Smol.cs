@@ -84,6 +84,17 @@ public class Smol : Character
 			case SmolState.Move:
 				AttackTarget = null;
 				UpdateNavigationPath((Vector3)Utilities.MouseRaycast(GetViewport().GetCamera())["position"]);
+
+				// TODO: Add better visual
+				CSGSphere sphere = new CSGSphere();
+				sphere.Radius = 0.5f;
+				GetParent().AddChild(sphere);
+				sphere.GlobalTranslation = (Vector3)Utilities.MouseRaycast(GetViewport().GetCamera())["position"];
+				Timer timer = new Timer() { WaitTime = 0.15f, OneShot = true };
+				timer.Connect("timeout", this, nameof(OnMoveVisualTimerTimeout), new Godot.Collections.Array(sphere));
+				sphere.AddChild(timer);
+				timer.Start();
+
 				PlayAnimation("Robot_Running_Loop");
 				break;
 			case SmolState.Talk:
@@ -788,5 +799,10 @@ public class Smol : Character
 	public string CurrentSmolStateToString()
 	{
 		return CurrentSmolState.ToString();
+	}
+
+	private void OnMoveVisualTimerTimeout(CSGSphere sphere)
+	{
+		sphere.QueueFree();
 	}
 }

@@ -1,12 +1,13 @@
 - menu
 - game start, finish and reset
+- spawn camera on player
 - respawn
 - minion wave spawns
 - more abilities, ability UI
 - map
 - multiplayer
-- move cursors ground indicators
-- spawn camera on player
+
+
 
 - leveling
 - items and shop
