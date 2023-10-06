@@ -50,8 +50,16 @@ public class CursorManager : Node
         Cursor.Visible = false;
     }
 
+
     public override void _Process(float delta)
     {
+        if (Input.MouseMode != Input.MouseModeEnum.Captured)
+        {
+            Cursor.Visible = false;
+            _isInteracting = false;
+            return;
+        }
+
         Cursor.RectPosition = _accumulatedMouseMotion;
 
         var hoveredObject = MouseRaycast();
@@ -66,19 +74,16 @@ public class CursorManager : Node
                 {
                     // Enter Mouse on new Hovered Entity
                     entity.OnEntityMouseEntered();
-                    GD.Print("mouse enter");
                 }
                 else if (hoveredObject["collider"] != HoveredObject["collider"])
                 {
                     if (HoveredObject["collider"] is Entity)
                     {
                         (HoveredObject["collider"] as Entity).OnEntityMouseExited();
-                        GD.Print("mouse leaeve");
                     }
 
                     // Enter Mouse on new Hovered Entity
                     entity.OnEntityMouseEntered();
-                    GD.Print("mouse enter");
                 }
 
             }
@@ -90,7 +95,6 @@ public class CursorManager : Node
                     if (HoveredObject["collider"] is Entity)
                     {
                         (HoveredObject["collider"] as Entity).OnEntityMouseExited();
-                        GD.Print("mouse leave");
                     }
                 }
             }
@@ -103,7 +107,6 @@ public class CursorManager : Node
                 if (HoveredObject["collider"] is Entity)
                 {
                     (HoveredObject["collider"] as Entity).OnEntityMouseExited();
-                    GD.Print("mouse leave");
                 }
             }
         }
@@ -113,27 +116,8 @@ public class CursorManager : Node
 
     public override void _Input(InputEvent @event)
     {
-
-        if (@event is InputEventScreenTouch screenTouch)
-        {
-            /* GD.Print("touch position", screenTouch.Position); */
-            if (!_isInteracting)
-            {
-                _isInteracting = true;
-                Input.MouseMode = Input.MouseModeEnum.Captured;
-                Cursor.Visible = true;
-                // Center first position
-                _accumulatedMouseMotion = Cursor.GetViewportRect().Size / 2;
-            }
-        }
-
-        if (@event is InputEventScreenDrag screenDrag)
-        {
-            /* GD.Print("Drag", screenDrag.Position); */
-        }
-
         // Check if the input event is a mouse motion event
-        if (@event is InputEventMouseMotion mouseMotion)
+        if (@event is InputEventMouseMotion mouseMotion && _isInteracting)
         {
             // Get the relative mouse motion from the event
             Vector2 rawMouseMotion = mouseMotion.Relative;
@@ -154,6 +138,15 @@ public class CursorManager : Node
 
         if (@event is InputEventMouseButton click)
         {
+            if (!_isInteracting)
+            {
+                _isInteracting = true;
+                Input.MouseMode = Input.MouseModeEnum.Captured;
+                Cursor.Visible = true;
+                // Center first position
+                _accumulatedMouseMotion = Cursor.GetViewportRect().Size / 2;
+            }
+
             var touch = new InputEventScreenTouch();
             touch.Position = _accumulatedMouseMotion;
             touch.Pressed = click.Pressed;
@@ -165,7 +158,7 @@ public class CursorManager : Node
 
     public Godot.Collections.Dictionary MouseRaycast()
     {
-        if (IsHoveringUI) return new Godot.Collections.Dictionary();
+        if (IsHoveringUI || GetViewport().GetCamera() == null) return new Godot.Collections.Dictionary();
 
         Vector2 cursorPosition = Cursor.RectPosition;
         var camera = Cursor.GetViewport().GetCamera();

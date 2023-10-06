@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Shared/CustomButton.cs" type="Script" id=1]
+[ext_resource path="res://Textures/Prototype/Orange/texture_03.png" type="Texture" id=2]
+
+[node name="CustomButton" type="TextureRect"]
+texture = ExtResource( 2 )
+expand = true
+script = ExtResource( 1 )

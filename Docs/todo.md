@@ -5,11 +5,10 @@
 - minion wave spawns
 
 - more abilities, ability UI
-- map
-
 - multiplayer
 
-
+- map
+- fog of war
 - leveling
 - items and shop
 - projectiles, shoot onto enemy and position spawning

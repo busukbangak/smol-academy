@@ -16,8 +16,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-DebugManager="*res://Scenes/Autoloads/Managers/DebugManager.tscn"
-CursorManager="*res://Scenes/Autoloads/Managers/CursorManager.tscn"
+Globals="*res://Scenes/Autoloads/Globals/Globals.tscn"
+Managers="*res://Scenes/Autoloads/Managers/Managers.tscn"
 
 [input]
 

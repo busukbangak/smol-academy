@@ -29,8 +29,9 @@ public class DebugManager : CanvasLayer
 
         /* UIManager.Add("debug", Constants.Screens.DEBUG_OVERLAY); */
 
-        DebugManager.Add("FPS", this, "GetFPS", true);
-        DebugManager.Add("Static memory", this, "GetStaticMemoryUsage", true);
+        DebugManager.Add("FPS", this, nameof(GetFPS), true);
+        DebugManager.Add("Static memory", this, nameof(GetStaticMemoryUsage), true);
+        DebugManager.Add("MouseMode", this, nameof(GetMouseMode), true);
 
         Label = GetNode<Label>("Label");
     }
@@ -110,5 +111,10 @@ public class DebugManager : CanvasLayer
     public float GetFPS()
     {
         return Engine.GetFramesPerSecond();
+    }
+
+    public string GetMouseMode()
+    {
+        return Input.MouseMode.ToString();
     }
 }
