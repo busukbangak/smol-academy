@@ -1,12 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Textures/Prototype/Dark/texture_01.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Entities/Buildings/Turret.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Entities/Characters/Minions/Minion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Shared/MinionSpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Controls/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Entities/Characters/Smols/Smol.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Entities/Buildings/Nexus.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Entities/Characters/Minions/CannonMinion.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -77,47 +76,20 @@ AssignedTeam = 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 curve = SubResource( 5 )
 
+[node name="MinionSpawnerBlue" parent="Navigation" instance=ExtResource( 3 )]
+_minionPath = NodePath("../BluePath")
+
 [node name="RedPath" type="Path" parent="Navigation"]
 curve = SubResource( 6 )
 
+[node name="MinionSpawnerRed" parent="Navigation" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.6788, 2.43858, -44.9325 )
+_assignedTeam = 1
+_minionPath = NodePath("../RedPath")
+
 [node name="Smol" parent="Navigation" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4578, 1.39202, 58.2007 )
-
-[node name="BlueMinion" parent="Navigation" instance=ExtResource( 3 )]
-transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -42.3787, 0, 42.9795 )
-_customPathNodePath = NodePath("../BluePath")
-
-[node name="BlueMinion2" parent="Navigation" instance=ExtResource( 3 )]
-transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -38.9381, 0, 39.2261 )
-_customPathNodePath = NodePath("../BluePath")
-
-[node name="BlueMinion3" parent="Navigation" instance=ExtResource( 3 )]
-transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -35.4975, 0, 35.3164 )
-_customPathNodePath = NodePath("../BluePath")
-
-[node name="BlueCannonMinion" parent="Navigation" instance=ExtResource( 8 )]
-transform = Transform( 0.721772, 0, -0.692131, 0, 1, 0, 0.692131, 0, 0.721772, -46.219, 1.42448, 46.5682 )
-_customPathNodePath = NodePath("../BluePath")
-
-[node name="RedMinion" parent="Navigation" instance=ExtResource( 3 )]
-transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 42.1205, 0, -42.1132 )
-AssignedTeam = 1
-_customPathNodePath = NodePath("../RedPath")
-
-[node name="RedMinion2" parent="Navigation" instance=ExtResource( 3 )]
-transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 38.3672, 0, -38.3598 )
-AssignedTeam = 1
-_customPathNodePath = NodePath("../RedPath")
-
-[node name="RedMinion3" parent="Navigation" instance=ExtResource( 3 )]
-transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 34.6138, 0, -33.9809 )
-AssignedTeam = 1
-_customPathNodePath = NodePath("../RedPath")
-
-[node name="RedCannonMinion" parent="Navigation" instance=ExtResource( 8 )]
-transform = Transform( 0.721772, 0, -0.692131, 0, 1, 0, 0.692131, 0, 0.721772, 45.7632, 1.42448, -45.3803 )
-AssignedTeam = 1
-_customPathNodePath = NodePath("../RedPath")
+CustomPathNodePath = null
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 35, 0 )
@@ -132,21 +104,5 @@ transform = Transform( -1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.7
 [connection signal="mouse_exited" from="Navigation/NavigationMeshInstance/RedTurret" to="Navigation/NavigationMeshInstance/RedTurret" method="OnEntityMouseExited"]
 [connection signal="mouse_entered" from="Navigation/Smol" to="Navigation/Smol" method="OnEntityMouseEntered"]
 [connection signal="mouse_exited" from="Navigation/Smol" to="Navigation/Smol" method="OnEntityMouseExited"]
-[connection signal="mouse_entered" from="Navigation/BlueMinion" to="Navigation/BlueMinion" method="OnEntityMouseEntered"]
-[connection signal="mouse_exited" from="Navigation/BlueMinion" to="Navigation/BlueMinion" method="OnEntityMouseExited"]
-[connection signal="mouse_entered" from="Navigation/BlueMinion2" to="Navigation/BlueMinion2" method="OnEntityMouseEntered"]
-[connection signal="mouse_exited" from="Navigation/BlueMinion2" to="Navigation/BlueMinion2" method="OnEntityMouseExited"]
-[connection signal="mouse_entered" from="Navigation/BlueMinion3" to="Navigation/BlueMinion3" method="OnEntityMouseEntered"]
-[connection signal="mouse_exited" from="Navigation/BlueMinion3" to="Navigation/BlueMinion3" method="OnEntityMouseExited"]
-[connection signal="mouse_entered" from="Navigation/BlueCannonMinion" to="Navigation/BlueCannonMinion" method="OnEntityMouseEntered"]
-[connection signal="mouse_exited" from="Navigation/BlueCannonMinion" to="Navigation/BlueCannonMinion" method="OnEntityMouseExited"]
-[connection signal="mouse_entered" from="Navigation/RedMinion" to="Navigation/RedMinion" method="OnEntityMouseEntered"]
-[connection signal="mouse_exited" from="Navigation/RedMinion" to="Navigation/RedMinion" method="OnEntityMouseExited"]
-[connection signal="mouse_entered" from="Navigation/RedMinion2" to="Navigation/RedMinion2" method="OnEntityMouseEntered"]
-[connection signal="mouse_exited" from="Navigation/RedMinion2" to="Navigation/RedMinion2" method="OnEntityMouseExited"]
-[connection signal="mouse_entered" from="Navigation/RedMinion3" to="Navigation/RedMinion3" method="OnEntityMouseEntered"]
-[connection signal="mouse_exited" from="Navigation/RedMinion3" to="Navigation/RedMinion3" method="OnEntityMouseExited"]
-[connection signal="mouse_entered" from="Navigation/RedCannonMinion" to="Navigation/RedCannonMinion" method="OnEntityMouseEntered"]
-[connection signal="mouse_exited" from="Navigation/RedCannonMinion" to="Navigation/RedCannonMinion" method="OnEntityMouseExited"]
 
 [editable path="Camera"]

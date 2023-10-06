@@ -48,4 +48,9 @@ public class GameManager : Node
         int seconds = Mathf.FloorToInt(elapsedTime % 60f);
         return $"{minutes:00}:{seconds:00}";
     }
+
+    public int ElapsedTimeSeconds()
+    {
+        return Mathf.FloorToInt(elapsedTime % 60f);
+    }
 }

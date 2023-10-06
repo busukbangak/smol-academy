@@ -1,8 +1,6 @@
-- menu
 - game start, finish and reset
 - spawn camera on player
-- respawn
-- minion wave spawns
+- dead and respawn
 
 - more abilities, ability UI
 - multiplayer

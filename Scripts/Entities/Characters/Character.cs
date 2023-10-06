@@ -21,7 +21,7 @@ public abstract class Character : Entity
     private int _pathIndex = 0;
 
     [Export]
-    private NodePath _customPathNodePath;
+    public NodePath CustomPathNodePath;
     private Path _customPath;
 
     // Called when the node enters the scene tree for the first time.
@@ -29,7 +29,7 @@ public abstract class Character : Entity
     {
         base._Ready();
         _characterNavigation = GetParent<Navigation>();
-        _customPath = GetNodeOrNull<Path>(_customPathNodePath);
+        _customPath = GetNodeOrNull<Path>(CustomPathNodePath);
         if (_customPath != null)
         {
             UpdateNavigationPath(_customPath.Curve.GetBakedPoints());
@@ -87,7 +87,7 @@ public abstract class Character : Entity
 
     public void ResumeCustomPathNavigation()
     {
-        _path = GetNode<Path>(_customPathNodePath).Curve.GetBakedPoints();
+        _path = GetNode<Path>(CustomPathNodePath).Curve.GetBakedPoints();
         _pathIndex = GetClosestPathIndex();
     }
 
