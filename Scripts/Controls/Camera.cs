@@ -29,6 +29,13 @@ public class Camera : Spatial
     private float _minZ = -100f;
     private float _maxZ = 100f;
 
+    public override void _Ready()
+    {
+        var playerPosition = GetNode<Smol>("../Navigation/Smol").GlobalTranslation;
+        GlobalTranslation = playerPosition;
+        Translate(new Vector3(0, 0, -15));
+    }
+
     public override void _Process(float delta)
     {
         Vector2 mousePosition = CursorManager.Instance.Cursor.RectPosition;
@@ -67,7 +74,8 @@ public class Camera : Spatial
         if (_isCameraLocked)
         {
             var playerPosition = GetNode<Smol>("../Navigation/Smol").GlobalTranslation;
-            GlobalTranslation = new Vector3(playerPosition.x, GlobalTranslation.y, playerPosition.z - 10);
+            GlobalTranslation = playerPosition;
+            Translate(new Vector3(0, 0, -15));
         }
 
 

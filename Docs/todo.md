@@ -1,10 +1,13 @@
-- spawn camera on player and center
 - dead and respawn
 - game start, finish and reset
 
-- more abilities, ability UI
+- more abilities
+
+- UI (Announcer, Dead, Victory, Lose, Ability, KDA);
+
 - multiplayer
 
+- Atfer game screen
 - map
 - fog of war
 - leveling
