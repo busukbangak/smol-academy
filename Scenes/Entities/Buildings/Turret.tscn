@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Entities/Entity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Entities/Buildings/Turret.cs" type="Script" id=2]
@@ -20,6 +20,21 @@ size = Vector3( 3, 7, 3 )
 [sub_resource type="SpatialMaterial" id=5]
 albedo_texture = ExtResource( 3 )
 
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../CollisionShape:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -3.5, 0 ) ]
+}
+
 [sub_resource type="Animation" id=6]
 resource_name = "Turret_Destroyed"
 tracks/0/type = "value"
@@ -34,6 +49,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 3.5, 0 ), Vector3( 0, -1, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../CollisionShape:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 3.5, 0 ), Vector3( 0, -3.5, 0 ) ]
+}
 
 [node name="Turret" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -43,7 +70,7 @@ AttackRange = 20.0
 Projectile = ExtResource( 4 )
 
 [node name="CollisionShape" parent="." index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0 )
 shape = SubResource( 1 )
 
 [node name="Turret" type="Spatial" parent="Model" index="0"]
@@ -53,11 +80,12 @@ mesh = SubResource( 2 )
 material = SubResource( 3 )
 
 [node name="Pillar" type="CSGMesh" parent="Model/Turret" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0 )
 mesh = SubResource( 4 )
 material = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Model/Turret" index="2"]
+anims/RESET = SubResource( 7 )
 anims/Turret_Destroyed = SubResource( 6 )
 
 [node name="Healthbar3D" parent="." index="3"]

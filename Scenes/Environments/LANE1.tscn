@@ -89,6 +89,7 @@ _minionPath = NodePath("../RedPath")
 
 [node name="Smol" parent="Navigation" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4578, 1.39202, 58.2007 )
+AttackDamage = 800.0
 MoveSpeed = 12.0
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
