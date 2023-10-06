@@ -20,6 +20,9 @@ public class GameManager : Node
         {
             Instance = this;
         }
+
+
+        DebugManager.Add("GameTime", this, nameof(ElapsedTimeToString), true);
     }
 
     public override void _Process(float delta)
@@ -43,6 +46,6 @@ public class GameManager : Node
     {
         int minutes = Mathf.FloorToInt(elapsedTime / 60f);
         int seconds = Mathf.FloorToInt(elapsedTime % 60f);
-        return $"Time: {minutes:00}:{seconds:00}";
+        return $"{minutes:00}:{seconds:00}";
     }
 }

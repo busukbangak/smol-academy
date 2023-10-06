@@ -63,6 +63,7 @@ public class MainScreen : Node
 
     public void OnPlayButtonPressed()
     {
-        GD.Print("hi");
+        WorldManager.ChangeWorldSpace(Constants.Environments.LANE1);
+        GameManager.Instance.StartGame();
     }
 }
