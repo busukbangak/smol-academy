@@ -4097,12 +4097,10 @@ height = 1.5
 
 [node name="Minion" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-AttackDamage = 3.0
+MaxHealth = 200.0
+AttackDamage = 35.0
 AttackRange = 5.0
-AttackSpeed = 0.5
-MaxMana = 100.0
-MoveSpeed = 10.0
-_customPathNodePath = null
+AttackSpeed = 0.75
 
 [node name="CollisionShape" parent="." index="0"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0 )

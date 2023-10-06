@@ -1,6 +1,6 @@
-- game start, finish and reset
-- spawn camera on player
+- spawn camera on player and center
 - dead and respawn
+- game start, finish and reset
 
 - more abilities, ability UI
 - multiplayer

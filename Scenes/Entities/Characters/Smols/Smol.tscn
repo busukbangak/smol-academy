@@ -1885,9 +1885,11 @@ height = 1.5
 
 [node name="Smol" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+MaxHealth = 800.0
+AttackDamage = 80.0
 AttackRange = 5.0
+AttackSpeed = 1.2
 IsRespawnActivated = true
-CustomPathNodePath = null
 PackedAbilities = [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ]
 
 [node name="CollisionShape" parent="." index="0"]
@@ -1915,31 +1917,31 @@ bones/41/bound_children = [ NodePath("BoneAttachment12") ]
 transform = Transform( -1, 2.93497e-07, 2.15749e-07, 2.0612e-07, -0.0324215, 0.999474, 3.00337e-07, 0.999474, 0.0324215, 0.633527, 0.024694, -0.138034 )
 
 [node name="BoneAttachment2" parent="Model/Robot/RobotArmature/Skeleton" index="1"]
-transform = Transform( 0.997931, -0.0505244, -0.0397531, 0.052055, 0.997903, 0.0384585, 0.0377266, -0.0404484, 0.998469, -0.0171258, 3.00551, -0.0112469 )
+transform = Transform( 0.997931, -0.0505244, -0.0397531, 0.052055, 0.997903, 0.0384585, 0.0377266, -0.0404483, 0.998469, -0.0171258, 3.00551, -0.0112469 )
 
 [node name="BoneAttachment3" parent="Model/Robot/RobotArmature/Skeleton" index="2"]
-transform = Transform( 0.0367197, 0.426699, 0.903648, -0.175171, -0.887509, 0.426196, 0.983853, -0.173943, 0.0421562, 0.617283, 2.33039, -0.0168433 )
+transform = Transform( 0.0367197, 0.426698, 0.903648, -0.175171, -0.887509, 0.426196, 0.983853, -0.173943, 0.0421561, 0.617283, 2.33039, -0.0168432 )
 
 [node name="BoneAttachment4" parent="Model/Robot/RobotArmature/Skeleton" index="3"]
-transform = Transform( -0.911603, 0.411073, -1.73285e-06, -0.411073, -0.911602, -1.21444e-06, -2.06009e-06, -3.50177e-07, 1, 0.582738, 2.407, -0.0168432 )
+transform = Transform( -0.911603, 0.411073, -1.72639e-06, -0.411073, -0.911602, -1.2368e-06, -2.06381e-06, -3.72529e-07, 1, 0.582738, 2.407, -0.0168432 )
 
 [node name="BoneAttachment5" parent="Model/Robot/RobotArmature/Skeleton" index="4"]
-transform = Transform( 0.209988, -0.437155, -0.874528, -0.256283, -0.887806, 0.382254, -0.943517, 0.143858, -0.298464, -0.681735, 2.31525, -0.0168432 )
+transform = Transform( 0.209988, -0.437155, -0.874529, -0.256283, -0.887806, 0.382254, -0.943517, 0.143858, -0.298464, -0.681735, 2.31525, -0.0168432 )
 
 [node name="BoneAttachment6" parent="Model/Robot/RobotArmature/Skeleton" index="5"]
-transform = Transform( -0.898186, -0.439616, -1.31892e-06, 0.439616, -0.898186, 2.45869e-07, -1.31503e-06, -3.35276e-07, 1, -0.636816, 2.40703, -0.0168432 )
+transform = Transform( -0.898186, -0.439616, -1.3222e-06, 0.439616, -0.898186, 2.30968e-07, -1.30758e-06, -3.57628e-07, 1, -0.636816, 2.40703, -0.0168432 )
 
 [node name="BoneAttachment7" parent="Model/Robot/RobotArmature/Skeleton" index="6"]
-transform = Transform( 0.985174, -0.0355624, -0.167836, 0.0100385, -0.96466, 0.263316, -0.171266, -0.261108, -0.950011, 0.666523, 0.919759, 0.104232 )
+transform = Transform( 0.985174, -0.0355624, -0.167836, 0.0100386, -0.96466, 0.263316, -0.171266, -0.261108, -0.950011, 0.666523, 0.919759, 0.104232 )
 
 [node name="BoneAttachment8" parent="Model/Robot/RobotArmature/Skeleton" index="7"]
-transform = Transform( 0.985174, 0.0592894, -0.160992, 0.0100384, -0.956701, -0.290909, -0.171266, 0.284975, -0.943126, 0.630297, 1.50431, -0.0698897 )
+transform = Transform( 0.985174, 0.0592895, -0.160992, 0.0100385, -0.956701, -0.290909, -0.171266, 0.284975, -0.943126, 0.630297, 1.50431, -0.0698897 )
 
 [node name="BoneAttachment9" parent="Model/Robot/RobotArmature/Skeleton" index="8"]
-transform = Transform( 0.960966, 0.062911, 0.269422, -0.0106349, -0.964691, 0.263182, 0.276461, -0.255785, -0.926376, -0.698448, 0.919787, 0.0992935 )
+transform = Transform( 0.960966, 0.0629108, 0.269422, -0.010635, -0.964691, 0.263182, 0.276461, -0.255786, -0.926376, -0.698448, 0.919787, 0.0992934 )
 
 [node name="BoneAttachment10" parent="Model/Robot/RobotArmature/Skeleton" index="9"]
-transform = Transform( 0.960966, -0.0902467, 0.261538, -0.0106348, -0.956655, -0.291039, 0.276462, 0.276893, -0.920287, -0.643306, 1.50431, -0.0698898 )
+transform = Transform( 0.960966, -0.0902468, 0.261538, -0.010635, -0.956655, -0.291039, 0.276462, 0.276892, -0.920287, -0.643306, 1.50431, -0.0698898 )
 
 [node name="BoneAttachment11" parent="Model/Robot/RobotArmature/Skeleton" index="10"]
 transform = Transform( 1, 0, 7.15256e-07, 0, 1, 0, -7.15256e-07, 0, 1, 0.00205058, 1.40808, 0.112672 )

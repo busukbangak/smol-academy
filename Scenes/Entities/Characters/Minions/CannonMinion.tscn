@@ -15,7 +15,8 @@ height = 3.0
 
 [node name="CannonMinion" instance=ExtResource( 2 )]
 script = ExtResource( 4 )
-AttackDamage = 20.0
+MaxHealth = 300.0
+AttackDamage = 60.0
 AttackRange = 15.0
 Projectile = ExtResource( 3 )
 
