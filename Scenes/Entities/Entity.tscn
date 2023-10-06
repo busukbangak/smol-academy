@@ -15,9 +15,9 @@ AttackRange = 0.0
 [node name="Model" type="Spatial" parent="."]
 
 [node name="DetectionArea" type="Area" parent="."]
-monitorable = false
 collision_layer = 0
 collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="DetectionArea"]
 
@@ -29,8 +29,6 @@ collision_mask = 2
 one_shot = true
 
 [connection signal="UpdateHealthbar" from="." to="Healthbar3D" method="OnEntityUpdateHealthbar"]
-[connection signal="mouse_entered" from="." to="." method="OnEntityMouseEntered"]
-[connection signal="mouse_exited" from="." to="." method="OnEntityMouseExited"]
 [connection signal="body_entered" from="DetectionArea" to="." method="OnDetectionAreaBodyEntered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="OnDetectionAreaBodyExited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="OnHurtboxAreaEntered"]

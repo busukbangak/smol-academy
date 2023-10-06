@@ -83,13 +83,15 @@ public class Smol : Character
 				break;
 			case SmolState.Move:
 				AttackTarget = null;
-				UpdateNavigationPath((Vector3)Utilities.MouseRaycast(GetViewport().GetCamera())["position"]);
+
+				var moveTarget = (Vector3)CursorManager.Instance.MouseRaycast()["position"];
+				UpdateNavigationPath(moveTarget);
 
 				// TODO: Add better visual
 				CSGSphere sphere = new CSGSphere();
 				sphere.Radius = 0.5f;
 				GetParent().AddChild(sphere);
-				sphere.GlobalTranslation = (Vector3)Utilities.MouseRaycast(GetViewport().GetCamera())["position"];
+				sphere.GlobalTranslation = moveTarget;
 				Timer timer = new Timer() { WaitTime = 0.15f, OneShot = true };
 				timer.Connect("timeout", this, nameof(OnMoveVisualTimerTimeout), new Godot.Collections.Array(sphere));
 				sphere.AddChild(timer);
@@ -193,7 +195,7 @@ public class Smol : Character
 
 		if (Input.IsActionJustPressed("target"))
 		{
-			var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
+			var hit = CursorManager.Instance.MouseRaycast();
 			if (hit.Count > 0)
 			{
 				if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this && entity.AssignedTeam != AssignedTeam)
@@ -286,7 +288,7 @@ public class Smol : Character
 
 		if (Input.IsActionJustPressed("target"))
 		{
-			var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
+			var hit = CursorManager.Instance.MouseRaycast();
 			if (hit.Count > 0)
 			{
 				if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this && entity.AssignedTeam != AssignedTeam)
@@ -369,7 +371,7 @@ public class Smol : Character
 
 		if (Input.IsActionJustPressed("target"))
 		{
-			var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
+			var hit = CursorManager.Instance.MouseRaycast();
 			if (hit.Count > 0)
 			{
 				if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this && entity.AssignedTeam != AssignedTeam)
@@ -452,7 +454,7 @@ public class Smol : Character
 
 		if (Input.IsActionJustPressed("target"))
 		{
-			var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
+			var hit = CursorManager.Instance.MouseRaycast();
 			if (hit.Count > 0)
 			{
 				if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this && entity.AssignedTeam != AssignedTeam)
@@ -535,7 +537,7 @@ public class Smol : Character
 
 		if (Input.IsActionJustPressed("target"))
 		{
-			var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
+			var hit = CursorManager.Instance.MouseRaycast();
 			if (hit.Count > 0)
 			{
 				if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this && entity.AssignedTeam != AssignedTeam)
@@ -635,7 +637,7 @@ public class Smol : Character
 
 		if (Input.IsActionJustPressed("target"))
 		{
-			var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
+			var hit = CursorManager.Instance.MouseRaycast();
 			if (hit.Count > 0)
 			{
 				if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this && entity.AssignedTeam != AssignedTeam)
@@ -732,7 +734,7 @@ public class Smol : Character
 
 		if (Input.IsActionJustPressed("target"))
 		{
-			var hit = Utilities.MouseRaycast(GetViewport().GetCamera());
+			var hit = CursorManager.Instance.MouseRaycast();
 			if (hit.Count > 0)
 			{
 				if (hit["collider"] is Entity entity && entity.Health > 0 && entity != this && entity.AssignedTeam != AssignedTeam)

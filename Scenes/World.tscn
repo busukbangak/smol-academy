@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Textures/Prototype/Dark/texture_01.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Entities/Buildings/Turret.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Entities/Characters/Minions/Minion.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Autoloads/Managers/DebugOverlay.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Textures/Prototype/Light/texture_01.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Controls/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Entities/Characters/Smols/Smol.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Entities/Buildings/Nexus.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Entities/Characters/Minions/CannonMinion.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/CustomButton.cs" type="Script" id=10]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -123,6 +124,40 @@ _customPathNodePath = NodePath("../RedPath")
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 35, 0 )
 
-[node name="DebugOverlay" parent="." instance=ExtResource( 4 )]
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 55.0
+margin_top = 215.0
+margin_right = 150.0
+margin_bottom = 318.0
+texture = ExtResource( 4 )
+expand = true
+script = ExtResource( 10 )
+
+[connection signal="mouse_entered" from="Navigation/NavigationMeshInstance/BlueNexus" to="Navigation/NavigationMeshInstance/BlueNexus" method="OnEntityMouseEntered"]
+[connection signal="mouse_exited" from="Navigation/NavigationMeshInstance/BlueNexus" to="Navigation/NavigationMeshInstance/BlueNexus" method="OnEntityMouseExited"]
+[connection signal="mouse_entered" from="Navigation/NavigationMeshInstance/RedNexus" to="Navigation/NavigationMeshInstance/RedNexus" method="OnEntityMouseEntered"]
+[connection signal="mouse_exited" from="Navigation/NavigationMeshInstance/RedNexus" to="Navigation/NavigationMeshInstance/RedNexus" method="OnEntityMouseExited"]
+[connection signal="mouse_entered" from="Navigation/NavigationMeshInstance/BlueTurret" to="Navigation/NavigationMeshInstance/BlueTurret" method="OnEntityMouseEntered"]
+[connection signal="mouse_exited" from="Navigation/NavigationMeshInstance/BlueTurret" to="Navigation/NavigationMeshInstance/BlueTurret" method="OnEntityMouseExited"]
+[connection signal="mouse_entered" from="Navigation/NavigationMeshInstance/RedTurret" to="Navigation/NavigationMeshInstance/RedTurret" method="OnEntityMouseEntered"]
+[connection signal="mouse_exited" from="Navigation/NavigationMeshInstance/RedTurret" to="Navigation/NavigationMeshInstance/RedTurret" method="OnEntityMouseExited"]
+[connection signal="mouse_entered" from="Navigation/Smol" to="Navigation/Smol" method="OnEntityMouseEntered"]
+[connection signal="mouse_exited" from="Navigation/Smol" to="Navigation/Smol" method="OnEntityMouseExited"]
+[connection signal="mouse_entered" from="Navigation/BlueMinion" to="Navigation/BlueMinion" method="OnEntityMouseEntered"]
+[connection signal="mouse_exited" from="Navigation/BlueMinion" to="Navigation/BlueMinion" method="OnEntityMouseExited"]
+[connection signal="mouse_entered" from="Navigation/BlueMinion2" to="Navigation/BlueMinion2" method="OnEntityMouseEntered"]
+[connection signal="mouse_exited" from="Navigation/BlueMinion2" to="Navigation/BlueMinion2" method="OnEntityMouseExited"]
+[connection signal="mouse_entered" from="Navigation/BlueMinion3" to="Navigation/BlueMinion3" method="OnEntityMouseEntered"]
+[connection signal="mouse_exited" from="Navigation/BlueMinion3" to="Navigation/BlueMinion3" method="OnEntityMouseExited"]
+[connection signal="mouse_entered" from="Navigation/BlueCannonMinion" to="Navigation/BlueCannonMinion" method="OnEntityMouseEntered"]
+[connection signal="mouse_exited" from="Navigation/BlueCannonMinion" to="Navigation/BlueCannonMinion" method="OnEntityMouseExited"]
+[connection signal="mouse_entered" from="Navigation/RedMinion" to="Navigation/RedMinion" method="OnEntityMouseEntered"]
+[connection signal="mouse_exited" from="Navigation/RedMinion" to="Navigation/RedMinion" method="OnEntityMouseExited"]
+[connection signal="mouse_entered" from="Navigation/RedMinion2" to="Navigation/RedMinion2" method="OnEntityMouseEntered"]
+[connection signal="mouse_exited" from="Navigation/RedMinion2" to="Navigation/RedMinion2" method="OnEntityMouseExited"]
+[connection signal="mouse_entered" from="Navigation/RedMinion3" to="Navigation/RedMinion3" method="OnEntityMouseEntered"]
+[connection signal="mouse_exited" from="Navigation/RedMinion3" to="Navigation/RedMinion3" method="OnEntityMouseExited"]
+[connection signal="mouse_entered" from="Navigation/RedCannonMinion" to="Navigation/RedCannonMinion" method="OnEntityMouseEntered"]
+[connection signal="mouse_exited" from="Navigation/RedCannonMinion" to="Navigation/RedCannonMinion" method="OnEntityMouseExited"]
 
 [editable path="Camera"]

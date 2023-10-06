@@ -87,13 +87,13 @@ public abstract class Entity : KinematicBody
     {
         if (Health > 0 && PlayerData.AssignedTeam != AssignedTeam)
         {
-            CursorManager.ChangeCursor(CursorType.Attack);
+            CursorManager.Instance.ChangeCursor(CursorType.Attack);
         }
     }
 
     public void OnEntityMouseExited()
     {
-        CursorManager.ChangeCursor(CursorType.Default);
+        CursorManager.Instance.ChangeCursor(CursorType.Default);
     }
 
     public void PlayAnimation(string animationName)

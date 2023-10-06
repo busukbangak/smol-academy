@@ -31,7 +31,7 @@ public class Camera : Spatial
 
     public override void _Process(float delta)
     {
-        Vector2 mousePosition = GetViewport().GetMousePosition();
+        Vector2 mousePosition = CursorManager.Instance.Cursor.RectPosition;
         Vector2 viewportSize = GetViewport().Size;
         Vector3 moveVector = new Vector3();
 

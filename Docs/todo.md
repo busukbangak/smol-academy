@@ -3,10 +3,11 @@
 - spawn camera on player
 - respawn
 - minion wave spawns
+
 - more abilities, ability UI
 - map
-- multiplayer
 
+- multiplayer
 
 
 - leveling
@@ -14,3 +15,5 @@
 - projectiles, shoot onto enemy and position spawning
 - better camera scrolling
 - navigation system updaten
+- better movement indicator4
+- audio

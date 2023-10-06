@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Textures/Cursor/Cursor Default.png" type="Texture" id=1]
+[ext_resource path="res://Textures/Cursor/Cursor Attack Red.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Autoloads/Managers/CursorManager.cs" type="Script" id=3]
+
+[node name="CursorManager" type="Node"]
+script = ExtResource( 3 )
+_defaultCursorImage = ExtResource( 1 )
+_attackCursorImage = ExtResource( 2 )
+
+[node name="Wrapper" type="Node2D" parent="."]
+
+[node name="Cursor" type="Control" parent="Wrapper"]
+
+[node name="TextureRect" type="TextureRect" parent="Wrapper/Cursor"]
+margin_right = 46.0
+margin_bottom = 45.0
+texture = ExtResource( 1 )
