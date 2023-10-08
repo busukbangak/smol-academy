@@ -31,9 +31,7 @@ public class Camera : Spatial
 
     public override void _Ready()
     {
-        var playerPosition = GetNode<Smol>("../Navigation/Smol").GlobalTranslation;
-        GlobalTranslation = playerPosition;
-        Translate(new Vector3(0, 0, -15));
+
     }
 
     public override void _Process(float delta)

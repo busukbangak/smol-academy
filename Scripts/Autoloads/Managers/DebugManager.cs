@@ -57,19 +57,20 @@ public class DebugManager : CanvasLayer
 
     public static void UpdateDebugValues()
     {
-        String labelText = "";
+        string labelText = "";
         foreach (KeyValuePair<string, DebugStat> stat in Stats)
         {
-            System.Object value;
-            if (stat.Value.StatObject != null && WeakRef(stat.Value.StatObject)?.GetRef() != null)
+
+            object value;
+            if (stat.Value?.StatObject != null && WeakRef(stat.Value.StatObject)?.GetRef() != null)
             {
                 if (stat.Value.IsMethod)
                 {
-                    value = stat.Value.StatObject.Call(stat.Value.Reference);
+                    value = stat.Value?.StatObject?.Call(stat.Value.Reference);
                 }
                 else
                 {
-                    value = stat.Value.StatObject.Get(stat.Value.Reference);
+                    value = stat.Value?.StatObject?.Get(stat.Value.Reference);
                 }
 
                 labelText += stat.Key + ": " + value;
@@ -78,8 +79,6 @@ public class DebugManager : CanvasLayer
 
         }
         Label.Text = labelText;
-        /*  
-                UIManager.GetUI("debug").GetNode<Label>("Container/Label").Text = labelText; */
     }
 
     public static void Add(String name, Godot.Object statObject = null, String reference = null, Boolean isMethod = false)
@@ -87,9 +86,9 @@ public class DebugManager : CanvasLayer
         Stats.Add(name, new DebugStat(statObject, reference, isMethod));
     }
 
-    public static void Remove()
+    public static void Remove(string name)
     {
-
+        Stats.Remove(name);
     }
 
     public String GetStaticMemoryUsage()

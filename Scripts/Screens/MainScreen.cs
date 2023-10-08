@@ -63,7 +63,6 @@ public class MainScreen : Node
 
     public void OnPlayButtonPressed()
     {
-        WorldManager.ChangeWorldSpace(Constants.Environments.LANE1);
-        GameManager.Instance.StartGame();
+        WorldManager.ChangeWorldSpace(Globals.Constants.Environments.LANE1);
     }
 }

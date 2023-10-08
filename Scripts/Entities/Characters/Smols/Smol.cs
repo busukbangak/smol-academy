@@ -45,7 +45,16 @@ public class Smol : Character
 
 		ChangeState(SmolState.Idle);
 
-		DebugManager.Add("Smol state", this, "CurrentSmolStateToString", true);
+		DebugManager.Add(nameof(CurrentSmolState), this, nameof(CurrentSmolStateToString), true);
+	}
+
+	public override void _Notification(int what)
+	{
+		// Handle notifications
+		if (what == NotificationPredelete)
+		{
+			DebugManager.Remove(nameof(CurrentSmolState));
+		}
 	}
 
 	public override void _Process(float delta)

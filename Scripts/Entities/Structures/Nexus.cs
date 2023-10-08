@@ -78,7 +78,7 @@ public class Nexus : Entity
 
     public void Dead()
     {
-
+        return;
     }
 
 }

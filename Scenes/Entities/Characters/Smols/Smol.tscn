@@ -1886,7 +1886,7 @@ height = 1.5
 [node name="Smol" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 MaxHealth = 800.0
-AttackDamage = 80.0
+AttackDamage = 800.0
 AttackRange = 5.0
 AttackSpeed = 1.2
 IsRespawnActivated = true

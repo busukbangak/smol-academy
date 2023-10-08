@@ -16,7 +16,7 @@ public class WorldManager : Node
 
         World = child;
 
-        ChangeWorldSpace(Constants.Screens.MAIN);
+        ChangeWorldSpace(Globals.Constants.Screens.MAIN);
     }
 
     public static void ChangeWorldSpace(string worldSpaceScenePath)

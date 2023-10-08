@@ -1,25 +1,29 @@
 using Godot;
 using System;
 
-public class Constants : Node
+namespace Globals
 {
-
-    public static class Units
+    public class Constants : Node
     {
 
+        public static class Units
+        {
+
+        }
+
+        public static class Environments
+        {
+            public static string LANE1 = "res://Scenes/Environments/LANE1.tscn";
+        }
+
+        public static class Screens
+        {
+            public static string MAIN = "res://Scenes/Screens/MainScreen.tscn";
+
+            public static string PAUSE = "res://Scenes/Screens/PauseMenu.tscn";
+
+            public static string LOADING = "res://Scenes/Screens/LoadingScreen.tscn";
+        }
     }
 
-    public static class Environments
-    {
-        public static string LANE1 = "res://Scenes/Environments/LANE1.tscn";
-    }
-
-    public static class Screens
-    {
-        public static string MAIN = "res://Scenes/Screens/MainScreen.tscn";
-
-        public static string PAUSE = "res://Scenes/Screens/PauseMenu.tscn";
-
-        public static string LOADING = "res://Scenes/Screens/LoadingScreen.tscn";
-    }
 }

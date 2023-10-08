@@ -1,19 +1,25 @@
-- dead and respawn
-- game start, finish and reset
+- UI MANAGER
+- game manager
+- debugmanager
+- loading screen
+- lobby screen
+- Atfer game screen
 
-- more abilities
+- 4 more abilities
 
 - UI (Announcer, Dead, Victory, Lose, Ability, KDA);
 
 - multiplayer
 
-- Atfer game screen
+
+
 - map
 - fog of war
-- leveling
+- leveling (minions, smols)
 - items and shop
 - projectiles, shoot onto enemy and position spawning
 - better camera scrolling
 - navigation system updaten
 - better movement indicator4
 - audio
+- entities invulnerable

@@ -11,6 +11,12 @@ public enum TeamColor
 public abstract class Entity : KinematicBody
 {
 
+    [Signal]
+    public delegate void Die();
+
+    [Signal]
+    public delegate void Respawned(Entity entity);
+
     [Export]
     public TeamColor AssignedTeam;
 
@@ -85,7 +91,7 @@ public abstract class Entity : KinematicBody
 
     public void OnEntityMouseEntered()
     {
-        if (Health > 0 && PlayerData.AssignedTeam != AssignedTeam)
+        if (Health > 0 && Globals.PlayerData.AssignedTeam != AssignedTeam)
         {
             CursorManager.Instance.ChangeCursor(CursorType.Attack);
         }
@@ -135,6 +141,8 @@ public abstract class Entity : KinematicBody
         CollisionLayer = 0b00000000000000000001;
         Deaths++;
 
+        EmitSignal(nameof(Die));
+
         if (IsRespawnActivated)
         {
             Respawn();
@@ -145,6 +153,7 @@ public abstract class Entity : KinematicBody
     {
         CollisionLayer = 0b00000000000000000010;
         Health = MaxHealth;
+        EmitSignal(nameof(Respawned), this);
     }
 
     public async void Respawn()
