@@ -17,9 +17,11 @@ public class GameManager : Node
             Instance = this;
         }
 
+        UIManager.Add(nameof(Globals.Constants.Screens.MAIN), Globals.Constants.Screens.MAIN);
     }
 
     public override void _Process(float delta)
     {
+        
     }
 }

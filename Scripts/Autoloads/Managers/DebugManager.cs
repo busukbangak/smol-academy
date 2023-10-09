@@ -5,10 +5,10 @@ using System.Collections.Generic;
 public class DebugStat
 {
     public Godot.Object StatObject;
-    public String Reference;
-    public Boolean IsMethod;
+    public string Reference;
+    public bool IsMethod;
 
-    public DebugStat(Godot.Object statObject, String reference, Boolean isMethod)
+    public DebugStat(Godot.Object statObject, string reference, bool isMethod)
     {
         StatObject = statObject;
         Reference = reference;
@@ -16,43 +16,39 @@ public class DebugStat
     }
 }
 
-public class DebugManager : CanvasLayer
+public class DebugManager : Node
 {
-    public static Boolean IsDebugging = true;
+    public static bool IsDebugging = true;
 
-    public static Dictionary<String, DebugStat> Stats = new Dictionary<String, DebugStat>();
-
-    public static Label Label;
+    public static Dictionary<string, DebugStat> Stats = new Dictionary<string, DebugStat>();
 
     public override void _Ready()
     {
 
-        /* UIManager.Add("debug", Constants.Screens.DEBUG_OVERLAY); */
+        UIManager.Add(nameof(Globals.Constants.Screens.DEBUG_OVERLAY), Globals.Constants.Screens.DEBUG_OVERLAY);
 
-        DebugManager.Add("FPS", this, nameof(GetFPS), true);
-        DebugManager.Add("Static memory", this, nameof(GetStaticMemoryUsage), true);
-        DebugManager.Add("MouseMode", this, nameof(GetMouseMode), true);
+        Add("FPS", this, nameof(GetFPS), true);
+        Add("Static memory", this, nameof(GetStaticMemoryUsage), true);
+        Add("MouseMode", this, nameof(GetMouseMode), true);
 
-        Label = GetNode<Label>("Label");
+        IsDebugging = (UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)) as CanvasLayer).Visible;
     }
 
 
 
     public override void _Process(float delta)
     {
-
-        /*   if (Input.IsActionJustPressed("debug"))
-          {
-              IsDebugging = !IsDebugging;
-              UIManager.GetUI("debug").GetNode<Control>("Container").Visible = !UIManager.GetUI("debug").GetNode<Control>("Container").Visible;
-          } */
+        if (Input.IsActionJustPressed("debug"))
+        {
+            IsDebugging = (UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)) as CanvasLayer).Visible;
+            (UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)) as CanvasLayer).Visible = !(UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)) as CanvasLayer).Visible;
+        }
 
         // Update debugging values
         if (IsDebugging)
         {
             UpdateDebugValues();
         }
-
     }
 
     public static void UpdateDebugValues()
@@ -78,10 +74,10 @@ public class DebugManager : CanvasLayer
             }
 
         }
-        Label.Text = labelText;
+        UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)).GetNode<Label>("Label").Text = labelText;
     }
 
-    public static void Add(String name, Godot.Object statObject = null, String reference = null, Boolean isMethod = false)
+    public static void Add(string name, Godot.Object statObject = null, string reference = null, bool isMethod = false)
     {
         Stats.Add(name, new DebugStat(statObject, reference, isMethod));
     }
@@ -91,7 +87,7 @@ public class DebugManager : CanvasLayer
         Stats.Remove(name);
     }
 
-    public String GetStaticMemoryUsage()
+    public string GetStaticMemoryUsage()
     {
         string[] sizes = { "B", "KB", "MB", "GB", "TB" };
         double len = OS.GetStaticMemoryUsage();

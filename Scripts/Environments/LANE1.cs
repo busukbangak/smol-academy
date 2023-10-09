@@ -49,7 +49,8 @@ public class LANE1 : Node
 
     public void OnNexusDestroyed(TeamColor teamColor)
     {
-        WorldManager.ChangeWorldSpace(Globals.Constants.Screens.MAIN);
+        WorldManager.RemoveWorldSpace();
+        UIManager.Add(nameof(Globals.Constants.Screens.MAIN), Globals.Constants.Screens.MAIN);
     }
 
     public void OnBlueNexusDie()

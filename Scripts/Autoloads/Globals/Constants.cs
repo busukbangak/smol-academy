@@ -23,6 +23,8 @@ namespace Globals
             public static string PAUSE = "res://Scenes/Screens/PauseMenu.tscn";
 
             public static string LOADING = "res://Scenes/Screens/LoadingScreen.tscn";
+
+            public static string DEBUG_OVERLAY = "res://Scenes/Screens/DebugOverlay.tscn";
         }
     }
 

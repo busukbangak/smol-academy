@@ -15,8 +15,6 @@ public class WorldManager : Node
         var child = root.GetChild(root.GetChildCount() - 1);
 
         World = child;
-
-        ChangeWorldSpace(Globals.Constants.Screens.MAIN);
     }
 
     public static void ChangeWorldSpace(string worldSpaceScenePath)
@@ -33,5 +31,10 @@ public class WorldManager : Node
 
         // Add it to the active scene, as child of world.
         World.CallDeferred("add_child", CurrentWorldSpace);
+    }
+
+    public static void RemoveWorldSpace()
+    {
+        CurrentWorldSpace?.CallDeferred("queue_free");
     }
 }
