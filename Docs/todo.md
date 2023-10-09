@@ -1,4 +1,4 @@
-- UI (Announcer, Dead, Victory, Lose, Ability, KDA);
+- PlayerUI Screen (Stats, Victory/Lose, Announcer, Dead);
 
 - 4 more abilities
 
