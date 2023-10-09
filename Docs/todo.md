@@ -1,12 +1,13 @@
-- loading screen
-- lobby screen
-- Atfer game screen
 - UI (Announcer, Dead, Victory, Lose, Ability, KDA);
 
 - 4 more abilities
 
 - multiplayer
 
+
+- Atfer game screen
+- lobby screen
+- champion selcet screen
 - game manager
 - map
 - fog of war
@@ -17,3 +18,4 @@
 - better movement indicator
 - audio
 - entities invulnerable
+- scene transitions

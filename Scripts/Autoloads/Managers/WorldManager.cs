@@ -8,6 +8,8 @@ public class WorldManager : Node
 
     public static Node CurrentWorldSpace;
 
+    private static ResourceInteractiveLoader _resourceInteractiveLoader;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -17,20 +19,30 @@ public class WorldManager : Node
         World = child;
     }
 
-    public static void ChangeWorldSpace(string worldSpaceScenePath)
+    public override void _Process(float delta)
+    {
+        if (_resourceInteractiveLoader == null) return;
+
+        var error = _resourceInteractiveLoader.Poll();
+
+    }
+
+    public static async void ChangeWorldSpace(string worldSpaceScenePath)
     {
 
-        // Load a new scene.
-        PackedScene nextWorldSpace = (PackedScene)GD.Load(worldSpaceScenePath);
-
-        // It is now safe to remove the current scene
         CurrentWorldSpace?.CallDeferred("queue_free");
 
-        // Instance the new scene.
-        CurrentWorldSpace = nextWorldSpace.Instance();
+        var loadingScreen = (LoadingScreen)UIManager.Add(nameof(Globals.Constants.Screens.LOADING), Globals.Constants.Screens.LOADING);
 
-        // Add it to the active scene, as child of world.
+        loadingScreen.LoadResource(worldSpaceScenePath);
+
+        var resource = await World.ToSignal(loadingScreen, nameof(LoadingScreen.ResourceLoaded));
+
+        CurrentWorldSpace = (resource[0] as PackedScene).Instance();
+
         World.CallDeferred("add_child", CurrentWorldSpace);
+
+        UIManager.Remove(nameof(Globals.Constants.Screens.LOADING));
     }
 
     public static void RemoveWorldSpace()
