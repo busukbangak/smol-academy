@@ -40,8 +40,8 @@ public class DebugManager : Node
     {
         if (Input.IsActionJustPressed("debug"))
         {
-            IsDebugging = (UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)) as CanvasLayer).Visible;
             (UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)) as CanvasLayer).Visible = !(UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)) as CanvasLayer).Visible;
+            IsDebugging = (UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)) as CanvasLayer).Visible;
         }
 
         // Update debugging values
