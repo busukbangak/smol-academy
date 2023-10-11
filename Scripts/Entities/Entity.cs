@@ -12,10 +12,13 @@ public abstract class Entity : KinematicBody
 {
 
     [Signal]
-    public delegate void Die();
+    public delegate void Die(Entity entity);
 
     [Signal]
     public delegate void Respawned(Entity entity);
+
+    [Signal]
+    public delegate void Kill(Entity entity, Entity killedEntity);
 
     [Export]
     public TeamColor AssignedTeam;
@@ -52,6 +55,8 @@ public abstract class Entity : KinematicBody
     public int Deaths = 0;
 
     public int Assists = 0;
+
+    public int MinionKills = 0;
 
     public int Money = 0;
 
@@ -129,7 +134,17 @@ public abstract class Entity : KinematicBody
 
         if (AttackTarget.Health <= 0)
         {
-            Kills++;
+            if (AttackTarget is Minion || AttackTarget is CannonMinion)
+            {
+                MinionKills++;
+            }
+            else if (AttackTarget is Smol)
+            {
+                Kills++;
+            }
+
+            EmitSignal(nameof(Kill), this, AttackTarget);
+
             AttackTarget = null;
             return;
         }
@@ -141,7 +156,7 @@ public abstract class Entity : KinematicBody
         CollisionLayer = 0b00000000000000000001;
         Deaths++;
 
-        EmitSignal(nameof(Die));
+        EmitSignal(nameof(Die), this);
 
         if (IsRespawnActivated)
         {
