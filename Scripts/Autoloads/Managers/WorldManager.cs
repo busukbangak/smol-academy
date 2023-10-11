@@ -8,8 +8,6 @@ public class WorldManager : Node
 
     public static Node CurrentWorldSpace;
 
-    private static ResourceInteractiveLoader _resourceInteractiveLoader;
-
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -21,9 +19,6 @@ public class WorldManager : Node
 
     public override void _Process(float delta)
     {
-        if (_resourceInteractiveLoader == null) return;
-
-        var error = _resourceInteractiveLoader.Poll();
 
     }
 
@@ -48,5 +43,6 @@ public class WorldManager : Node
     public static void RemoveWorldSpace()
     {
         CurrentWorldSpace?.CallDeferred("queue_free");
+        CurrentWorldSpace = null;
     }
 }

@@ -112,7 +112,7 @@ _minionPath = NodePath("../RedPath")
 transform = Transform( -1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 35, 0 )
 shadow_enabled = true
 
-[connection signal="Die" from="Navigation/NavigationMeshInstance/BlueNexus" to="." method="OnBlueNexusDie"]
-[connection signal="Die" from="Navigation/NavigationMeshInstance/RedNexus" to="." method="OnRedNexusDie"]
+[connection signal="Die" from="Navigation/NavigationMeshInstance/BlueNexus" to="." method="OnNexusDestroyed"]
+[connection signal="Die" from="Navigation/NavigationMeshInstance/RedNexus" to="." method="OnNexusDestroyed"]
 
 [editable path="Camera"]

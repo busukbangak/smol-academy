@@ -52,6 +52,12 @@ public class UIManager : Node
 
     public static Node GetUI(string id)
     {
+        if (!_layerDict.ContainsKey(id))
+        {
+            GD.Print($"UIManager: Cant Get {id}, because it doesnt exist");
+            return null;
+        }
+
         return _layerDict[id];
     }
 

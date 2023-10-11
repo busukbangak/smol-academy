@@ -25,12 +25,19 @@ public class LANE1 : Node
     {
         elapsedTime += delta;
 
-        UIManager.GetUI(nameof(Constants.UI.STATS_OVERLAY)).GetNode<Label>("StatsContainer/HBoxContainer/GameStats/Time").Text = ElapsedTimeToString();
-
-        if ((UIManager.GetUI(nameof(Constants.UI.DEAD_OVERLAY)) as Control).Visible)
+        if (UIManager.GetUI(nameof(Constants.UI.STATS_OVERLAY)) != null)
         {
-            UIManager.GetUI(nameof(Constants.UI.DEAD_OVERLAY)).GetNode<Label>("CenterContainer/VBoxContainer/Counter").Text = ((int)Math.Ceiling(PlayerData.Player.RespawnTimer.TimeLeft)).ToString();
+            UIManager.GetUI(nameof(Constants.UI.STATS_OVERLAY)).GetNode<Label>("StatsContainer/HBoxContainer/GameStats/Time").Text = ElapsedTimeToString();
         }
+
+        if (UIManager.GetUI(nameof(Constants.UI.DEAD_OVERLAY)) != null)
+        {
+            if ((UIManager.GetUI(nameof(Constants.UI.DEAD_OVERLAY)) as Control).Visible)
+            {
+                UIManager.GetUI(nameof(Constants.UI.DEAD_OVERLAY)).GetNode<Label>("CenterContainer/VBoxContainer/Counter").Text = ((int)Math.Ceiling(PlayerData.Player.RespawnTimer.TimeLeft)).ToString();
+            }
+        }
+
     }
 
     public override void _Notification(int what)
@@ -78,20 +85,32 @@ public class LANE1 : Node
 
     }
 
-    public void OnNexusDestroyed(TeamColor teamColor)
+    public void OnNexusDestroyed(Entity entity)
+    {
+        Node endgameOverlay;
+        if (entity.AssignedTeam == PlayerData.Player.AssignedTeam)
+        {
+            endgameOverlay = UIManager.Add(nameof(Constants.UI.DEFEAT_OVERLAY), Constants.UI.DEFEAT_OVERLAY);
+        }
+        else
+        {
+            endgameOverlay = UIManager.Add(nameof(Constants.UI.VICTORY_OVERLAY), Constants.UI.VICTORY_OVERLAY);
+        }
+
+        endgameOverlay.GetNode<CustomButton>("CenterContainer/VBoxContainer/CustomButton").Connect(nameof(CustomButton.LeftButtonPressed), this, nameof(OnGameExit));
+    }
+
+    public void OnGameExit()
     {
         WorldManager.RemoveWorldSpace();
+
+        UIManager.Remove(nameof(Constants.UI.DEFEAT_OVERLAY));
+        UIManager.Remove(nameof(Constants.UI.VICTORY_OVERLAY));
+        UIManager.Remove(nameof(Constants.UI.STATS_OVERLAY));
+        UIManager.Remove(nameof(Constants.UI.DEAD_OVERLAY));
+        UIManager.Remove(nameof(Constants.UI.MINIMAP_OVERLAY));
+
         UIManager.Add(nameof(Constants.UI.MAIN_SCREEN), Constants.UI.MAIN_SCREEN);
-    }
-
-    public void OnBlueNexusDie()
-    {
-        OnNexusDestroyed(TeamColor.Blue);
-    }
-
-    public void OnRedNexusDie()
-    {
-        OnNexusDestroyed(TeamColor.Red);
     }
 
     public string ElapsedTimeToString()

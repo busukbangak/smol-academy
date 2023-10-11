@@ -31,6 +31,10 @@ namespace Globals
             public static string MINIMAP_OVERLAY = "res://Scenes/Screens/MiniMapOverlay.tscn";
 
             public static string DEAD_OVERLAY = "res://Scenes/Screens/DeadOverlay.tscn";
+
+            public static string VICTORY_OVERLAY = "res://Scenes/Screens/VictoryOverlay.tscn";
+
+            public static string DEFEAT_OVERLAY = "res://Scenes/Screens/DefeatOverlay.tscn";
         }
     }
 
