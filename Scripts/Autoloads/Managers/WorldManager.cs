@@ -38,6 +38,9 @@ public class WorldManager : Node
         World.CallDeferred("add_child", CurrentWorldSpace);
 
         UIManager.Remove(nameof(Globals.Constants.UI.LOADING_SCREEN));
+
+        var transitionScreen = (CanvasLayer)UIManager.GetUI(nameof(Globals.Constants.UI.TRANSITION_SCREEN));
+        transitionScreen.GetNode<AnimationPlayer>("AnimationPlayer").Play("Dissolve");
     }
 
     public static void RemoveWorldSpace()

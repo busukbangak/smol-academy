@@ -18,10 +18,11 @@ public class GameManager : Node
         }
 
         UIManager.Add(nameof(Globals.Constants.UI.MAIN_SCREEN), Globals.Constants.UI.MAIN_SCREEN);
+        UIManager.Add(nameof(Globals.Constants.UI.TRANSITION_SCREEN), Globals.Constants.UI.TRANSITION_SCREEN);
     }
 
     public override void _Process(float delta)
     {
-        
+
     }
 }

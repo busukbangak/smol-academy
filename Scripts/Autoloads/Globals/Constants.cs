@@ -24,6 +24,8 @@ namespace Globals
 
             public static string LOADING_SCREEN = "res://Scenes/Screens/LoadingScreen.tscn";
 
+            public static string TRANSITION_SCREEN = "res://Scenes/Screens/TransitionScreen.tscn";
+
             public static string DEBUG_OVERLAY = "res://Scenes/Screens/DebugOverlay.tscn";
 
             public static string STATS_OVERLAY = "res://Scenes/Screens/StatsOverlay.tscn";

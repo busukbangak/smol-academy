@@ -61,9 +61,14 @@ public class MainScreen : Node
 
     }
 
-    public void OnPlayButtonPressed()
+    public async void OnPlayButtonPressed()
     {
+        var transitionScreen = (CanvasLayer)UIManager.GetUI(nameof(Globals.Constants.UI.TRANSITION_SCREEN));
+
+        transitionScreen.GetNode<AnimationPlayer>("AnimationPlayer").PlayBackwards("Dissolve");
+        await ToSignal(transitionScreen.GetNode<AnimationPlayer>("AnimationPlayer"), "animation_finished");
         UIManager.Remove(nameof(Globals.Constants.UI.MAIN_SCREEN));
+
         WorldManager.ChangeWorldSpace(Globals.Constants.Environments.LANE1);
     }
 }
