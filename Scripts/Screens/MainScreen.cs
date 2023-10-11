@@ -63,7 +63,7 @@ public class MainScreen : Node
 
     public void OnPlayButtonPressed()
     {
-        UIManager.Remove(nameof(Globals.Constants.Screens.MAIN));
+        UIManager.Remove(nameof(Globals.Constants.UI.MAIN_SCREEN));
         WorldManager.ChangeWorldSpace(Globals.Constants.Environments.LANE1);
     }
 }

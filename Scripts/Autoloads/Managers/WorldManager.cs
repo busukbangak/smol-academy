@@ -32,7 +32,7 @@ public class WorldManager : Node
 
         CurrentWorldSpace?.CallDeferred("queue_free");
 
-        var loadingScreen = (LoadingScreen)UIManager.Add(nameof(Globals.Constants.Screens.LOADING), Globals.Constants.Screens.LOADING);
+        var loadingScreen = (LoadingScreen)UIManager.Add(nameof(Globals.Constants.UI.LOADING_SCREEN), Globals.Constants.UI.LOADING_SCREEN);
 
         loadingScreen.LoadResource(worldSpaceScenePath);
 
@@ -42,7 +42,7 @@ public class WorldManager : Node
 
         World.CallDeferred("add_child", CurrentWorldSpace);
 
-        UIManager.Remove(nameof(Globals.Constants.Screens.LOADING));
+        UIManager.Remove(nameof(Globals.Constants.UI.LOADING_SCREEN));
     }
 
     public static void RemoveWorldSpace()

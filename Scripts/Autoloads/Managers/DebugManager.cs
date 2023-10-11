@@ -25,13 +25,13 @@ public class DebugManager : Node
     public override void _Ready()
     {
 
-        UIManager.Add(nameof(Globals.Constants.Screens.DEBUG_OVERLAY), Globals.Constants.Screens.DEBUG_OVERLAY);
+        UIManager.Add(nameof(Globals.Constants.UI.DEBUG_OVERLAY), Globals.Constants.UI.DEBUG_OVERLAY);
 
         Add("FPS", this, nameof(GetFPS), true);
         Add("Static memory", this, nameof(GetStaticMemoryUsage), true);
         Add("MouseMode", this, nameof(GetMouseMode), true);
 
-        IsDebugging = (UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)) as CanvasLayer).Visible;
+        IsDebugging = (UIManager.GetUI(nameof(Globals.Constants.UI.DEBUG_OVERLAY)) as CanvasLayer).Visible;
     }
 
 
@@ -40,8 +40,8 @@ public class DebugManager : Node
     {
         if (Input.IsActionJustPressed("debug"))
         {
-            (UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)) as CanvasLayer).Visible = !(UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)) as CanvasLayer).Visible;
-            IsDebugging = (UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)) as CanvasLayer).Visible;
+            (UIManager.GetUI(nameof(Globals.Constants.UI.DEBUG_OVERLAY)) as CanvasLayer).Visible = !(UIManager.GetUI(nameof(Globals.Constants.UI.DEBUG_OVERLAY)) as CanvasLayer).Visible;
+            IsDebugging = (UIManager.GetUI(nameof(Globals.Constants.UI.DEBUG_OVERLAY)) as CanvasLayer).Visible;
         }
 
         // Update debugging values
@@ -74,7 +74,7 @@ public class DebugManager : Node
             }
 
         }
-        UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)).GetNode<Label>("MarginContainer/MarginContainer/Label").Text = labelText;
+        UIManager.GetUI(nameof(Globals.Constants.UI.DEBUG_OVERLAY)).GetNode<Label>("MarginContainer/MarginContainer/Label").Text = labelText;
     }
 
     public static void Add(string name, Godot.Object statObject = null, string reference = null, bool isMethod = false)

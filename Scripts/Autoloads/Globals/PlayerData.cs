@@ -10,6 +10,7 @@ namespace Globals
 
         public static PackedScene AssignedSmol = ResourceLoader.Load<PackedScene>("res://Scenes/Entities/Characters/Smols/Smol.tscn");
 
+        public static Smol Player = null;
     }
 
 }

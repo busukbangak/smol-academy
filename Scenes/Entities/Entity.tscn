@@ -28,9 +28,13 @@ monitorable = false
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="RespawnTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="UpdateHealthbar" from="." to="Healthbar3D" method="OnEntityUpdateHealthbar"]
 [connection signal="body_entered" from="DetectionArea" to="." method="OnDetectionAreaBodyEntered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="OnDetectionAreaBodyExited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="OnHurtboxAreaEntered"]
+[connection signal="timeout" from="RespawnTimer" to="." method="OnRespawn"]
 
 [editable path="Hurtbox"]

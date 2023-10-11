@@ -62,6 +62,8 @@ public abstract class Entity : KinematicBody
 
     public float RespawnTime = 5f;
 
+    public Timer RespawnTimer;
+
     private SphereShape _detectionAreaSphere;
 
     protected List<Entity> EntitiesInDetectionArea = new List<Entity>();
@@ -90,6 +92,9 @@ public abstract class Entity : KinematicBody
 
         Model = GetNode<Spatial>("Model");
         Health = MaxHealth;
+
+        RespawnTimer = GetNode<Timer>("RespawnTimer");
+        RespawnTimer.WaitTime = RespawnTime;
 
         UpdateHealth();
     }
@@ -171,10 +176,9 @@ public abstract class Entity : KinematicBody
         EmitSignal(nameof(Respawned), this);
     }
 
-    public async void Respawn()
+    public void Respawn()
     {
-        await ToSignal(GetTree().CreateTimer(RespawnTime), "timeout");
-        OnRespawn();
+        RespawnTimer.Start();
     }
 
     public void OnDetectionAreaBodyEntered(Entity body)

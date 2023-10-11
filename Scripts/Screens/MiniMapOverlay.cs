@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class MiniMap : CanvasLayer
+public class MiniMapOverlay : CanvasLayer
 {
     // Declare member variables here. Examples:
     // private int a = 2;

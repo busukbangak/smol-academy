@@ -1,6 +1,8 @@
-- PlayerUI Screen (Victory/Lose, Announcer, Dead, abilities, enemy stats, playerstats);
+- PlayerUI Screen (Victory/Lose, Announcer, enemy stats, playerui);
+- scene transitions
 
 - 4 more abilities
+
 
 - multiplayer
 
@@ -18,4 +20,3 @@
 - better movement indicator
 - audio
 - entities invulnerable
-- scene transitions

@@ -1,3 +1,4 @@
+using Globals;
 using Godot;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,11 @@ public class LANE1 : Node
         SpawnPlayer();
         DebugManager.Add(nameof(elapsedTime), this, nameof(ElapsedTimeToString), true);
 
-        UIManager.Add(nameof(Globals.Constants.Screens.STATS), Globals.Constants.Screens.STATS);
-        UIManager.Add(nameof(Globals.Constants.Screens.MINIMAP), Globals.Constants.Screens.MINIMAP);
+        var deadOverlay = (Control)UIManager.Add(nameof(Constants.UI.DEAD_OVERLAY), Constants.UI.DEAD_OVERLAY);
+        deadOverlay.Visible = false;
+
+        UIManager.Add(nameof(Constants.UI.STATS_OVERLAY), Constants.UI.STATS_OVERLAY);
+        UIManager.Add(nameof(Constants.UI.MINIMAP_OVERLAY), Constants.UI.MINIMAP_OVERLAY);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,7 +25,12 @@ public class LANE1 : Node
     {
         elapsedTime += delta;
 
-        UIManager.GetUI(nameof(Globals.Constants.Screens.STATS)).GetNode<Label>("StatsContainer/HBoxContainer/GameStats/Time").Text = ElapsedTimeToString();
+        UIManager.GetUI(nameof(Constants.UI.STATS_OVERLAY)).GetNode<Label>("StatsContainer/HBoxContainer/GameStats/Time").Text = ElapsedTimeToString();
+
+        if ((UIManager.GetUI(nameof(Constants.UI.DEAD_OVERLAY)) as Control).Visible)
+        {
+            UIManager.GetUI(nameof(Constants.UI.DEAD_OVERLAY)).GetNode<Label>("CenterContainer/VBoxContainer/Counter").Text = ((int)Math.Ceiling(PlayerData.Player.RespawnTimer.TimeLeft)).ToString();
+        }
     }
 
     public override void _Notification(int what)
@@ -35,8 +44,9 @@ public class LANE1 : Node
 
     public void SpawnPlayer()
     {
-        var player = Globals.PlayerData.AssignedSmol.Instance<Smol>();
-        player.AssignedTeam = Globals.PlayerData.AssignedTeam;
+        var player = PlayerData.AssignedSmol.Instance<Smol>();
+        PlayerData.Player = player;
+        player.AssignedTeam = PlayerData.AssignedTeam;
         player.Connect(nameof(Entity.Respawned), this, nameof(OnPlayerRespawn));
         player.Connect(nameof(Entity.Die), this, nameof(OnPlayerDie));
         player.Connect(nameof(Entity.Kill), this, nameof(OnPlayerKill));
@@ -51,26 +61,27 @@ public class LANE1 : Node
 
     public void OnPlayerRespawn(Smol smol)
     {
+        (UIManager.GetUI(nameof(Constants.UI.DEAD_OVERLAY)) as Control).Visible = false;
         smol.GlobalTranslation = GetNode<Spatial>(smol.AssignedTeam == TeamColor.Blue ? "Navigation/NavigationMeshInstance/BlueSpawn" : "Navigation/NavigationMeshInstance/RedSpawn").GlobalTranslation;
     }
 
     public void OnPlayerDie(Smol smol)
     {
-        // TODO: Show Death Screen
-        UIManager.GetUI(nameof(Globals.Constants.Screens.STATS)).GetNode<Label>("StatsContainer/HBoxContainer/PlayerStats/KDAContainer/Deaths").Text = smol.Deaths.ToString();
+        (UIManager.GetUI(nameof(Constants.UI.DEAD_OVERLAY)) as Control).Visible = true;
+        UIManager.GetUI(nameof(Constants.UI.STATS_OVERLAY)).GetNode<Label>("StatsContainer/HBoxContainer/PlayerStats/KDAContainer/Deaths").Text = smol.Deaths.ToString();
     }
 
     public void OnPlayerKill(Entity entity, Entity killedEntity)
     {
-        UIManager.GetUI(nameof(Globals.Constants.Screens.STATS)).GetNode<Label>("StatsContainer/HBoxContainer/MinionCounter/Label").Text = entity.MinionKills.ToString();
-        UIManager.GetUI(nameof(Globals.Constants.Screens.STATS)).GetNode<Label>("StatsContainer/HBoxContainer/PlayerStats/KDAContainer/Kills").Text = entity.Kills.ToString();
+        UIManager.GetUI(nameof(Constants.UI.STATS_OVERLAY)).GetNode<Label>("StatsContainer/HBoxContainer/MinionCounter/Label").Text = entity.MinionKills.ToString();
+        UIManager.GetUI(nameof(Constants.UI.STATS_OVERLAY)).GetNode<Label>("StatsContainer/HBoxContainer/PlayerStats/KDAContainer/Kills").Text = entity.Kills.ToString();
 
     }
 
     public void OnNexusDestroyed(TeamColor teamColor)
     {
         WorldManager.RemoveWorldSpace();
-        UIManager.Add(nameof(Globals.Constants.Screens.MAIN), Globals.Constants.Screens.MAIN);
+        UIManager.Add(nameof(Constants.UI.MAIN_SCREEN), Constants.UI.MAIN_SCREEN);
     }
 
     public void OnBlueNexusDie()
