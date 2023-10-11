@@ -40,6 +40,7 @@ public class MinionSpawner : Spatial
         SpawnMinion();
         GetNode<Timer>("MinionWaveSpawnIntervalTimer").Start();
         GetNode<Timer>("MinionSpawnIntervalTimer").Start();
+        (UIManager.GetUI(nameof(Globals.Constants.UI.ANNOUNCER_OVERLAY)) as AnnouncerOverlay).ShowMessage("Minions have spawned");
     }
 
     public void OnMinionWaveSpawnIntervalTimerTimeout()

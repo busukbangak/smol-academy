@@ -37,9 +37,7 @@ public class LoadingScreen : CanvasLayer
 
     public void LoadResource(string resourcePath)
     {
-        GD.Print("hi");
         var loader = ResourceLoader.LoadInteractive(resourcePath);
-        GD.Print("bye");
         if (loader == null) return;
 
         _resourceInteractiveLoader = loader;

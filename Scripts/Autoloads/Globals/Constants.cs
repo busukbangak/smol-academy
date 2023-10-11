@@ -35,6 +35,8 @@ namespace Globals
             public static string VICTORY_OVERLAY = "res://Scenes/Screens/VictoryOverlay.tscn";
 
             public static string DEFEAT_OVERLAY = "res://Scenes/Screens/DefeatOverlay.tscn";
+
+            public static string ANNOUNCER_OVERLAY = "res://Scenes/Screens/AnnouncerOverlay.tscn";
         }
     }
 

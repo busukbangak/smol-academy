@@ -18,6 +18,7 @@ public class LANE1 : Node
 
         UIManager.Add(nameof(Constants.UI.STATS_OVERLAY), Constants.UI.STATS_OVERLAY);
         UIManager.Add(nameof(Constants.UI.MINIMAP_OVERLAY), Constants.UI.MINIMAP_OVERLAY);
+        UIManager.Add(nameof(Constants.UI.ANNOUNCER_OVERLAY), Constants.UI.ANNOUNCER_OVERLAY);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -74,12 +75,22 @@ public class LANE1 : Node
 
     public void OnPlayerDie(Smol smol)
     {
+        (UIManager.GetUI(nameof(Constants.UI.ANNOUNCER_OVERLAY)) as AnnouncerOverlay).ShowMessage("An Ally has been slain");
         (UIManager.GetUI(nameof(Constants.UI.DEAD_OVERLAY)) as Control).Visible = true;
         UIManager.GetUI(nameof(Constants.UI.STATS_OVERLAY)).GetNode<Label>("StatsContainer/HBoxContainer/PlayerStats/KDAContainer/Deaths").Text = smol.Deaths.ToString();
     }
 
     public void OnPlayerKill(Entity entity, Entity killedEntity)
     {
+        if (killedEntity is Smol)
+        {
+            (UIManager.GetUI(nameof(Constants.UI.ANNOUNCER_OVERLAY)) as AnnouncerOverlay).ShowMessage("An Enemy has been slain");
+        }
+        else if (killedEntity is Turret)
+        {
+            (UIManager.GetUI(nameof(Constants.UI.ANNOUNCER_OVERLAY)) as AnnouncerOverlay).ShowMessage("Turret has been destroyed");
+        }
+
         UIManager.GetUI(nameof(Constants.UI.STATS_OVERLAY)).GetNode<Label>("StatsContainer/HBoxContainer/MinionCounter/Label").Text = entity.MinionKills.ToString();
         UIManager.GetUI(nameof(Constants.UI.STATS_OVERLAY)).GetNode<Label>("StatsContainer/HBoxContainer/PlayerStats/KDAContainer/Kills").Text = entity.Kills.ToString();
 
@@ -109,6 +120,7 @@ public class LANE1 : Node
         UIManager.Remove(nameof(Constants.UI.STATS_OVERLAY));
         UIManager.Remove(nameof(Constants.UI.DEAD_OVERLAY));
         UIManager.Remove(nameof(Constants.UI.MINIMAP_OVERLAY));
+        UIManager.Remove(nameof(Constants.UI.ANNOUNCER_OVERLAY));
 
         UIManager.Add(nameof(Constants.UI.MAIN_SCREEN), Constants.UI.MAIN_SCREEN);
     }
