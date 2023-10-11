@@ -74,7 +74,7 @@ public class DebugManager : Node
             }
 
         }
-        UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)).GetNode<Label>("Label").Text = labelText;
+        UIManager.GetUI(nameof(Globals.Constants.Screens.DEBUG_OVERLAY)).GetNode<Label>("MarginContainer/MarginContainer/Label").Text = labelText;
     }
 
     public static void Add(string name, Godot.Object statObject = null, string reference = null, bool isMethod = false)
@@ -100,7 +100,7 @@ public class DebugManager : Node
 
         // Adjust the format string to your preferences. For example "{0:0.#}{1}" would
         // show a single decimal place, and no space.
-        return String.Format("{0:0.##} {1}", len, sizes[order]);
+        return string.Format("{0:0.##} {1} ", len, sizes[order]);
     }
 
     public float GetFPS()

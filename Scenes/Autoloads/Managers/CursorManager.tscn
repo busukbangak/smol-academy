@@ -9,7 +9,8 @@ script = ExtResource( 3 )
 _defaultCursorImage = ExtResource( 1 )
 _attackCursorImage = ExtResource( 2 )
 
-[node name="Wrapper" type="Node2D" parent="."]
+[node name="Wrapper" type="CanvasLayer" parent="."]
+layer = 128
 
 [node name="Cursor" type="Control" parent="Wrapper"]
 

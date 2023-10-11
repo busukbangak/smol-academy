@@ -11,6 +11,10 @@ public class LANE1 : Node
     {
         SpawnPlayer();
         DebugManager.Add(nameof(elapsedTime), this, nameof(ElapsedTimeToString), true);
+
+
+        UIManager.Add(nameof(Globals.Constants.Screens.STATS), Globals.Constants.Screens.STATS);
+        UIManager.Add(nameof(Globals.Constants.Screens.MINIMAP), Globals.Constants.Screens.MINIMAP);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

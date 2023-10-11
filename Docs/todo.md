@@ -1,4 +1,4 @@
-- PlayerUI Screen (Stats, Victory/Lose, Announcer, Dead);
+- PlayerUI Screen (Victory/Lose, Announcer, Dead, abilities, enemy stats, playerstats);
 
 - 4 more abilities
 

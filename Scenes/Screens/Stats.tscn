@@ -1,0 +1,118 @@
+[gd_scene format=2]
+
+[node name="Stats" type="Control"]
+anchor_right = 1.0
+margin_bottom = 14.0
+size_flags_horizontal = 8
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -202.0
+margin_bottom = 30.0
+size_flags_horizontal = 0
+color = Color( 0, 0, 0, 1 )
+
+[node name="StatsContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 14.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatsContainer"]
+margin_left = 834.0
+margin_top = 8.0
+margin_right = 1016.0
+margin_bottom = 22.0
+size_flags_horizontal = 8
+custom_constants/separation = 16
+
+[node name="TeamStats" type="HBoxContainer" parent="StatsContainer/HBoxContainer"]
+margin_right = 42.0
+margin_bottom = 14.0
+
+[node name="PlayerTeamKills" type="Label" parent="StatsContainer/HBoxContainer/TeamStats"]
+margin_right = 8.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="Label2" type="Label" parent="StatsContainer/HBoxContainer/TeamStats"]
+margin_left = 12.0
+margin_right = 30.0
+margin_bottom = 14.0
+text = "vs."
+
+[node name="EnemyTeamKills" type="Label" parent="StatsContainer/HBoxContainer/TeamStats"]
+margin_left = 34.0
+margin_right = 42.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="PlayerStats" type="HBoxContainer" parent="StatsContainer/HBoxContainer"]
+margin_left = 58.0
+margin_right = 130.0
+margin_bottom = 14.0
+custom_constants/separation = 6
+
+[node name="Kills" type="HBoxContainer" parent="StatsContainer/HBoxContainer/PlayerStats"]
+margin_right = 19.0
+margin_bottom = 14.0
+custom_constants/separation = 3
+
+[node name="Label" type="Label" parent="StatsContainer/HBoxContainer/PlayerStats/Kills"]
+margin_right = 8.0
+margin_bottom = 14.0
+text = "K"
+
+[node name="Count" type="Label" parent="StatsContainer/HBoxContainer/PlayerStats/Kills"]
+margin_left = 11.0
+margin_right = 19.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="Deaths" type="HBoxContainer" parent="StatsContainer/HBoxContainer/PlayerStats"]
+margin_left = 25.0
+margin_right = 46.0
+margin_bottom = 14.0
+custom_constants/separation = 3
+
+[node name="Label" type="Label" parent="StatsContainer/HBoxContainer/PlayerStats/Deaths"]
+margin_right = 10.0
+margin_bottom = 14.0
+text = "D"
+
+[node name="Count" type="Label" parent="StatsContainer/HBoxContainer/PlayerStats/Deaths"]
+margin_left = 13.0
+margin_right = 21.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="Assists" type="HBoxContainer" parent="StatsContainer/HBoxContainer/PlayerStats"]
+margin_left = 52.0
+margin_right = 72.0
+margin_bottom = 14.0
+custom_constants/separation = 3
+
+[node name="Label" type="Label" parent="StatsContainer/HBoxContainer/PlayerStats/Assists"]
+margin_right = 9.0
+margin_bottom = 14.0
+text = "A"
+
+[node name="Count" type="Label" parent="StatsContainer/HBoxContainer/PlayerStats/Assists"]
+margin_left = 12.0
+margin_right = 20.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="GameStats" type="HBoxContainer" parent="StatsContainer/HBoxContainer"]
+margin_left = 146.0
+margin_right = 182.0
+margin_bottom = 14.0
+size_flags_horizontal = 0
+
+[node name="Time" type="Label" parent="StatsContainer/HBoxContainer/GameStats"]
+margin_right = 36.0
+margin_bottom = 14.0
+text = "00:00"

@@ -25,6 +25,10 @@ namespace Globals
             public static string LOADING = "res://Scenes/Screens/LoadingScreen.tscn";
 
             public static string DEBUG_OVERLAY = "res://Scenes/Screens/DebugOverlay.tscn";
+
+            public static string STATS = "res://Scenes/Screens/Stats.tscn";
+
+            public static string MINIMAP = "res://Scenes/Screens/MiniMap.tscn";
         }
     }
 

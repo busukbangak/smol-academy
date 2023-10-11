@@ -45,8 +45,6 @@ public class CursorManager : Node
 
         ChangeCursor(CursorType.Default);
 
-        GetNode<Node2D>("Wrapper").ZIndex = 999;
-
         Cursor.Visible = false;
     }
 
