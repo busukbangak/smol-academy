@@ -1,17 +1,37 @@
 using Godot;
 using System;
 
-public abstract class Ability : Node
+public class Ability : Node
 {
     public Smol Smol;
-    
+
+    [Export]
+    public string Title;
+
+    [Export]
+    public Texture Icon;
+
+    [Export]
+    public int Level = 1;
+
     [Export]
     public float Cooldown = 1f;
-    
-    // Called when the node enters the scene tree for the first time.
-    public void Init(Smol smol) {
+
+    public Timer CooldownTimer;
+
+    // TODO: Rework Ability System
+    public void Init(Smol smol)
+    {
         Smol = smol;
+        CooldownTimer = new Timer();
+        CooldownTimer.WaitTime = Cooldown;
+        CooldownTimer.OneShot = true;
+        Smol.AddChild(CooldownTimer);
     }
 
-    public abstract void Cast();
+    public virtual void Cast()
+    {
+        CooldownTimer.Start();
+        GD.Print(CooldownTimer.Name);
+    }
 }

@@ -246,25 +246,25 @@ public class Smol : Character
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_one"))
+		if (Input.IsActionJustPressed("ability_one") && Abilities[0].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityOne);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_two"))
+		if (Input.IsActionJustPressed("ability_two") && Abilities[1].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityTwo);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_three"))
+		if (Input.IsActionJustPressed("ability_three") && Abilities[2].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityThree);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_four"))
+		if (Input.IsActionJustPressed("ability_four") && Abilities[3].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityFour);
 			return;
@@ -339,25 +339,25 @@ public class Smol : Character
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_one"))
+		if (Input.IsActionJustPressed("ability_one") && Abilities[0].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityOne);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_two"))
+		if (Input.IsActionJustPressed("ability_two") && Abilities[1].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityTwo);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_three"))
+		if (Input.IsActionJustPressed("ability_three") && Abilities[2].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityThree);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_four"))
+		if (Input.IsActionJustPressed("ability_four") && Abilities[3].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityFour);
 			return;
@@ -422,25 +422,25 @@ public class Smol : Character
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_one"))
+		if (Input.IsActionJustPressed("ability_one") && Abilities[0].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityOne);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_two"))
+		if (Input.IsActionJustPressed("ability_two") && Abilities[1].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityTwo);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_three"))
+		if (Input.IsActionJustPressed("ability_three") && Abilities[2].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityThree);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_four"))
+		if (Input.IsActionJustPressed("ability_four") && Abilities[3].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityFour);
 			return;
@@ -505,25 +505,25 @@ public class Smol : Character
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_one"))
+		if (Input.IsActionJustPressed("ability_one") && Abilities[0].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityOne);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_two"))
+		if (Input.IsActionJustPressed("ability_two") && Abilities[1].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityTwo);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_three"))
+		if (Input.IsActionJustPressed("ability_three") && Abilities[2].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityThree);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_four"))
+		if (Input.IsActionJustPressed("ability_four") && Abilities[3].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityFour);
 			return;
@@ -588,25 +588,25 @@ public class Smol : Character
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_one"))
+		if (Input.IsActionJustPressed("ability_one") && Abilities[0].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityOne);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_two"))
+		if (Input.IsActionJustPressed("ability_two") && Abilities[1].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityTwo);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_three"))
+		if (Input.IsActionJustPressed("ability_three") && Abilities[2].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityThree);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_four"))
+		if (Input.IsActionJustPressed("ability_four") && Abilities[3].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityFour);
 			return;
@@ -687,25 +687,25 @@ public class Smol : Character
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_one"))
+		if (Input.IsActionJustPressed("ability_one") && Abilities[0].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityOne);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_two"))
+		if (Input.IsActionJustPressed("ability_two") && Abilities[1].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityTwo);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_three"))
+		if (Input.IsActionJustPressed("ability_three") && Abilities[2].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityThree);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_four"))
+		if (Input.IsActionJustPressed("ability_four") && Abilities[3].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityFour);
 			return;
@@ -785,25 +785,25 @@ public class Smol : Character
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_one"))
+		if (Input.IsActionJustPressed("ability_one") && Abilities[0].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityOne);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_two"))
+		if (Input.IsActionJustPressed("ability_two") && Abilities[1].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityTwo);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_three"))
+		if (Input.IsActionJustPressed("ability_three") && Abilities[2].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityThree);
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_four"))
+		if (Input.IsActionJustPressed("ability_four") && Abilities[3].CooldownTimer.IsStopped())
 		{
 			PushState(SmolState.AbilityFour);
 			return;

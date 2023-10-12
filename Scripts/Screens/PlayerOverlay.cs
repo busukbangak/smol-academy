@@ -26,6 +26,22 @@ public class PlayerOverlay : Control
         GetNode<ProgressBar>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/Healthbar").Value = Globals.PlayerData.Player.Health;
 
         GetNode<Label>("MarginContainer/HBoxContainer/Inventory/MarginContainer/VBoxContainer/GoldContainer/Count").Text = Mathf.Floor(Globals.PlayerData.Player.Gold).ToString();
+
+        var qAbility = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/Q");
+        qAbility.MaxValue = Globals.PlayerData.Player.Abilities[0].CooldownTimer.WaitTime;
+        qAbility.Value = Globals.PlayerData.Player.Abilities[0].CooldownTimer.TimeLeft;
+
+        var wAbility = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/W");
+        wAbility.MaxValue = Globals.PlayerData.Player.Abilities[1].CooldownTimer.WaitTime;
+        wAbility.Value = Globals.PlayerData.Player.Abilities[1].CooldownTimer.TimeLeft;
+
+        var eAbility = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/E");
+        eAbility.MaxValue = Globals.PlayerData.Player.Abilities[2].CooldownTimer.WaitTime;
+        eAbility.Value = Globals.PlayerData.Player.Abilities[2].CooldownTimer.TimeLeft;
+
+        var rAbility = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/R");
+        rAbility.MaxValue = Globals.PlayerData.Player.Abilities[3].CooldownTimer.WaitTime;
+        rAbility.Value = Globals.PlayerData.Player.Abilities[3].CooldownTimer.TimeLeft;
     }
 
     public void UpdateXPBar(Entity entity)

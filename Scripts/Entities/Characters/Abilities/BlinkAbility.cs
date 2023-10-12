@@ -8,11 +8,12 @@ public class BlinkAbility : Ability
 
     public override void Cast()
     {
+        base.Cast();
         var mousePosition = (Vector3)CursorManager.Instance.MouseRaycast()["position"];
         var flooredMousePosition = new Vector3(mousePosition.x, Smol.Translation.y, mousePosition.z);
         var direction = Smol.GlobalTransform.origin.DirectionTo(flooredMousePosition);
         var distanceToMousePosition = Smol.GlobalTransform.origin.DistanceTo(mousePosition);
         Smol.Model.LookAt(Smol.GlobalTransform.origin + direction, Vector3.Up);
-        Smol.GlobalTranslate(direction * (distanceToMousePosition <= MaxRange ? distanceToMousePosition : MaxRange ));
+        Smol.GlobalTranslate(direction * (distanceToMousePosition <= MaxRange ? distanceToMousePosition : MaxRange));
     }
 }
