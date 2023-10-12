@@ -19,6 +19,7 @@ public class LANE1 : Node
         UIManager.Add(nameof(Constants.UI.STATS_OVERLAY), Constants.UI.STATS_OVERLAY);
         UIManager.Add(nameof(Constants.UI.MINIMAP_OVERLAY), Constants.UI.MINIMAP_OVERLAY);
         UIManager.Add(nameof(Constants.UI.ANNOUNCER_OVERLAY), Constants.UI.ANNOUNCER_OVERLAY);
+        UIManager.Add(nameof(Constants.UI.PLAYER_OVERLAY), Constants.UI.PLAYER_OVERLAY);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -20,6 +20,12 @@ public abstract class Entity : KinematicBody
     [Signal]
     public delegate void Kill(Entity entity, Entity killedEntity);
 
+    [Signal]
+    public delegate void XPGained(Entity entity);
+
+    [Signal]
+    public delegate void LevelIncreased(Entity entity);
+
     [Export]
     public TeamColor AssignedTeam;
 
@@ -27,7 +33,7 @@ public abstract class Entity : KinematicBody
     public int Level = 1;
 
     [Export(PropertyHint.Range, "0,1")]
-    public float LevelMultiplicator = 0.1f;
+    public float LevelMultiplicator = 0.05f;
 
     public float Health;
 
@@ -58,7 +64,7 @@ public abstract class Entity : KinematicBody
 
     public int MinionKills = 0;
 
-    public int Money = 0;
+    public int Gold = 0;
 
     public float RespawnTime = 5f;
 
@@ -68,7 +74,15 @@ public abstract class Entity : KinematicBody
 
     protected List<Entity> EntitiesInDetectionArea = new List<Entity>();
 
+    private SphereShape _experienceAreaSphere;
+
+    protected List<Entity> EntitiesInExperienceArea = new List<Entity>();
+
     public Spatial Model;
+
+    public float Experience = 0;
+
+    private float _experienceTotal = 0;
 
     [Signal]
     public delegate void UpdateHealthbar(float maxHealth, float health);
@@ -139,13 +153,20 @@ public abstract class Entity : KinematicBody
 
         if (AttackTarget.Health <= 0)
         {
-            if (AttackTarget is Minion || AttackTarget is CannonMinion)
+            if (AttackTarget is Minion)
             {
                 MinionKills++;
+                Gold += 21;
+            }
+            else if (AttackTarget is CannonMinion)
+            {
+                MinionKills++;
+                Gold += 60;
             }
             else if (AttackTarget is Smol)
             {
                 Kills++;
+                Gold += 300;
             }
 
             EmitSignal(nameof(Kill), this, AttackTarget);
@@ -160,6 +181,8 @@ public abstract class Entity : KinematicBody
         AttackTarget = null;
         CollisionLayer = 0b00000000000000000001;
         Deaths++;
+
+
 
         EmitSignal(nameof(Die), this);
 
@@ -179,6 +202,36 @@ public abstract class Entity : KinematicBody
     public void Respawn()
     {
         RespawnTimer.Start();
+    }
+
+    public void OnExperienceAreaBodyEntered(Entity body)
+    {
+        if (body == this || IsQueuedForDeletion() || body.Health <= 0)
+        {
+            return;
+        }
+
+        EntitiesInExperienceArea.Add(body);
+    }
+
+    public void OnExperienceAreaBodyExited(Entity body)
+    {
+        if (body.AssignedTeam != AssignedTeam && body.Health <= 0)
+        {
+            if (body is Minion)
+            {
+                AddExperience(60);
+            }
+            else if (body is CannonMinion)
+            {
+                AddExperience(93);
+            }
+            else if (body is Smol)
+            {
+                AddExperience(55.76f * AttackTarget.Level - 13.76f);
+            }
+        }
+        EntitiesInExperienceArea.Remove(body);
     }
 
     public void OnDetectionAreaBodyEntered(Entity body)
@@ -253,5 +306,33 @@ public abstract class Entity : KinematicBody
         projectile.Damage = AttackDamage;
         projectile.Fire(AttackTarget);
         return projectile;
+    }
+
+    public float GetRequiredExperienceForLevel(int level)
+    {
+        return 280 + 100 * (level - 2);
+    }
+
+    public void AddExperience(float amount)
+    {
+        _experienceTotal += amount;
+        Experience += amount;
+
+        while (Experience >= GetRequiredExperienceForLevel(Level + 1))
+        {
+            Experience -= GetRequiredExperienceForLevel(Level + 1);
+            LevelUp();
+        }
+
+        EmitSignal(nameof(XPGained), this);
+    }
+
+    public void LevelUp()
+    {
+        Level++;
+        Health *= LevelMultiplicator + 1;
+        AttackDamage *= LevelMultiplicator + 1;
+        AttackSpeed *= LevelMultiplicator + 1;
+        EmitSignal(nameof(LevelIncreased));
     }
 }

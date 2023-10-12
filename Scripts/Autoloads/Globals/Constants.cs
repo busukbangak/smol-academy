@@ -39,6 +39,8 @@ namespace Globals
             public static string DEFEAT_OVERLAY = "res://Scenes/Screens/DefeatOverlay.tscn";
 
             public static string ANNOUNCER_OVERLAY = "res://Scenes/Screens/AnnouncerOverlay.tscn";
+
+            public static string PLAYER_OVERLAY = "res://Scenes/Screens/PlayerOverlay.tscn";
         }
     }
 

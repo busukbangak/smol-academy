@@ -22,6 +22,10 @@ config/icon="res://icon.png"
 Globals="*res://Scenes/Autoloads/Globals/Globals.tscn"
 Managers="*res://Scenes/Autoloads/Managers/Managers.tscn"
 
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
 [input]
 
 ui_accept={

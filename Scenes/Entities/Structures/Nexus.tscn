@@ -4,10 +4,9 @@
 [ext_resource path="res://Scripts/Entities/Structures/Nexus.cs" type="Script" id=2]
 [ext_resource path="res://Textures/Prototype/Dark/texture_02.png" type="Texture" id=3]
 
-
 [sub_resource type="CylinderShape" id=1]
-radius = 3.2
 height = 2.2
+radius = 3.2
 
 [sub_resource type="CylinderMesh" id=2]
 
@@ -58,5 +57,8 @@ anims/Nexus_Destroyed = SubResource( 5 )
 
 [node name="Healthbar3D" parent="." index="3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
+
+[node name="CollisionShape" parent="ExperienceArea" index="0"]
+shape = null
 
 [editable path="Hurtbox"]

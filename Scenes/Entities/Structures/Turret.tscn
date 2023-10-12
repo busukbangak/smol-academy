@@ -91,4 +91,7 @@ anims/Turret_Destroyed = SubResource( 6 )
 [node name="Healthbar3D" parent="." index="3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 0 )
 
+[node name="CollisionShape" parent="ExperienceArea" index="0"]
+shape = null
+
 [editable path="Hurtbox"]
