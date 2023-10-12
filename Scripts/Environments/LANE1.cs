@@ -20,6 +20,9 @@ public class LANE1 : Node
         UIManager.Add(nameof(Constants.UI.MINIMAP_OVERLAY), Constants.UI.MINIMAP_OVERLAY);
         UIManager.Add(nameof(Constants.UI.ANNOUNCER_OVERLAY), Constants.UI.ANNOUNCER_OVERLAY);
         UIManager.Add(nameof(Constants.UI.PLAYER_OVERLAY), Constants.UI.PLAYER_OVERLAY);
+
+        GetTree().CreateTimer(5f).Connect("timeout", this, nameof(WelcomeMessage));
+        GetTree().CreateTimer(5f).Connect("timeout", this, nameof(AddGold));
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,7 +42,6 @@ public class LANE1 : Node
                 UIManager.GetUI(nameof(Constants.UI.DEAD_OVERLAY)).GetNode<Label>("CenterContainer/VBoxContainer/Counter").Text = ((int)Math.Ceiling(PlayerData.Player.RespawnTimer.TimeLeft)).ToString();
             }
         }
-
     }
 
     public override void _Notification(int what)
@@ -51,11 +53,17 @@ public class LANE1 : Node
         }
     }
 
+    public void WelcomeMessage()
+    {
+        (UIManager.GetUI(nameof(Constants.UI.ANNOUNCER_OVERLAY)) as AnnouncerOverlay).ShowMessage("Welcome To LANE1");
+    }
+
     public void SpawnPlayer()
     {
         var player = PlayerData.AssignedSmol.Instance<Smol>();
         PlayerData.Player = player;
         player.AssignedTeam = PlayerData.AssignedTeam;
+        player.Gold = 400;
         player.Connect(nameof(Entity.Respawned), this, nameof(OnPlayerRespawn));
         player.Connect(nameof(Entity.Die), this, nameof(OnPlayerDie));
         player.Connect(nameof(Entity.Kill), this, nameof(OnPlayerKill));
@@ -124,6 +132,12 @@ public class LANE1 : Node
         UIManager.Remove(nameof(Constants.UI.ANNOUNCER_OVERLAY));
 
         UIManager.Add(nameof(Constants.UI.MAIN_SCREEN), Constants.UI.MAIN_SCREEN);
+    }
+
+    public void AddGold()
+    {
+        PlayerData.Player.Gold += 2.4f;
+        GetTree().CreateTimer(1f).Connect("timeout", this, nameof(AddGold));
     }
 
     public string ElapsedTimeToString()

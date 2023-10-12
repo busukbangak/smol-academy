@@ -64,7 +64,7 @@ public abstract class Entity : KinematicBody
 
     public int MinionKills = 0;
 
-    public int Gold = 0;
+    public float Gold = 0;
 
     public float RespawnTime = 5f;
 

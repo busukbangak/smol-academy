@@ -1,4 +1,4 @@
-using Globals;
+
 using Godot;
 using System;
 
@@ -11,8 +11,8 @@ public class PlayerOverlay : Control
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        PlayerData.Player.Connect(nameof(Entity.XPGained), this, nameof(UpdateXPBar));
-        UpdateXPBar(PlayerData.Player);
+        Globals.PlayerData.Player.Connect(nameof(Entity.XPGained), this, nameof(UpdateXPBar));
+        UpdateXPBar(Globals.PlayerData.Player);
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,6 +24,8 @@ public class PlayerOverlay : Control
         GetNode<Label>("MarginContainer/HBoxContainer/Stats/MarginContainer/VBoxContainer/MovementSpeedContainer/Label").Text = Globals.PlayerData.Player.MoveSpeed.ToString();
         GetNode<ProgressBar>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/Healthbar").MaxValue = Globals.PlayerData.Player.MaxHealth;
         GetNode<ProgressBar>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/Healthbar").Value = Globals.PlayerData.Player.Health;
+
+        GetNode<Label>("MarginContainer/HBoxContainer/Inventory/MarginContainer/VBoxContainer/GoldContainer/Count").Text = Mathf.Floor(Globals.PlayerData.Player.Gold).ToString();
     }
 
     public void UpdateXPBar(Entity entity)
