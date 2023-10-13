@@ -80,10 +80,17 @@ public class EntityOverlay : Control
             }
         }
 
-
-
+        if (Input.IsActionJustPressed("target"))
+        {
+            if (CursorManager.Instance.IsHovereringEntity)
+            {
+                if (!(CursorManager.Instance.HoveredObject["collider"] is Smol) && (CursorManager.Instance.HoveredObject["collider"] as Entity).AssignedTeam != PlayerData.Player.AssignedTeam)
+                {
+                    _currentEntity = (Entity)CursorManager.Instance.HoveredObject["collider"];
+                    Visible = true;
+                }
+            }
+        }
     }
-
-
 
 }
