@@ -27,19 +27,19 @@ public class PlayerOverlay : Control
 
         GetNode<Label>("MarginContainer/HBoxContainer/Inventory/MarginContainer/VBoxContainer/GoldContainer/Count").Text = Mathf.Floor(Globals.PlayerData.Player.Gold).ToString();
 
-        var qAbility = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/Q");
+        var qAbility = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/AbilityOneContainer/Q");
         qAbility.MaxValue = Globals.PlayerData.Player.Abilities[0].CooldownTimer.WaitTime;
         qAbility.Value = Globals.PlayerData.Player.Abilities[0].CooldownTimer.TimeLeft;
 
-        var wAbility = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/W");
+        var wAbility = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/AbilityTwoContainer/W");
         wAbility.MaxValue = Globals.PlayerData.Player.Abilities[1].CooldownTimer.WaitTime;
         wAbility.Value = Globals.PlayerData.Player.Abilities[1].CooldownTimer.TimeLeft;
 
-        var eAbility = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/E");
+        var eAbility = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/AbilityThreeContainer/E");
         eAbility.MaxValue = Globals.PlayerData.Player.Abilities[2].CooldownTimer.WaitTime;
         eAbility.Value = Globals.PlayerData.Player.Abilities[2].CooldownTimer.TimeLeft;
 
-        var rAbility = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/R");
+        var rAbility = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Status/MarginContainer/VBoxContainer/HBoxContainer/AbilityContainer/AbilityFourContainer/R");
         rAbility.MaxValue = Globals.PlayerData.Player.Abilities[3].CooldownTimer.WaitTime;
         rAbility.Value = Globals.PlayerData.Player.Abilities[3].CooldownTimer.TimeLeft;
     }

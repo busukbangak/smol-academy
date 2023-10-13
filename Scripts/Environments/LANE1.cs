@@ -20,6 +20,7 @@ public class LANE1 : Node
         UIManager.Add(nameof(Constants.UI.MINIMAP_OVERLAY), Constants.UI.MINIMAP_OVERLAY);
         UIManager.Add(nameof(Constants.UI.ANNOUNCER_OVERLAY), Constants.UI.ANNOUNCER_OVERLAY);
         UIManager.Add(nameof(Constants.UI.PLAYER_OVERLAY), Constants.UI.PLAYER_OVERLAY);
+        UIManager.Add(nameof(Constants.UI.ENTITY_OVERLAY), Constants.UI.ENTITY_OVERLAY);
 
         GetTree().CreateTimer(5f).Connect("timeout", this, nameof(WelcomeMessage));
         GetTree().CreateTimer(5f).Connect("timeout", this, nameof(AddGold));
@@ -120,8 +121,12 @@ public class LANE1 : Node
         endgameOverlay.GetNode<CustomButton>("CenterContainer/VBoxContainer/CustomButton").Connect(nameof(CustomButton.LeftButtonPressed), this, nameof(OnGameExit));
     }
 
-    public void OnGameExit()
+    public async void OnGameExit()
     {
+        var transitionScreen = (CanvasLayer)UIManager.GetUI(nameof(Constants.UI.TRANSITION_SCREEN));
+        transitionScreen.GetNode<AnimationPlayer>("AnimationPlayer").PlayBackwards("Dissolve");
+        await ToSignal(transitionScreen.GetNode<AnimationPlayer>("AnimationPlayer"), "animation_finished");
+
         WorldManager.RemoveWorldSpace();
 
         UIManager.Remove(nameof(Constants.UI.DEFEAT_OVERLAY));
@@ -130,6 +135,8 @@ public class LANE1 : Node
         UIManager.Remove(nameof(Constants.UI.DEAD_OVERLAY));
         UIManager.Remove(nameof(Constants.UI.MINIMAP_OVERLAY));
         UIManager.Remove(nameof(Constants.UI.ANNOUNCER_OVERLAY));
+        UIManager.Remove(nameof(Constants.UI.PLAYER_OVERLAY));
+        UIManager.Remove(nameof(Constants.UI.ENTITY_OVERLAY));
 
         UIManager.Add(nameof(Constants.UI.MAIN_SCREEN), Constants.UI.MAIN_SCREEN);
     }

@@ -32,6 +32,5 @@ public class Ability : Node
     public virtual void Cast()
     {
         CooldownTimer.Start();
-        GD.Print(CooldownTimer.Name);
     }
 }
