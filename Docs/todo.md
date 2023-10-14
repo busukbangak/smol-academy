@@ -17,3 +17,4 @@
 - better movement indicator
 - audio
 - entities invulnerable
+- Mana System

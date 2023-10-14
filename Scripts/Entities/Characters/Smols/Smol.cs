@@ -11,11 +11,7 @@ public enum SmolState
 	Dance,
 	Engage,
 	Attack,
-	Dead,
-	AbilityOne,
-	AbilityTwo,
-	AbilityThree,
-	AbilityFour
+	Dead
 }
 
 public class Smol : Character
@@ -35,11 +31,14 @@ public class Smol : Character
 	{
 		base._Ready();
 
+		var abilityButtonMappingStrings = new Godot.Collections.Array<string> { "ability_one", "ability_two", "ability_three", "ability_four" };
 		var i = 0;
 		foreach (var packedAbility in PackedAbilities)
 		{
 			Abilities[i] = packedAbility.Instance<Ability>();
-			Abilities[i].Init(this);
+			Abilities[i].Smol = this;
+			Abilities[i].AbilityButtonMappingString = abilityButtonMappingStrings[i];
+			AddChild(Abilities[i]);
 			i++;
 		}
 
@@ -69,10 +68,6 @@ public class Smol : Character
 			case SmolState.Engage: Engage(); break;
 			case SmolState.Attack: Attack(); break;
 			case SmolState.Dead: Dead(); break;
-			case SmolState.AbilityOne: AbilityOne(); break;
-			case SmolState.AbilityTwo: AbilityTwo(); break;
-			case SmolState.AbilityThree: AbilityThree(); break;
-			case SmolState.AbilityFour: AbilityFour(); break;
 		}
 	}
 
@@ -133,18 +128,6 @@ public class Smol : Character
 				PlayAnimation("Robot_Dead");
 				base.OnDead();
 				break;
-			case SmolState.AbilityOne:
-				Abilities[0].Cast();
-				break;
-			case SmolState.AbilityTwo:
-				Abilities[1].Cast();
-				break;
-			case SmolState.AbilityThree:
-				Abilities[2].Cast();
-				break;
-			case SmolState.AbilityFour:
-				Abilities[3].Cast();
-				break;
 		}
 	}
 
@@ -169,29 +152,7 @@ public class Smol : Character
 				break;
 			case SmolState.Dead:
 				break;
-			case SmolState.AbilityOne:
-			case SmolState.AbilityTwo:
-			case SmolState.AbilityThree:
-			case SmolState.AbilityFour:
-				UpdateNavigationPath();
-				break;
 		}
-	}
-
-	public void PushState(SmolState smolState)
-	{
-		SmolStateStack.Push(CurrentSmolState);
-		SmolStateStack.Push(smolState);
-
-		CurrentSmolState = smolState;
-		EnterState(CurrentSmolState);
-	}
-
-	public void PopState()
-	{
-		SmolStateStack.Pop();
-		ExitState(CurrentSmolState);
-		CurrentSmolState = (SmolState)SmolStateStack.Pop();
 	}
 
 	private void Idle()
@@ -243,30 +204,6 @@ public class Smol : Character
 		if (Input.IsActionJustPressed("dance"))
 		{
 			ChangeState(SmolState.Dance);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_one") && Abilities[0].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityOne);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_two") && Abilities[1].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityTwo);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_three") && Abilities[2].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityThree);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_four") && Abilities[3].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityFour);
 			return;
 		}
 
@@ -339,30 +276,6 @@ public class Smol : Character
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_one") && Abilities[0].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityOne);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_two") && Abilities[1].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityTwo);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_three") && Abilities[2].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityThree);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_four") && Abilities[3].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityFour);
-			return;
-		}
-
 		if (Input.IsActionJustPressed("cancel"))
 		{
 			ChangeState(SmolState.Idle);
@@ -419,30 +332,6 @@ public class Smol : Character
 		if (Input.IsActionJustPressed("dance"))
 		{
 			ChangeState(SmolState.Dance);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_one") && Abilities[0].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityOne);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_two") && Abilities[1].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityTwo);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_three") && Abilities[2].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityThree);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_four") && Abilities[3].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityFour);
 			return;
 		}
 
@@ -505,30 +394,6 @@ public class Smol : Character
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_one") && Abilities[0].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityOne);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_two") && Abilities[1].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityTwo);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_three") && Abilities[2].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityThree);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_four") && Abilities[3].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityFour);
-			return;
-		}
-
 		if (Input.IsActionJustPressed("cancel"))
 		{
 			ChangeState(SmolState.Idle);
@@ -585,30 +450,6 @@ public class Smol : Character
 		if (Input.IsActionJustPressed("dance"))
 		{
 			ChangeState(SmolState.Dance);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_one") && Abilities[0].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityOne);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_two") && Abilities[1].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityTwo);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_three") && Abilities[2].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityThree);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_four") && Abilities[3].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityFour);
 			return;
 		}
 
@@ -687,30 +528,6 @@ public class Smol : Character
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_one") && Abilities[0].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityOne);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_two") && Abilities[1].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityTwo);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_three") && Abilities[2].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityThree);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_four") && Abilities[3].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityFour);
-			return;
-		}
-
 		if (Input.IsActionJustPressed("cancel"))
 		{
 			ChangeState(SmolState.Idle);
@@ -785,30 +602,6 @@ public class Smol : Character
 			return;
 		}
 
-		if (Input.IsActionJustPressed("ability_one") && Abilities[0].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityOne);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_two") && Abilities[1].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityTwo);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_three") && Abilities[2].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityThree);
-			return;
-		}
-
-		if (Input.IsActionJustPressed("ability_four") && Abilities[3].CooldownTimer.IsStopped())
-		{
-			PushState(SmolState.AbilityFour);
-			return;
-		}
-
 		if (Input.IsActionJustPressed("cancel"))
 		{
 			ChangeState(SmolState.Idle);
@@ -829,25 +622,6 @@ public class Smol : Character
 		}
 	}
 
-	private void AbilityOne()
-	{
-		PopState();
-	}
-
-	private void AbilityTwo()
-	{
-		PopState();
-	}
-
-	private void AbilityThree()
-	{
-		PopState();
-	}
-
-	private void AbilityFour()
-	{
-		PopState();
-	}
 
 	public string CurrentSmolStateToString()
 	{
