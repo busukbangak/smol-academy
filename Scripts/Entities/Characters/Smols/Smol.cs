@@ -38,6 +38,7 @@ public class Smol : Character
 			Abilities[i] = packedAbility.Instance<Ability>();
 			Abilities[i].Smol = this;
 			Abilities[i].AbilityButtonMappingString = abilityButtonMappingStrings[i];
+			Abilities[i].Connect(nameof(Ability.AbilitySelected), this, nameof(OnAbilitySelected));
 			AddChild(Abilities[i]);
 			i++;
 		}
@@ -631,5 +632,16 @@ public class Smol : Character
 	private void OnMoveVisualTimerTimeout(CSGSphere sphere)
 	{
 		sphere.QueueFree();
+	}
+
+	private void OnAbilitySelected(Ability selectedAbility)
+	{
+		for (int i = 0; i < Abilities.Length; i++)
+		{
+			if (Abilities[i] != selectedAbility && Abilities[i].State == AbilityStates.Selected)
+			{
+				Abilities[i].ChangeState(AbilityStates.Available);
+			}
+		}
 	}
 }
