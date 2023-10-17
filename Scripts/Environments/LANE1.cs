@@ -11,7 +11,6 @@ public class LANE1 : Node
     public override void _Ready()
     {
         SpawnPlayer();
-        DebugManager.Add(nameof(elapsedTime), this, nameof(ElapsedTimeToString), true);
 
         var deadOverlay = (Control)UIManager.Add(nameof(Constants.UI.DEAD_OVERLAY), Constants.UI.DEAD_OVERLAY);
         deadOverlay.Visible = false;

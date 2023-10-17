@@ -56,4 +56,16 @@ public class BlinkAbility : Ability
             case AbilityStates.Cooldown: break;
         }
     }
+
+    public override void UpdateIndicator()
+    {
+        base.UpdateIndicator();
+
+        var abilityIndicator = GetNode<Spatial>("AbilityIndicatorContainer");
+
+        var newMousePosition = (Vector3)CursorManager.Instance.MouseRaycast()["position"];
+
+        abilityIndicator.LookAt(new Vector3(newMousePosition.x, Smol.Translation.y + 0.5f, newMousePosition.z), Vector3.Up);
+        abilityIndicator.Scale = new Vector3(abilityIndicator.Scale.x, abilityIndicator.Scale.y, Mathf.Clamp(Smol.Translation.DistanceTo(newMousePosition) / 10, 0, MaxRange / 10));
+    }
 }

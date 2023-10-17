@@ -38,45 +38,22 @@ public class Ability : Node
     [Export]
     public int Level = 1;
 
-    [Export]
-    public float CastTime = 0.1f;
-
-    [Export]
-    public float ActiveTime = 0.1f;
-
-    [Export]
-    public float CooldownTime = 5f;
-
     public Timer CastTimer;
 
     public Timer ActiveTimer;
 
     public Timer CooldownTimer;
 
-    public AbilityStates State = AbilityStates.Available;
+    public AbilityStates State;
 
     public string AbilityButtonMappingString;
 
     public override void _Ready()
     {
-        CastTimer = new Timer();
-        CastTimer.WaitTime = CastTime;
-        CastTimer.OneShot = true;
-        CastTimer.Connect("timeout", this, nameof(OnCastTimerTimeout));
-        AddChild(CastTimer);
-
-        ActiveTimer = new Timer();
-        ActiveTimer.WaitTime = ActiveTime;
-        ActiveTimer.OneShot = true;
-        ActiveTimer.Connect("timeout", this, nameof(OnActiveTimerTimeout));
-        AddChild(ActiveTimer);
-
-        CooldownTimer = new Timer();
-        CooldownTimer.WaitTime = CooldownTime;
-        CooldownTimer.OneShot = true;
-        CooldownTimer.Connect("timeout", this, nameof(OnCooldownTimerTimeout));
-        AddChild(CooldownTimer);
-
+        State = AbilityStates.Available;
+        CastTimer = GetNode<Timer>("CastTimer");
+        ActiveTimer = GetNode<Timer>("ActiveTimer");
+        CooldownTimer = GetNode<Timer>("CooldownTimer");
         DebugManager.Add(AbilityButtonMappingString, this, nameof(StateToString), true);
     }
 
@@ -102,6 +79,8 @@ public class Ability : Node
                 {
                     ChangeState(AbilityStates.Available);
                 }
+
+                UpdateIndicator();
                 break;
             case AbilityStates.Casting: break;
             case AbilityStates.Active: break;
@@ -133,6 +112,7 @@ public class Ability : Node
             case AbilityStates.Disabled: break;
             case AbilityStates.Available: break;
             case AbilityStates.Selected:
+                ShowIndicator();
                 EmitSignal(nameof(AbilitySelected), this);
                 break;
             case AbilityStates.Casting:
@@ -154,7 +134,9 @@ public class Ability : Node
         {
             case AbilityStates.Disabled: break;
             case AbilityStates.Available: break;
-            case AbilityStates.Selected: break;
+            case AbilityStates.Selected:
+                HideIndicator();
+                break;
             case AbilityStates.Casting: break;
             case AbilityStates.Active: break;
             case AbilityStates.Cooldown: break;
@@ -182,19 +164,20 @@ public class Ability : Node
         ChangeState(AbilityStates.Available);
     }
 
-    public void DisplayIndicator()
+    public virtual void UpdateIndicator()
     {
-
+        var abilityIndicator = GetNode<Spatial>("AbilityIndicatorContainer");
+        abilityIndicator.Translation = Smol.Translation;
     }
 
     public void ShowIndicator()
     {
-
+        GetNode<Spatial>("AbilityIndicatorContainer").Visible = true;
     }
 
     public void HideIndicator()
     {
-
+        GetNode<Spatial>("AbilityIndicatorContainer").Visible = false;
     }
 
     public string StateToString()

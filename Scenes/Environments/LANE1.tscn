@@ -67,6 +67,14 @@ collision_mask = 3
 width = 50.0
 depth = 248.661
 
+[node name="VoidCatcher" type="CSGBox" parent="Navigation/NavigationMeshInstance"]
+visible = false
+calculate_tangents = false
+use_collision = true
+collision_mask = 3
+width = 500.0
+depth = 500.0
+
 [node name="BlueNexus" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -0.620312, 2.90436, 80.3241 )
 
