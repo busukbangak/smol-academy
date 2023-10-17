@@ -35,12 +35,13 @@ public class Projectile : Hitbox
             var steer = (desiredVelocity - _velocity).Normalized() * _steerForce;
 
             var velocity = steer * delta;
-            _velocity += (Vector3)velocity;
+            _velocity += velocity;
             LookAt(Transform.origin + _velocity, Vector3.Up);
             Translation += _velocity * delta;
         }
-        catch (System.Exception)
+        catch (Exception e)
         {
+            GD.PrintErr(e);
             QueueFree();
         }
 

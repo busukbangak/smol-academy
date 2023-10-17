@@ -46,16 +46,7 @@ public class LANE1 : Node
 
 
     }
-
-    public override void _Notification(int what)
-    {
-        // Handle notifications
-        if (what == NotificationPredelete)
-        {
-            DebugManager.Remove(nameof(elapsedTime));
-        }
-    }
-
+    
     public void WelcomeMessage()
     {
         (UIManager.GetUI(nameof(Constants.UI.ANNOUNCER_OVERLAY)) as AnnouncerOverlay).ShowMessage("Welcome To LANE1");

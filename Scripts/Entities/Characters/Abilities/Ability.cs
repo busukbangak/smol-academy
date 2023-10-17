@@ -94,7 +94,7 @@ public class Ability : Node
         // Handle notifications
         if (what == NotificationPredelete)
         {
-            DebugManager.Remove(nameof(AbilityButtonMappingString));
+            DebugManager.Remove(AbilityButtonMappingString);
         }
     }
 
