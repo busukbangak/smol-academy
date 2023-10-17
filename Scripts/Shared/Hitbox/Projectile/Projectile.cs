@@ -22,17 +22,27 @@ public class Projectile : Hitbox
 
     public override void _Process(float delta)
     {
-        if (Target == null)
+        if (Target == null || IsQueuedForDeletion() || Target.IsQueuedForDeletion())
         {
             return;
         }
 
-        var targetLocation = Target.GlobalTransform.origin;
-        var desiredVelocity = (targetLocation - Transform.origin).Normalized() * _speed;
-        var steer = (desiredVelocity - _velocity).Normalized() * _steerForce;
-        _velocity += steer * delta;
-        LookAt(Transform.origin + _velocity, Vector3.Up);
-        Translation += _velocity * delta;
+        // TODO BUGFIX: when projectile flies to minion which is already queued free
+        var targetLocation = Target?.GlobalTransform.origin;
+        var desiredVelocity = (targetLocation - Transform.origin)?.Normalized() * _speed;
+        var steer = (desiredVelocity - _velocity)?.Normalized() * _steerForce;
+
+        var velocity = steer * delta;
+        if (velocity != null)
+        {
+            _velocity += (Vector3)velocity;
+            LookAt(Transform.origin + _velocity, Vector3.Up);
+            Translation += _velocity * delta;
+        }
+        else
+        {
+            QueueFree();
+        }
     }
 
     public override void OnHitboxAreaEntered(Area area)

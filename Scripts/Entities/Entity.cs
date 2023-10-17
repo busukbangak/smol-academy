@@ -181,6 +181,8 @@ public abstract class Entity : KinematicBody
         AttackTarget = null;
         CollisionLayer = 0b00000000000000000001;
         Deaths++;
+        GetNode<Area>("Hurtbox").Monitoring = false;
+        GetNode<Area>("Hurtbox").Monitorable = false;
 
 
 
@@ -196,6 +198,9 @@ public abstract class Entity : KinematicBody
     {
         CollisionLayer = 0b00000000000000000010;
         Health = MaxHealth;
+
+        GetNode<Area>("Hurtbox").Monitoring = true;
+        GetNode<Area>("Hurtbox").Monitorable = true;
         EmitSignal(nameof(Respawned), this);
     }
 
