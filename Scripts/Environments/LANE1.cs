@@ -33,6 +33,7 @@ public class LANE1 : Node
         if (UIManager.GetUI(nameof(Constants.UI.STATS_OVERLAY)) != null)
         {
             UIManager.GetUI(nameof(Constants.UI.STATS_OVERLAY)).GetNode<Label>("StatsContainer/HBoxContainer/GameStats/Time").Text = ElapsedTimeToString();
+            UIManager.GetUI(nameof(Constants.UI.STATS_OVERLAY)).GetNode<Label>("StatsContainer/HBoxContainer/MinionCounter/Label").Text = PlayerData.Player.MinionKills.ToString();
         }
 
         if (UIManager.GetUI(nameof(Constants.UI.DEAD_OVERLAY)) != null)
@@ -42,6 +43,8 @@ public class LANE1 : Node
                 UIManager.GetUI(nameof(Constants.UI.DEAD_OVERLAY)).GetNode<Label>("CenterContainer/VBoxContainer/Counter").Text = ((int)Math.Ceiling(PlayerData.Player.RespawnTimer.TimeLeft)).ToString();
             }
         }
+
+
     }
 
     public override void _Notification(int what)

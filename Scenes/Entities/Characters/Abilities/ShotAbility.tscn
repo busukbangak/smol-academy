@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Entities/Characters/Abilities/ShotAbility.cs" type="Script" id=1]
+[ext_resource path="res://Scenes/Entities/Characters/Abilities/Ability.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Textures/AbilityIndicators/Arrow Indicator.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Entities/Characters/Abilities/Shot.tscn" type="PackedScene" id=4]
+
+[node name="ShotAbility" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+MaxRange = 25.0
+Projectile = ExtResource( 4 )
+
+[node name="CastTimer" parent="." index="0"]
+wait_time = 0.05
+
+[node name="ActiveTimer" parent="." index="1"]
+wait_time = 0.05
+
+[node name="CooldownTimer" parent="." index="2"]
+wait_time = 3.0
+
+[node name="Sprite3D" type="Sprite3D" parent="AbilityIndicatorContainer" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -5 )
+texture = ExtResource( 3 )

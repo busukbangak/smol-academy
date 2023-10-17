@@ -284,13 +284,40 @@ public abstract class Entity : KinematicBody
 
     public void OnHurtboxAreaEntered(Hitbox area)
     {
+        if (area is Shot shot)
+        {
+            if (shot.Attacker.AssignedTeam == AssignedTeam)
+            {
+                return;
+            }
+        }
         if (area is Projectile projectile && projectile.Target != this)
         {
             return;
         }
 
         Health -= area.Damage;
+
+        if (Health <= 0)
+        {
+            if (this is Minion)
+            {
+                area.Attacker.MinionKills++;
+                area.Attacker.Gold += 21;
+            }
+            else if (this is CannonMinion)
+            {
+                area.Attacker.MinionKills++;
+                area.Attacker.Gold += 60;
+            }
+            else if (this is Smol)
+            {
+                area.Attacker.Kills++;
+                area.Attacker.Gold += 300;
+            }
+        }
         UpdateHealth();
+
     }
 
     public void UpdateHealth()
@@ -305,6 +332,7 @@ public abstract class Entity : KinematicBody
         projectile.Translate(new Vector3(0, 9, 0));
         projectile.Damage = AttackDamage;
         projectile.Fire(AttackTarget);
+        projectile.Attacker = this;
         return projectile;
     }
 

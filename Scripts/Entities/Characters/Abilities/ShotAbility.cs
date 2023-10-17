@@ -1,10 +1,14 @@
 using Godot;
 using System;
 
-public class BlinkAbility : Ability
+public class ShotAbility : Ability
 {
 
-    public float MaxRange = 15f;
+    [Export]
+    public float MaxRange = 25f;
+
+    [Export]
+    public PackedScene Projectile;
 
     public override void _Process(float delta)
     {
@@ -31,13 +35,15 @@ public class BlinkAbility : Ability
             case AbilityStates.Selected: break;
             case AbilityStates.Casting: break;
             case AbilityStates.Active:
-                var mousePosition = (Vector3)CursorManager.Instance.MouseRaycast()["position"];
-                var flooredMousePosition = new Vector3(mousePosition.x, Smol.Translation.y, mousePosition.z);
-                var direction = Smol.GlobalTransform.origin.DirectionTo(flooredMousePosition);
-                var distanceToMousePosition = Smol.GlobalTransform.origin.DistanceTo(mousePosition);
-                Smol.Model.LookAt(Smol.GlobalTransform.origin + direction, Vector3.Up);
-                Smol.GlobalTranslate(direction * (distanceToMousePosition <= MaxRange ? distanceToMousePosition : MaxRange));
-                Smol.UpdateNavigationPath();
+                var newMousePosition = (Vector3)CursorManager.Instance.MouseRaycast()["position"];
+
+                var shot = Projectile.Instance<Shot>();
+                Smol.GetParent().AddChild(shot);
+                shot.Attacker = Smol;
+                shot.GlobalTranslation = new Vector3(Smol.Translation.x, Smol.Translation.y + 2, Smol.Translation.z);
+                shot.LookAt(new Vector3(newMousePosition.x, Smol.Translation.y + 2, newMousePosition.z), Vector3.Up);
+                shot.InitalPosition = shot.GlobalTranslation;
+                shot.MaxRange = MaxRange;
                 break;
             case AbilityStates.Cooldown: break;
         }
@@ -65,8 +71,8 @@ public class BlinkAbility : Ability
 
         var newMousePosition = (Vector3)CursorManager.Instance.MouseRaycast()["position"];
 
-        abilityIndicator.Translation = new Vector3(abilityIndicator.Translation.x, Smol.Translation.y + 0.5f, abilityIndicator.Translation.z);
-        abilityIndicator.LookAt(new Vector3(newMousePosition.x, Smol.Translation.y + 0.5f, newMousePosition.z), Vector3.Up);
-        abilityIndicator.Scale = new Vector3(abilityIndicator.Scale.x, abilityIndicator.Scale.y, Mathf.Clamp(Smol.Translation.DistanceTo(newMousePosition) / 10, 0, MaxRange / 10));
+        abilityIndicator.Translation = new Vector3(abilityIndicator.Translation.x, Smol.Translation.y + 0.1f, abilityIndicator.Translation.z);
+        abilityIndicator.LookAt(new Vector3(newMousePosition.x, Smol.Translation.y + 0.1f, newMousePosition.z), Vector3.Up);
+        abilityIndicator.Scale = new Vector3(abilityIndicator.Scale.x, abilityIndicator.Scale.y, MaxRange / 10);
     }
 }
