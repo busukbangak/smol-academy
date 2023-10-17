@@ -46,7 +46,7 @@ public class LANE1 : Node
 
 
     }
-    
+
     public void WelcomeMessage()
     {
         (UIManager.GetUI(nameof(Constants.UI.ANNOUNCER_OVERLAY)) as AnnouncerOverlay).ShowMessage("Welcome To LANE1");
