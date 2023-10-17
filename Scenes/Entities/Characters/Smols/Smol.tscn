@@ -1891,9 +1891,9 @@ script = ExtResource( 2 )
 MaxHealth = 800.0
 AttackDamage = 80.0
 AttackRange = 5.0
-AttackSpeed = 10.0
+AttackSpeed = 1.2
 IsRespawnActivated = true
-MoveSpeed = 100.0
+MoveSpeed = 13.0
 PackedAbilities = [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 7 ) ]
 
 [node name="CollisionShape" parent="." index="0"]
