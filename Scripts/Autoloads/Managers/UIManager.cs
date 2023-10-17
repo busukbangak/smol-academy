@@ -30,7 +30,7 @@ public class UIManager : Node
     {
         if (_layerDict.ContainsKey(id))
         {
-            GD.Print($"UIManager: {scene.Name} is Already added to the UI");
+            GD.PushWarning($"UIManager: {scene.Name} is Already added to the UI");
             return _layerDict[id];
         }
         _ui.AddChild(scene);
@@ -42,7 +42,7 @@ public class UIManager : Node
     {
         if (!_layerDict.ContainsKey(id))
         {
-            GD.Print($"UIManager: Cant Remove {id}, because it doesnt exist");
+            GD.PushWarning($"UIManager: Cant Remove {id}, because it doesnt exist");
             return;
         }
 
@@ -54,7 +54,7 @@ public class UIManager : Node
     {
         if (!_layerDict.ContainsKey(id))
         {
-            GD.Print($"UIManager: Cant Get {id}, because it doesnt exist");
+            GD.PushWarning($"UIManager: Cant Get {id}, because it doesnt exist");
             return null;
         }
 

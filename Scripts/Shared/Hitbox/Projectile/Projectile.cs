@@ -41,7 +41,7 @@ public class Projectile : Hitbox
         }
         catch (Exception e)
         {
-            GD.PrintErr(e);
+            GD.PrintErr("[PROJECTILE]: MISSING TARGET");
             QueueFree();
         }
 
