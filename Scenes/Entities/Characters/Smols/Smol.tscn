@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Entities/Characters/Characters.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Entities/Characters/Smols/Smol.cs" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Entities/Characters/Abilities/BlinkAbility.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Entities/Characters/Abilities/ShotAbility.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Entities/Characters/Abilities/HealAbility.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Entities/Characters/Abilities/ShrinkAbility.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -1892,7 +1893,7 @@ AttackDamage = 80.0
 AttackRange = 5.0
 AttackSpeed = 1.2
 IsRespawnActivated = true
-PackedAbilities = [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 4 ) ]
+PackedAbilities = [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 7 ) ]
 
 [node name="CollisionShape" parent="." index="0"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0 )
@@ -1900,20 +1901,6 @@ shape = SubResource( 1 )
 
 [node name="Robot" parent="Model" index="0" instance=ExtResource( 3 )]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
-
-[node name="Skeleton" parent="Model/Robot/RobotArmature" index="0"]
-bones/1/bound_children = [ NodePath("BoneAttachment") ]
-bones/2/bound_children = [ NodePath("BoneAttachment11") ]
-bones/7/bound_children = [ NodePath("BoneAttachment2") ]
-bones/8/bound_children = [ NodePath("BoneAttachment4") ]
-bones/9/bound_children = [ NodePath("BoneAttachment3") ]
-bones/22/bound_children = [ NodePath("BoneAttachment6") ]
-bones/23/bound_children = [ NodePath("BoneAttachment5") ]
-bones/36/bound_children = [ NodePath("BoneAttachment8") ]
-bones/37/bound_children = [ NodePath("BoneAttachment7") ]
-bones/38/bound_children = [ NodePath("BoneAttachment10") ]
-bones/39/bound_children = [ NodePath("BoneAttachment9") ]
-bones/41/bound_children = [ NodePath("BoneAttachment12") ]
 
 [node name="BoneAttachment" parent="Model/Robot/RobotArmature/Skeleton" index="0"]
 transform = Transform( -1, 2.93497e-07, 2.15749e-07, 2.0612e-07, -0.0324215, 0.999474, 3.00337e-07, 0.999474, 0.0324215, 0.633527, 0.024694, -0.138034 )

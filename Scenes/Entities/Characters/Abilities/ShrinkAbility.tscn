@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Entities/Characters/Abilities/Ability.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Entities/Characters/Abilities/ShrinkAbility.cs" type="Script" id=2]
+
+[node name="ShrinkAbility" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="ActiveTimer" parent="." index="1"]
+wait_time = 10.0
+
+[node name="CooldownTimer" parent="." index="2"]
+wait_time = 30.0

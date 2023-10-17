@@ -22,7 +22,7 @@ public class Projectile : Hitbox
 
     public override void _Process(float delta)
     {
-        if (Target == null || IsQueuedForDeletion() || Target.IsQueuedForDeletion())
+        if (Target == null || IsQueuedForDeletion())
         {
             return;
         }
