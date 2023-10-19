@@ -63,8 +63,9 @@ public class MainScreen : Node
 
     public async void OnPlayButtonPressed()
     {
+        NetworkManager.Instance.ConnectToServer();
         GetNode<CustomButton>("HBoxContainer/MainContainer/PlayButtonContainer/PlayButton").IsDisabled = true;
-        
+
         var transitionScreen = (CanvasLayer)UIManager.GetUI(nameof(Globals.Constants.UI.TRANSITION_SCREEN));
 
         transitionScreen.GetNode<AnimationPlayer>("AnimationPlayer").PlayBackwards("Dissolve");
