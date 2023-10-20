@@ -43,7 +43,6 @@ public class CustomButton : TextureRect
     public override void _Ready()
     {
         IsActivated = false;
-        IsDisabled = false;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

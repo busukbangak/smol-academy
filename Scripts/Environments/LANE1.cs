@@ -20,6 +20,7 @@ public class LANE1 : Node
         UIManager.Add(nameof(Constants.UI.ANNOUNCER_OVERLAY), Constants.UI.ANNOUNCER_OVERLAY);
         UIManager.Add(nameof(Constants.UI.PLAYER_OVERLAY), Constants.UI.PLAYER_OVERLAY);
         UIManager.Add(nameof(Constants.UI.ENTITY_OVERLAY), Constants.UI.ENTITY_OVERLAY);
+        CursorManager.Instance.IsHoveringUI = false;
 
         GetTree().CreateTimer(5f).Connect("timeout", this, nameof(WelcomeMessage));
         GetTree().CreateTimer(5f).Connect("timeout", this, nameof(AddGold));
