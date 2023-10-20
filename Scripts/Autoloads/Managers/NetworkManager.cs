@@ -7,6 +7,12 @@ public class NetworkManager : Node
 {
     public static NetworkManager Instance;
 
+    [Signal]
+    public delegate void UpdateQueue(Dictionary<int, string> Players);
+
+    [Signal]
+    public delegate void PlayersFound();
+
     public const string DEFAULT_IP = "127.0.0.1";
     public const int DEFAULT_PORT = 1337;
 
@@ -18,11 +24,10 @@ public class NetworkManager : Node
     public int LocalPlayerID = 0;
 
     [Sync]
-    public Dictionary<int, Entity> Players = new Dictionary<int, Entity>();
+    public Dictionary<int, string> Players = new Dictionary<int, string>();
 
     [Sync]
-    public Entity PlayerData;
-
+    public string PlayerData;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -41,12 +46,6 @@ public class NetworkManager : Node
         GetTree().Connect("connection_failed", this, nameof(OnConnectionFailed));
         GetTree().Connect("server_disconnected", this, nameof(OnServerDisconnected));
     }
-
-    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //      
-    //  }
 
     public void ConnectToServer()
     {
@@ -78,5 +77,34 @@ public class NetworkManager : Node
     public void OnServerDisconnected()
     {
         GD.Print("Server disconnected");
+    }
+
+    public void RegisterPlayer()
+    {
+        LocalPlayerID = GetTree().GetNetworkUniqueId();
+
+        PlayerData = LocalPlayerID.ToString();
+        Players[LocalPlayerID] = PlayerData;
+
+        RpcId(1, "SendPlayerInfo", LocalPlayerID, PlayerData);
+    }
+
+    [Sync]
+    public void UpdateWaitingRoom()
+    {
+        EmitSignal(nameof(UpdateQueue), Players);
+
+        if (Players.Count >= 2) OnPlayersFound();
+    }
+
+    public void OnPlayersFound()
+    {
+        RpcId(1, "StartGame");
+    }
+
+    [Sync]
+    public void StartGame()
+    {
+        EmitSignal(nameof(PlayersFound));
     }
 }

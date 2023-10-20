@@ -27,7 +27,7 @@ public class CustomButton : TextureRect
     public bool IsActivated { get; private set; }
 
     [Export]
-    public bool IsDisabled = false;
+    public bool IsDisabled;
 
     private bool _wasLeftClickPressedInside = false;
 
@@ -43,6 +43,7 @@ public class CustomButton : TextureRect
     public override void _Ready()
     {
         IsActivated = false;
+        IsDisabled = false;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -192,6 +193,12 @@ public class CustomButton : TextureRect
             }
 
         }
+    }
+
+    public void SetIsDisabled(bool isDisabled)
+    {
+        IsDisabled = isDisabled;
+        Texture = DefaultTexture;
     }
 }
 

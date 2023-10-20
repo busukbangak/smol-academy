@@ -12,6 +12,5 @@ namespace Globals
 
         public static Smol Player = null;
     }
-
 }
 

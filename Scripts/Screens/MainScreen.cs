@@ -1,4 +1,6 @@
+using Globals;
 using Godot;
+using Godot.Collections;
 using System;
 
 public class MainScreen : Node
@@ -18,6 +20,10 @@ public class MainScreen : Node
         _1v1GameModeButton = GetNode<CustomButton>("HBoxContainer/MainContainer/GameModeContainer/1v1Container/CustomButtonTexture");
         _3v3GameModeButton = GetNode<CustomButton>("HBoxContainer/MainContainer/GameModeContainer/3v3Container/CustomButtonTexture");
         _5v5GameModeButton = GetNode<CustomButton>("HBoxContainer/MainContainer/GameModeContainer/5v5Container/CustomButtonTexture");
+
+        NetworkManager.Instance.Connect(nameof(NetworkManager.UpdateQueue), this, nameof(RefreshPlayers));
+        NetworkManager.Instance.Connect(nameof(NetworkManager.PlayersFound), this, nameof(StartGame));
+        NetworkManager.Instance.ConnectToServer();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,7 +39,7 @@ public class MainScreen : Node
 
         if (_playButton.IsDisabled == isActivated)
         {
-            _playButton.IsDisabled = !isActivated;
+            _playButton.SetIsDisabled(!isActivated);
         }
     }
 
@@ -44,7 +50,7 @@ public class MainScreen : Node
 
         if (_playButton.IsDisabled == isActivated)
         {
-            _playButton.IsDisabled = !isActivated;
+            _playButton.SetIsDisabled(!isActivated);
         }
 
     }
@@ -56,16 +62,26 @@ public class MainScreen : Node
 
         if (_playButton.IsDisabled == isActivated)
         {
-            _playButton.IsDisabled = !isActivated;
+            _playButton.SetIsDisabled(!isActivated);
         }
 
     }
 
-    public async void OnPlayButtonPressed()
+    public void OnPlayButtonPressed()
     {
-        NetworkManager.Instance.ConnectToServer();
-        GetNode<CustomButton>("HBoxContainer/MainContainer/PlayButtonContainer/PlayButton").IsDisabled = true;
 
+       /*  NetworkManager.Instance.RegisterPlayer(); */
+        _1v1GameModeButton.SetIsDisabled(true);
+        GetNode<CustomButton>("HBoxContainer/MainContainer/PlayButtonContainer/PlayButton").SetIsDisabled(true);
+
+        GetNode<Control>("QueueOverlay").Visible = true;
+
+        // TODO: Temporary
+        StartGame();
+    }
+
+    public async void StartGame()
+    {
         var transitionScreen = (CanvasLayer)UIManager.GetUI(nameof(Globals.Constants.UI.TRANSITION_SCREEN));
 
         transitionScreen.GetNode<AnimationPlayer>("AnimationPlayer").PlayBackwards("Dissolve");
@@ -73,5 +89,30 @@ public class MainScreen : Node
         UIManager.Remove(nameof(Globals.Constants.UI.MAIN_SCREEN));
 
         WorldManager.ChangeWorldSpace(Globals.Constants.Environments.LANE1);
+    }
+
+    public void RefreshPlayers(Dictionary<int, string> players)
+    {
+        var playerListVBox = GetNode("QueueOverlay/MarginContainer/VBoxContainer/VBoxContainer");
+
+        foreach (Node child in playerListVBox.GetChildren())
+        {
+            child.QueueFree();
+        }
+
+        foreach (var player in players)
+        {
+            var label = new Label();
+            label.Text = player.Value;
+            label.Align = Label.AlignEnum.Center;
+            playerListVBox.AddChild(label);
+        }
+    }
+
+    public void OnCancelQueue()
+    {
+        _1v1GameModeButton.SetIsDisabled(false);
+        GetNode<CustomButton>("HBoxContainer/MainContainer/PlayButtonContainer/PlayButton").SetIsDisabled(false);
+        GetNode<Control>("QueueOverlay").Visible = false;
     }
 }
