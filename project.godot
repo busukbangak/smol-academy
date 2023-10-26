@@ -28,6 +28,10 @@ multirun/number_of_windows=4
 multirun/window_distance=1270
 multirun/add_custom_args=false
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot_icon/plugin.cfg" )
+
 [input]
 
 ui_accept={
