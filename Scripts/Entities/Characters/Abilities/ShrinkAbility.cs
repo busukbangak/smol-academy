@@ -30,9 +30,9 @@ public class ShrinkAbility : Ability
                 break;
             case AbilityStates.Casting: break;
             case AbilityStates.Active:
-                Smol.Scale /= 3;
-                Smol.AttackDamage /= 3;
-                Smol.MoveSpeed *= 3;
+                Smol.Scale /= 2;
+                Smol.AttackDamage /= 2;
+                Smol.MoveSpeed *= 2;
                 break;
             case AbilityStates.Cooldown: break;
         }
@@ -48,9 +48,9 @@ public class ShrinkAbility : Ability
             case AbilityStates.Selected: break;
             case AbilityStates.Casting: break;
             case AbilityStates.Active:
-                Smol.Scale *= 3;
-                Smol.AttackDamage *= 3;
-                Smol.MoveSpeed /= 3;
+                Smol.Scale *= 2;
+                Smol.AttackDamage *= 2;
+                Smol.MoveSpeed /= 2;
                 break;
             case AbilityStates.Cooldown: break;
         }
