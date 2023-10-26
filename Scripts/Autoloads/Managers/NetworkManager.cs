@@ -93,7 +93,7 @@ public class NetworkManager : Node
     public void UpdateWaitingRoom()
     {
         EmitSignal(nameof(UpdateQueue), Players);
-
+        
         if (Players.Count >= 2) OnPlayersFound();
     }
 

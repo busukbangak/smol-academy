@@ -1,2 +1,1 @@
--Bot Drone by Dave404 [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via 
--Poly Pizza (https://poly.pizza/m/2iyQx2YscRq)
+* Bot Drone by Dave404 [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/2iyQx2YscRq)
