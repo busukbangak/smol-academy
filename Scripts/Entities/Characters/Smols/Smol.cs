@@ -6,7 +6,7 @@ public enum SmolState
 {
 	Idle,
 	Move,
-	Talk,
+	Joke,
 	Laugh,
 	Dance,
 	Engage,
@@ -63,7 +63,7 @@ public class Smol : Character
 		{
 			case SmolState.Idle: Idle(); break;
 			case SmolState.Move: Move(); break;
-			case SmolState.Talk: Talk(); break;
+			case SmolState.Joke: Joke(); break;
 			case SmolState.Laugh: Laugh(); break;
 			case SmolState.Dance: Dance(); break;
 			case SmolState.Engage: Engage(); break;
@@ -104,7 +104,7 @@ public class Smol : Character
 
 				PlayAnimation("Robot_Running_Loop");
 				break;
-			case SmolState.Talk:
+			case SmolState.Joke:
 				StopAnimation();
 				PlayAnimation("No");
 				break;
@@ -140,7 +140,7 @@ public class Smol : Character
 				break;
 			case SmolState.Move:
 				break;
-			case SmolState.Talk:
+			case SmolState.Joke:
 				break;
 			case SmolState.Laugh:
 				break;
@@ -190,9 +190,9 @@ public class Smol : Character
 		}
 
 
-		if (Input.IsActionJustPressed("talk"))
+		if (Input.IsActionJustPressed("joke"))
 		{
-			ChangeState(SmolState.Talk);
+			ChangeState(SmolState.Joke);
 			return;
 		}
 
@@ -259,9 +259,9 @@ public class Smol : Character
 		}
 
 
-		if (Input.IsActionJustPressed("talk"))
+		if (Input.IsActionJustPressed("joke"))
 		{
-			ChangeState(SmolState.Talk);
+			ChangeState(SmolState.Joke);
 			return;
 		}
 
@@ -284,7 +284,7 @@ public class Smol : Character
 		}
 	}
 
-	private void Talk()
+	private void Joke()
 	{
 		if (Health <= 0)
 		{
@@ -318,9 +318,9 @@ public class Smol : Character
 		}
 
 
-		if (Input.IsActionJustPressed("talk"))
+		if (Input.IsActionJustPressed("joke"))
 		{
-			ChangeState(SmolState.Talk);
+			ChangeState(SmolState.Joke);
 			return;
 		}
 
@@ -377,9 +377,9 @@ public class Smol : Character
 		}
 
 
-		if (Input.IsActionJustPressed("talk"))
+		if (Input.IsActionJustPressed("joke"))
 		{
-			ChangeState(SmolState.Talk);
+			ChangeState(SmolState.Joke);
 			return;
 		}
 
@@ -436,9 +436,9 @@ public class Smol : Character
 		}
 
 
-		if (Input.IsActionJustPressed("talk"))
+		if (Input.IsActionJustPressed("joke"))
 		{
-			ChangeState(SmolState.Talk);
+			ChangeState(SmolState.Joke);
 			return;
 		}
 
@@ -511,9 +511,9 @@ public class Smol : Character
 			return;
 		}
 
-		if (Input.IsActionJustPressed("talk"))
+		if (Input.IsActionJustPressed("joke"))
 		{
-			ChangeState(SmolState.Talk);
+			ChangeState(SmolState.Joke);
 			return;
 		}
 
@@ -585,9 +585,9 @@ public class Smol : Character
 		}
 
 
-		if (Input.IsActionJustPressed("talk"))
+		if (Input.IsActionJustPressed("joke"))
 		{
-			ChangeState(SmolState.Talk);
+			ChangeState(SmolState.Joke);
 			return;
 		}
 
