@@ -1,6 +1,8 @@
 ## Description
 Implemented MOBA/RTS mechanics for the planned multiplayer game smol academy made in Godot with C#. The Goal is to defeat the enemy turrets and nexus to win the game. The assets were taken from the internet as placeholders. Those are free to use.
 
+**[Try it on itch.io!](https://busukbangak.itch.io/smol-academy)**
+
 ## Preview
 <video src="https://github.com/user-attachments/assets/2eae874a-62b8-4477-a158-ac41b4cc3dc5" autoplay loop muted>
   Your browser does not support the video tag.
